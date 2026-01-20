@@ -5,12 +5,11 @@
 
 using namespace std;
 
-int UserManagement::Add(User user){	
+void UserManagement::Add(User user){	
 	char key = tolower(user.GetName()[0]);
 	if(!users.contains(key))
 		users[key] = vector<User>();
 	users[key].push_back(user);
-	return 1;
 }
 
 User* UserManagement::GetUser(const string& name, int id){

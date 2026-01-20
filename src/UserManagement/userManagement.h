@@ -10,7 +10,7 @@ class UserManagement{
 	std::map<char, std::vector<User>> users;
 
 	public:
-	int Add(User user);
+	void Add(User user);
 	int Remove(const std::string& name, int id);
 	int Remove(char key, int id);
 	
