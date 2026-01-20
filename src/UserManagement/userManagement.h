@@ -2,6 +2,7 @@
 
 #include "../User/user.h"
 #include <vector>
+#include <string>
 #include <map>
 
 class UserManagement{
@@ -10,6 +11,13 @@ class UserManagement{
 
 	public:
 	int Add(User user);
-	int Remove(int id);
-	const User* GetUser(char key, int id);
+	int Remove(const std::string& name, int id);
+	int Remove(char key, int id);
+	
+	User* GetUser(char key, int id); 
+	User* GetUser(const std::string& name, int id);
+	const User* GetUserReadOnly(const std::string& name, int id); 
+	const User* GetUserReadOnly(char key, int id);
+
+	void PrintUsers();	
 };
