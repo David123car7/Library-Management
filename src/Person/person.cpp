@@ -5,16 +5,6 @@
 
 using namespace std;
 
-Person::Person(unsigned int id, std::string name, std::string gender, int age): 
-	id{id},
-	name{name}, 
-	gender{gender}, 
-	age{age}{
-	if(name.empty() || isInvalidString(name)) throw invalid_argument("Name can not be empty");
-	if(gender.empty() || isInvalidString(gender)) throw invalid_argument("Gender can not be empty");
-	if(age <= 0 || age > 120) throw invalid_argument("Age is invalid");
-	}
-
 int Person::SetName(string name){
 	if(name.length() == 0) return 0;
 	this->name = name;

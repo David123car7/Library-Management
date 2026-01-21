@@ -10,67 +10,42 @@
  */
 class UserManagement{
 	public:
-	std::map<char, std::vector<User>> users;
+	std::map<unsigned int, User> users;
 
 	public:
-	/**
-	 * @brief Adds a user to the map
-	 *
-	 * @param[in] user Reference of the User Object
-	 */
-	void Add(User& user);
-
 
 	/**
-	 * @brief Removes a user from the map
+	 * @brief Adds a user to the map of users
 	 *
 	 * @param[in] name User Name
-	 * @param[in] id User Id
-	 * @return 1 if user was removed 0 if user does not exist
+	 * @param[in] gender User Gender
+	 * @param[in] age User Age
+	 * @param[in] email User Email 
+	 * @param[in] phoneNumber User PhoneNumber 
 	 */
-	int Remove(const std::string& name, int id);
-	
+	void Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber);
+
 	/**
 	 * @brief Removes a user from the map
 	 *
-	 * @param[in] key User name first letter (lowercase)
 	 * @param[in] id User Id
 	 * @return 1 if user was removed 0 if user does not exist
 	 */
-	int Remove(char key, int id);
+	int Remove(unsigned int id);
 	
 	/**
 	 * @brief Gets the User 
 	 *
-	 * @param[in] key User Name first letter (lowercase) 
 	 * @param[in] id User Id 
 	 */ 
-	User* GetUser(char key, int id); 
-
-
-	/**
-	 * @brief Gets the User
-	 *
-	 * @param[in] name User name
-	 * @param[in] id User Id
-	 */
-	User* GetUser(const std::string& name, int id);
+	User* GetUser(unsigned int id); 
 
 	/**
 	 * @brief Gets the user (read only)
 	 *
-	 * @param[in] name User Name
 	 * @param[in] id User Id
 	 */
-	const User* GetUserReadOnly(const std::string& name, int id); 
-
-	/**
-	 * @brief Gets the user (read only)
-	 *
-	 * @param[in] key User Name first letter (lowercase) 
-	 * @param[in] id User Id
-	 */
-	const User* GetUserReadOnly(char key, int id);
+	const User* GetUserReadOnly(unsigned int id); 
 
 	void PrintUsers();	
 };

@@ -10,6 +10,8 @@ class User: public Person{
 	std::string email;
 
 	public:
+	User(): phoneNumber{""}, email{""}{}
+
 	/**
 	 * @brief Constructor for the user
 	 *
@@ -20,7 +22,10 @@ class User: public Person{
 	 * @param[in] phoneNumber Phone Number
 	 * @param[in] email Person Email
 	 */
-	User(unsigned int id, std::string name, std::string gender, int age, std::string phoneNumber, std::string email);
+	User(unsigned int id, std::string name, std::string gender, int age, std::string phoneNumber, std::string email): 
+		Person(id, name, gender, age),
+		phoneNumber{phoneNumber},
+		email{email}{}
 
 	const std::string& GetPhoneNumber() const {return phoneNumber;}
 	const std::string& GetEmail() const {return email;}

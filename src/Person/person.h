@@ -11,6 +11,8 @@ class Person{
 	int age;
 
 	public:
+	Person(): id{0}, name{""}, gender{""}, age{0} {}	
+
 	/**
 	 * @brief Constructor for the Person Class
 	 *
@@ -19,8 +21,13 @@ class Person{
 	 * @param[in] gender Gender
 	 * @param[in] age Age
 	 */
-	Person(unsigned int id, std::string name, std::string gender, int age);
- 
+	Person(unsigned int id, std::string name, std::string gender, int age): 
+		id{id},
+		name{name}, 
+		gender{gender}, 
+		age{age}{}
+
+
 	const std::string& GetName() const {return name;}
 	const std::string& GetGender() const {return gender;}
 	int GetId() const {return id;}
