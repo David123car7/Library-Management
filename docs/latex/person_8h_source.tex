@@ -1,0 +1,35 @@
+\doxysection{person.\+h}
+\hypertarget{person_8h_source}{}\label{person_8h_source}\index{Person/person.h@{Person/person.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Person\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ gender;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ age;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ Person(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ std::string\ name,\ std::string\ gender,\ \textcolor{keywordtype}{int}\ age);}
+\DoxyCodeLine{00015\ \ \ \ \ \string~Person()\{\}}
+\DoxyCodeLine{00016\ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetName()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ name;\}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetGender()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ gender;\}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ GetId()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ id;\}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ GetAge()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ age;\}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ SetName(std::string\ name);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ SetGender(std::string\ gender);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ SetAge(\textcolor{keywordtype}{int}\ age);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ Person\&\ person)\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ person.id\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ person.name\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ person.gender\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ person.age;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}

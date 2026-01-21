@@ -5,7 +5,7 @@
 
 using namespace std;
 
-User::User(int id, string name, string gender, int age, string phoneNumber, string email): 
+User::User(unsigned int id, string name, string gender, int age, string phoneNumber, string email): 
 	Person(id, name, gender, age),
 	phoneNumber{phoneNumber},
 	email{email}{	

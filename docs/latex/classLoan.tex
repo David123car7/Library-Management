@@ -1,0 +1,59 @@
+\doxysection{Loan Class Reference}
+\hypertarget{classLoan}{}\label{classLoan}\index{Loan@{Loan}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoan_ad11795557e78ac318b1013951bba4448}\label{classLoan_ad11795557e78ac318b1013951bba4448} 
+{\bfseries Loan} (unsigned int id, unsigned int book\+Id, unsigned int user\+Id, \doxymbox{\hyperlink{structDate}{Date}} \&start\+Date, \doxymbox{\hyperlink{structDate}{Date}} \&end\+Date, \doxymbox{\hyperlink{structDate}{Date}} \&delivered\+Date, Loan\+State state)
+\item 
+int \doxymbox{\hyperlink{classLoan_a1db33953e974a269efd2c4e6b9586aa2}{Start\+Loan}} (\doxymbox{\hyperlink{structDate}{Date}} \&current\+Date)
+\begin{DoxyCompactList}\small\item\em Starts the loan by changing the book state to loaned. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classLoan_ae72c0040b70e01b8cb1617588ea7c9de}{Finish\+Loan}} (\doxymbox{\hyperlink{structDate}{Date}} \&current\+Date)
+\begin{DoxyCompactList}\small\item\em Finishes the loan by changing the loan state to finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classLoan_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLoan_ae72c0040b70e01b8cb1617588ea7c9de}\index{Loan@{Loan}!FinishLoan@{FinishLoan}}
+\index{FinishLoan@{FinishLoan}!Loan@{Loan}}
+\doxysubsubsection{\texorpdfstring{FinishLoan()}{FinishLoan()}}
+{\footnotesize\ttfamily \label{classLoan_ae72c0040b70e01b8cb1617588ea7c9de} 
+int Loan::\+\+Finish\+Loan (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structDate}{Date}} \&}]{current\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Finishes the loan by changing the loan state to finished. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em current\+Date} & The current date when the function is called \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if the current date is greater than the end\+Date 1 if the current date is lesser than the end\+Date (In all cases the loan state is changed) 
+\end{DoxyReturn}
+\Hypertarget{classLoan_a1db33953e974a269efd2c4e6b9586aa2}\index{Loan@{Loan}!StartLoan@{StartLoan}}
+\index{StartLoan@{StartLoan}!Loan@{Loan}}
+\doxysubsubsection{\texorpdfstring{StartLoan()}{StartLoan()}}
+{\footnotesize\ttfamily \label{classLoan_a1db33953e974a269efd2c4e6b9586aa2} 
+int Loan::\+\+Start\+Loan (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structDate}{Date}} \&}]{current\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Starts the loan by changing the book state to loaned. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em current\+Date} & The current date when the function is called. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the current date is greater than the end date of the loan. 1 if the loan state is changed successfully. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Loan/\+loan.\+h\item 
+Loan/\+loan.\+cpp\end{DoxyCompactItemize}

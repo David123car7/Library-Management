@@ -1,0 +1,35 @@
+\doxysection{loan.\+h}
+\hypertarget{loan_8h_source}{}\label{loan_8h_source}\index{Loan/loan.h@{Loan/loan.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Date/date.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}loanState.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Loan\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId;}
+\DoxyCodeLine{00011\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ startDate;\ }
+\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ endDate;}
+\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ deliveredDate;}
+\DoxyCodeLine{00014\ \ \ \ \ LoanState\ state;\ \ \ \ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ Loan(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ startDate,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ endDate,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ deliveredDate,\ LoanState\ state):}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\{\textcolor{keywordtype}{id}\},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ bookId\{bookId\},}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ userId\{userId\},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ startDate\{startDate\},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ endDate\{endDate\},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ deliveredDate\{deliveredDate\},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ state\{state\}\{\}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classLoan_a1db33953e974a269efd2c4e6b9586aa2}{StartLoan}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classLoan_ae72c0040b70e01b8cb1617588ea7c9de}{FinishLoan}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate);}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}

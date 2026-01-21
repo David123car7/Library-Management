@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void UserManagement::Add(User user){	
+void UserManagement::Add(User& user){	
 	char key = tolower(user.GetName()[0]);
 	if(!users.contains(key))
 		users[key] = vector<User>();

@@ -1,0 +1,26 @@
+\doxysection{date.\+h}
+\hypertarget{date_8h_source}{}\label{date_8h_source}\index{Date/date.h@{Date/date.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structDate_abcbfdb992489b37e4f4dbc30f5a3c4d6}{Date}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ uint8\_t\ day;}
+\DoxyCodeLine{00008\ \ \ \ \ uint8\_t\ month;}
+\DoxyCodeLine{00009\ \ \ \ \ uint16\_t\ year;}
+\DoxyCodeLine{00010\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{structDate_abcbfdb992489b37e4f4dbc30f5a3c4d6}{Date}}(uint8\_t\ day,\ uint8\_t\ month,\ uint16\_t\ year);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \doxymbox{\hyperlink{structDate_a411ca408275d61ae50587dc91c1dec58}{operator<<}}(std::ostream\&\ out,\ \doxymbox{\hyperlink{structDate_abcbfdb992489b37e4f4dbc30f5a3c4d6}{Date}}\&\ date)\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ (int)date.day\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ (\textcolor{keywordtype}{int})date.month\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ date.year;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structDate_a630e4a95e314c6caa2c9c13b26bf16e4}{operator<}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ date1,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ date2);}
+\DoxyCodeLine{00041\ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structDate_ab177b1fe2ddeab85e0032bfa3d6eaa29}{operator>}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ date1,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ date2);}
+\DoxyCodeLine{00051\ \};}
+
+\end{DoxyCode}

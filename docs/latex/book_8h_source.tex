@@ -1,0 +1,44 @@
+\doxysection{book.\+h}
+\hypertarget{book_8h_source}{}\label{book_8h_source}\index{Book/book.h@{Book/book.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}bookGenre.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}bookState.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../Date/date.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }Book\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ author;}
+\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ releaseDate;}
+\DoxyCodeLine{00015\ \ \ \ \ BookGenre\ genre;}
+\DoxyCodeLine{00016\ \ \ \ \ BookState\ state;}
+\DoxyCodeLine{00017\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ Book(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ std::string\ name,\ std::string\ author,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ releaseDate,\ BookGenre\ genre,\ BookState\ state);}
+\DoxyCodeLine{00020\ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ GetId()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ id;\}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetName()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ name;\}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetAuthor()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ author;\}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ GetRealeaseDate()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ releaseDate;\}}
+\DoxyCodeLine{00025\ \ \ \ \ BookGenre\ GetGenre()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ genre;\}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ SetName(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ SetAuthor(\textcolor{keyword}{const}\ std::string\&\ author);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ SetReleaseDate(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ date);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ SetGenre(\textcolor{keyword}{const}\ BookGenre\ genre);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ SetState(\textcolor{keyword}{const}\ BookState\ state);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ Book\&\ book)\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ book.id\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ book.name\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ book.author\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ book.releaseDate\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ book.genre\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ book.state;\ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \string~Book()\{\}}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}
