@@ -4,16 +4,6 @@
 
 using namespace std;
 
-Book::Book(unsigned int id, std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state):
-	id{id},
-	name{name},
-	author{author},
-	releaseDate{releaseDate},
-	genre{genre},
-	state{state}{
-		if(name.empty() || isInvalidString(name)) throw invalid_argument("Name can not be empty");
-		if(author.empty() || isInvalidString(name)) throw invalid_argument("Author can not be empty");
-	}
 
 int Book::SetName(const string& name){
 	if(name.empty()) return 0;

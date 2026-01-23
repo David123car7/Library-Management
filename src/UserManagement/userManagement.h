@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../User/user.h"
 #include <vector>
 #include <string>
@@ -9,7 +8,7 @@
  * @brief Responsible for managing the users
  */
 class UserManagement{
-	public:
+	private:
 	std::map<unsigned int, User> users;
 
 	public:
@@ -42,10 +41,18 @@ class UserManagement{
 
 	/**
 	 * @brief Gets the user (read only)
-	 *
 	 * @param[in] id User Id
 	 */
-	const User* GetUserReadOnly(unsigned int id); 
+	const User* GetUser(unsigned int id) const; 
+	
+	/**
+	 * @brief Checks if the user with the id exists
+	 *
+	 * @param[in] id User Id
+	 * @return true if user exists, false if does not exist
+	 */
+	bool UserExists(unsigned int id);
 
+	int PrintUser(unsigned int id);
 	void PrintUsers();	
 };

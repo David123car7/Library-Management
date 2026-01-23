@@ -15,7 +15,7 @@ class Loan{
 
 	public:
 	Loan(): id{0}, bookId{0}, userId{0}, startDate{}, endDate{}, deliveredDate{}, state{LoanState::toPickUp}{}
-	Loan(unsigned int id, unsigned int bookId, unsigned int userId, Date& startDate, Date& endDate, LoanState state):
+	Loan(unsigned int id, unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, LoanState state):
 		id{id},
 		bookId{bookId},
 		userId{userId},
@@ -24,7 +24,7 @@ class Loan{
 		deliveredDate{},
 		state{state}{}
 
-	Loan(unsigned int id, unsigned int bookId, unsigned int userId, Date& startDate, Date& endDate, Date& deliveredDate, LoanState state):
+	Loan(unsigned int id, unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, const Date& deliveredDate, LoanState state):
 		id{id},
 		bookId{bookId},
 		userId{userId},

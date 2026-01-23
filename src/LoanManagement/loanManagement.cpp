@@ -2,10 +2,16 @@
 
 using namespace std;
 
-int LoanManagement::Add(const Loan& loan){
-	if(loans.contains(loan.GetId())) return 0;
-	loans[loan.GetId()] = loan;
-	return 1;
+int LoanManagement::Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, LoanState state){
+	int id;
+	if(loans.empty()) id = 0;
+	else{
+		auto it = loans.crbegin();
+		id = it->first;
+		id++;
+	}
+	Loan loan(id, bookId, userId, startDate, endDate, state);
+	loans[id] = loan;
 }
 
 int LoanManagement::Remove(unsigned int id){
@@ -14,13 +20,18 @@ int LoanManagement::Remove(unsigned int id){
 	return 1;
 }
 
-Loan* LoanManagement::GetLoan(unsigned int loanId){
-	if(!loans.contains(loanId)) return nullptr;
-	return &loans.at(loanId);
+Loan* LoanManagement::GetLoan(unsigned int id){
+	if(!loans.contains(id)) return nullptr;
+	return &loans.at(id);
 }
 
 const Loan* LoanManagement::GetLoanReadOnly(unsigned int loanId){
 	return GetLoan(loanId);
+}
+
+bool LoanManagement::LoanExists(unsigned int id){
+	if(!loans.contains(id)) return false;
+	else return true;
 }
 
 void LoanManagement::PrintLoans(){

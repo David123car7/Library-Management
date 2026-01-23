@@ -13,7 +13,7 @@ struct Date{
 	
 	Date(): day{0}, month{0}, year{0}{};
 	Date(uint8_t day, uint8_t month, uint16_t year);
-
+	
 	/**
 	* @brief Overloads the stream insertion operator to print the Date.
 	* * Outputs the date in the format: day/month/year.
@@ -34,7 +34,7 @@ struct Date{
 	* @return false if the date1 is not lesser than date2
 	* true if the date1 is lesser than date2
 	*/
-	friend bool operator<(Date& date1, Date& date2);
+	friend bool operator<(const Date& date1, const Date& date2);
 	
 	/**
 	* @brief Overloads the > operator
@@ -44,5 +44,5 @@ struct Date{
 	* @return false if the date1 is not greater than date2
 	* true if the date1 is greater than date2
 	*/
-	friend bool operator>(Date& date1, Date& date2);
+	friend bool operator>(const Date& date1, const Date& date2);
 };

@@ -1,49 +1,49 @@
 #include "bookManagement.h"
+#include <stdexcept>
 
 using namespace std;
 
-void BookManagement::Add(const Book& book){
-	int16_t key = book.GetRealeaseDate().year;
-	if(!books.contains(key))
-		books[key] = vector<Book>();
-	books[key].push_back(book);
-}
-
-int BookManagement::Remove(int16_t year, int id){
-	if(books.contains(year)){
-		vector<Book>& booksRef = books[year];
-		for(int i=0; i<booksRef.size(); i++){
-			if(booksRef[i].GetId() == id){
-				booksRef[i] = booksRef.back();
-				booksRef.pop_back();
-				return 1;
-			}
-		}
+int BookManagement::Add(string name, string author, Date& releaseDate, BookGenre genre, BookState state){
+	if(name.empty()) throw invalid_argument("Name cant be empty!");
+	if(author.empty()) throw invalid_argument("Author cant be empty!");
+	int id;
+	if(books.empty()){
+		id = 0;
 	}
-	return 0;
-}
-
-Book* BookManagement::GetBook(int16_t year, int id){
-	if(books.contains(year)){
-		vector<Book>& booksRef = books[year];
-		for(int i=0; i<booksRef.size(); i++){
-			if(booksRef[i].GetId() == id){
-				return &booksRef[i];
-			}
-		}
+	else{
+		id = books.crbegin()->first;
+		id++;
 	}
-	return nullptr;
+	books[id] = Book(id, name, author, releaseDate, genre, state);
+	return id;
 }
 
-const Book* BookManagement::GetBookReadOnly(int16_t year, int id){
-	return GetBook(year, id);
+int BookManagement::Remove(unsigned int id){
+	if(!books.contains(id)) return 0;
+	books.erase(id);
+	return 1;	
+}
+
+Book* BookManagement::GetBook(unsigned int id){
+	if(!books.contains(id)) return nullptr;
+	return &books[id];
+}
+
+const Book* BookManagement::GetBook(unsigned int id) const{
+	if(!books.contains(id)) return nullptr;
+	return &books.at(id);
 }
 
 void BookManagement::PrintBooks(){
 	cout << "ID" << " | " << "NAME" << " | " << "AUTHOR" << " | " << "DATE" << " | " << "GENRE" << "\n";
-	for(auto& [key, list]: books){
-		for(Book& book: list){
-			cout << book << "\n";
-		}	
+	for(auto& [key, book]: books){
+		cout << book << "\n";
 	}
 }
+
+bool BookManagement::BookExists(unsigned int id){
+	if(books.contains(id)) return true;
+	else return false;
+}
+
+

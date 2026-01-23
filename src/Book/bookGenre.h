@@ -9,7 +9,8 @@ enum class BookGenre{
 	fantasy,
 	horror,
 	romance,
-	action
+	action,
+	noGenre,
 };
 
 

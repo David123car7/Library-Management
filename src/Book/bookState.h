@@ -7,7 +7,8 @@
 */
 enum class BookState{
 	available,
-	notAvailable
+	notAvailable,
+	noState
 };
 
 /**

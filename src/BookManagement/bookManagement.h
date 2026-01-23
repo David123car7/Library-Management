@@ -10,7 +10,7 @@
  */
 class BookManagement{
 	private:
-	std::map<int16_t, std::vector<Book>> books;
+	std::map<unsigned int, Book> books;
 
 	public:
 	
@@ -18,27 +18,42 @@ class BookManagement{
 	 * @brief Adds a book to the map
 	 *
 	 * @param[in] book Book Object
+	 * @return The id of the book added
 	 */
-	void Add(const Book& book);
+	int Add(std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state);
 
 	/**
 	 * @brief Removes a book from the map
 	 * *
-	 * @param[in] year Book Release Year
 	 * @param[in] id Book Id
 	 * @return returns 1 if the book was h
 	 * returns 0 if the book did not exist
 	 */
-	int Remove(int16_t year, int id);
+	int Remove(unsigned int id);
 	
+	/**
+	 * @brief Checks if a book with the id exists
+	 *
+	 * @param[in] id Book Id
+	 * @return true if exists false if does not exist
+	 */
+	bool BookExists(unsigned int id);
 
 	/**
 	 * @brief Gets the book
-	 *
-	 * @param[in] year Book Release Year 
 	 * @param[in]] id Book Id
 	 */
-	Book* GetBook(int16_t year, int id);
-	const Book* GetBookReadOnly(int16_t year, int id);
+	Book* GetBook(unsigned int id);
+
+	/**
+	 * @brief Gets the book
+	 * @param[in] id Book Id
+	 */
+	const Book* GetBook(unsigned int id) const;
+
+	/**
+	 * @brief Prints all books
+	 *
+	 */
 	void PrintBooks();
 };

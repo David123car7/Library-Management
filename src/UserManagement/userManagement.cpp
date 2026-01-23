@@ -1,6 +1,5 @@
 #include "userManagement.h"
 #include "../User/user.h"
-#include <cctype>
 #include <string>
 #include <stdexcept>
 
@@ -21,7 +20,7 @@ void UserManagement::Add(std::string name, std::string gender, int age, std::str
 		id = it->first;
 		id++;
 	}
-	users[id] = User(id, name, gender, age, email, phoneNumber);
+	users[id] = User(id, name, gender, age, email, phoneNumber, UserState::active, 0);
 }
 
 User* UserManagement::GetUser(unsigned int id){
@@ -29,8 +28,9 @@ User* UserManagement::GetUser(unsigned int id){
 	return &users[id];
 }
 
-const User* UserManagement::GetUserReadOnly(unsigned int id){
-	return GetUser(id);
+const User* UserManagement::GetUser(unsigned int id) const{
+	if(!users.contains(id)) return nullptr;
+	return &users.at(id);
 }
 
 int UserManagement::Remove(unsigned int id){
@@ -44,5 +44,20 @@ void UserManagement::PrintUsers(){
 		cout << user;	
 	}
 }
+
+int UserManagement::PrintUser(unsigned int id){
+	const User* user = GetUser(id);
+	if(user == nullptr) return 0;
+	cout << user;
+	return 1;
+}
+
+bool UserManagement::UserExists(unsigned int id){
+	if(users.contains(id)) return true;
+	else return false;
+}
+
+
+
 
 

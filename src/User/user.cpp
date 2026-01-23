@@ -1,6 +1,4 @@
 #include "user.h"
-#include "../Utils/utils.h"
-#include <stdexcept>
 #include <string>
 
 using namespace std;
@@ -17,4 +15,10 @@ int User::SetEmail(string email){
 	return 1;
 }
 
-
+ostream& operator<<(ostream& out, UserState& state){
+	switch(state){
+		case UserState::active: return out << "Active";
+		case UserState::banned: return out << "Banned";
+		default: return out << "Unknown";
+	}
+}

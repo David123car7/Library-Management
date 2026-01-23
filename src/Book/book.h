@@ -19,6 +19,8 @@ class Book {
 	BookState state;
 	
 	public:
+	Book(): id{0}, name{""}, author{""}, releaseDate{}, genre{BookGenre::noGenre}, state{BookState::noState} {}
+
 	/**
 	* @brief Constructs a new Book object.
 	*
@@ -29,13 +31,21 @@ class Book {
 	* @param[in] genre       The genre or category of the book.
 	* @param[in] state       The initial state of the book..
 	*/
-	Book(unsigned int id, std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state);
+	Book(unsigned int id, std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state):
+		id{id},
+		name{name},
+		author{author},
+		releaseDate{releaseDate},
+		genre{genre},
+		state{state}{}
+
 	
 	int GetId() const {return id;}
 	const std::string& GetName() const {return name;}
 	const std::string& GetAuthor() const {return author;}
 	const Date& GetRealeaseDate() const {return releaseDate;}
 	BookGenre GetGenre() const {return genre;}
+	BookState GetState() const {return state;}
 
 	int SetName(const std::string& name);
 	int SetAuthor(const std::string& author);
