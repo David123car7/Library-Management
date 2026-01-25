@@ -3,6 +3,7 @@
 #include "../UserManagement/userManagement.h"
 #include "../LoanManagement/loanManagement.h"
 #include "../BookManagement/bookManagement.h"
+#include "../Result/result.h"
 
 class Library{
 	private:
@@ -10,7 +11,40 @@ class Library{
 	BookManagement booksManagement;
 	LoanManagement loansManagement;
 	
+	/**
+	 * @brief Does the user check in by checking the user state, if it is banned
+	 * will check if the ban expire date has passed if passed the user will be unbanned
+	 *
+	 * @param[in] user Reference to a user object
+	 * @param[in] currentDate Current date
+	 * @return Result::UserNull if the user does not exist
+	 * Result::UserBanned if the user is banned
+	 * Result::Sucess if the user is active
+	 */
+	Result CheckInUser(User& user, const Date& currentDate);
+	
+	/**
+	 * @brief Checks if the user can loan a book
+	 *
+	 * @param[in] user Reference to a user object
+	 * @return Result::UserNull if the user does no exist
+	 * Result::LoansMaxReached if the user reached the max of loans
+	 * Result::UserBanned if the user is banned
+	 * Result::Sucess if the user is active
+	 */
+	Result CanUserLoan(const User& user);
+
+	/**
+	 * @brief Checks if the book is available
+	 *
+	 * @param[in] bookId Book Id
+	 * Result::BookNotAvailable if the books is not available,
+	 * Result::Sucess if the book is available
+	 */
+	Result IsBookAvailable(const Book& book);
+
 	public:
+
 	void AddUser(std::string name, std::string gender, int age, std::string email, std::string phoneNumber){
 		usersManagement.Add(name, gender, age, email, phoneNumber);
 	}
@@ -30,27 +64,39 @@ class Library{
 	 * returns -3 if the end date is higher than the start date
 	 * returns 1 if the loan was added sucessufly
 	 */
-	int CreateLoan(unsigned int bookId, unsigned int userId,const Date& currentDate, const Date& startDate, const Date& endDate);
+	Result CreateLoan(unsigned int bookId, unsigned int userId,const Date& currentDate, const Date& startDate, const Date& endDate);
 	int FinishLoan(unsigned int loanId, const Date& deliveredDate);
 
 	/**
 	 * @brief Checks if the book is available
 	 *
 	 * @param[in] bookId Book Id
-	 * @return -1 if the book does not exist, 
-	 * 0 if the book is not available
-	 * 1 if the book is available
+	 * @return Result::BookNull if book does not exist, 
+	 * Result::BookNotAvailable if the books is not available,
+	 * Result::Sucess if the book is available
 	 */
-	int IsBookAvailable(unsigned int bookId);
+	Result IsBookAvailable(unsigned int bookId);
 
 	/**
 	 * @brief Checks if the user can loan a book
 	 *
 	 * @param[in] userId User Id
-	 * @return -1 if the user does no exist
-	 * -2 if the user reached the max of loans
-	 * 0 if the user is banned
-	 * 1 if the user is active
+	 * @return Result::UserNull if the user does no exist
+	 * Result::LoansMaxReached if the user reached the max of loans
+	 * Result::UserBanned if the user is banned
+	 * Result::Sucess if the user is active
 	 */
-	int CanUserLoan(unsigned int userId);
+	Result CanUserLoan(unsigned int userId);
+	
+	/**
+	 * @brief Does the user check in by checking the user state, if it is banned
+	 * will check if the ban expire date has passed if passed the user will be unbanned
+	 *
+	 * @param[in] userId User Id
+	 * @param[in] currentDate Current date
+	 * @return Result::UserNull if the user does not exist
+	 * Result:UserBanned if the user is banned
+	 * Result::Sucess if the user is active
+	 */
+	Result CheckInUser(unsigned int userId, const Date& currentDate);
 };

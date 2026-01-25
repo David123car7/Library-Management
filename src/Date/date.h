@@ -45,4 +45,26 @@ struct Date{
 	* true if the date1 is greater than date2
 	*/
 	friend bool operator>(const Date& date1, const Date& date2);
+
+	
+	/**
+	* @brief Overloads the >= operator
+	*
+	* @param[in] date1 The date on the left of the operator
+	* @param[in] date2 The date on the right of the operator
+	* @return false if the date1 is not greater than date2
+	* true if the date1 is greater than date2
+	*/
+	friend bool operator>=(const Date& date1, const Date& date2);
+
+	/**
+	* @brief Overloads the <= operator
+	*
+	* @param[in] date1 The date on the left of the operator
+	* @param[in] date2 The date on the right of the operator
+	* @return false if the date1 is not greater than date2
+	* true if the date1 is greater than date2
+	*/
+	friend bool operator<=(const Date& date1, const Date& date2);
 };
+

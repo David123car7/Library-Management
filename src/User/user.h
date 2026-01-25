@@ -35,9 +35,9 @@ class User: public Person{
 	User(unsigned int id, std::string name, std::string gender, int age, std::string phoneNumber, std::string email, 
 			UserState state, int occurrences): 
 		Person(id, name, gender, age),
-		profile{UserProfile(state, occurrences)},  
 		phoneNumber{phoneNumber},
 		email{email},
+		profile{UserProfile(state, occurrences)},  
 		currentLoans{0} {}
 		
 	const std::string& GetPhoneNumber() const {return phoneNumber;}
