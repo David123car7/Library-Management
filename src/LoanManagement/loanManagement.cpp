@@ -12,6 +12,7 @@ int LoanManagement::Add(unsigned int bookId, unsigned int userId, const Date& st
 	}
 	Loan loan(id, bookId, userId, startDate, endDate, state);
 	loans[id] = loan;
+	return id;
 }
 
 int LoanManagement::Remove(unsigned int id){
@@ -25,8 +26,9 @@ Loan* LoanManagement::GetLoan(unsigned int id){
 	return &loans.at(id);
 }
 
-const Loan* LoanManagement::GetLoanReadOnly(unsigned int loanId){
-	return GetLoan(loanId);
+const Loan* LoanManagement::GetLoan(unsigned int id) const{
+	if(!loans.contains(id)) return nullptr;
+	return &loans.at(id);
 }
 
 bool LoanManagement::LoanExists(unsigned int id){
@@ -36,7 +38,7 @@ bool LoanManagement::LoanExists(unsigned int id){
 
 void LoanManagement::PrintLoans(){
 	for(auto& [key, loan]: loans){
-		cout << loan;
+		cout << loan << "\n";
 	}
 }
 

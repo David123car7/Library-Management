@@ -5,8 +5,8 @@
 
 class LoanManagement{
 	private:
-	std::map<unsigned int, Loan> loans;	
-	
+	std::map<unsigned int, Loan> loans;		
+
 	public:
 	/**
 	 * @brief Addes a book to the loan map
@@ -19,6 +19,7 @@ class LoanManagement{
 	 * @return The id of the Loan added
 	 */
 	int Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, LoanState state);
+	
 	/**
 	 * @brief Removes a loan from the loan map
 	 *
@@ -28,10 +29,34 @@ class LoanManagement{
 	 */
 	int Remove(unsigned int id);
 
+	/**
+	 * @brief Gets a loan
+	 *
+	 * @param[in] id Loan Id
+	 * @return Returns a Loan pointer
+	 */
 	Loan* GetLoan(unsigned int id);
-	const Loan* GetLoanReadOnly(unsigned int id);
+
+	/**
+	 * @brief Gets loan
+	 *
+	 * @param[in] id Loan Id
+	 * @return Returns a const Loan Pointer
+	 */
+	const Loan* GetLoan(unsigned int id) const;
 	
+	/**
+	 * @brief Checks if the loan exists
+	 *
+	 * @param[in] id Loan Id
+	 * @return true if the loan exists, 
+	 * false if the loan does not exist
+	 */
 	bool LoanExists(unsigned int id);
 
+	/**
+	 * @brief Prints all loans
+	 *
+	 */
 	void PrintLoans();
 };

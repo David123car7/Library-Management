@@ -21,8 +21,9 @@ class UserManagement{
 	 * @param[in] age User Age
 	 * @param[in] email User Email 
 	 * @param[in] phoneNumber User PhoneNumber 
+	 * @return user id that was added
 	 */
-	void Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber);
+	int Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber);
 
 	/**
 	 * @brief Removes a user from the map

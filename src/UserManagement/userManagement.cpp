@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void UserManagement::Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber){	
+int UserManagement::Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber){	
 	if(name.empty()) throw invalid_argument("Name cant be empty.");
 	if(gender.empty()) throw invalid_argument("Gender cant be empty.");
 	if(age < 0 || age > 120) throw invalid_argument("Age is invalid");
@@ -21,6 +21,7 @@ void UserManagement::Add(std::string name, std::string gender, int age, std::str
 		id++;
 	}
 	users[id] = User(id, name, gender, age, email, phoneNumber, UserState::active, 0);
+	return id;
 }
 
 User* UserManagement::GetUser(unsigned int id){

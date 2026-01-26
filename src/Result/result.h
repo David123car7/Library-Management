@@ -1,4 +1,5 @@
 #pragma once
+#include <ostream>
 
 enum class Result{
 	Sucess,
@@ -8,4 +9,8 @@ enum class Result{
 	LoanNull,
 	LoansMaxReached,
 	BookNotAvailable,
+	InvalidDate,
+	LoanFinished,
 };
+
+std::ostream& operator<<(std::ostream& out, Result result);

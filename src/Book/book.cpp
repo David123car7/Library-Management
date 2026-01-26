@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 int Book::SetName(const string& name){
 	if(name.empty()) return 0;
 	this->name = name;

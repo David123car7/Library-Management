@@ -33,7 +33,6 @@ class Loan{
 		deliveredDate{deliveredDate},
 		state{state}{}
 
-
 	int GetId() const {return id;}
 	int GetBookId() const {return bookId;}
 	int GetUserId() const {return userId;}
@@ -41,24 +40,8 @@ class Loan{
 	const Date& GetEndDate() const {return endDate;}
 	LoanState GetState() const {return state;}
 
-	/**
-	* @brief Starts the loan by changing the book state to loaned.
-	*
-	* @param[in] currentDate The current date when the function is called.
-	* @return 0 if the current date is greater than the end date of the loan.
-	* 1 if the loan state is changed successfully.
-	*/
-	int StartLoan(Date& currentDate);
-	
-	/**
-	* @brief Finishes the loan by changing the loan state to finished.
-	*
-	* @param[in] currentDate The current date when the function is called
-	* @return -1 if the current date is greater than the endDate
-	* 1 if the current date is lesser than the endDate 
-	* (In all cases the loan state is changed)
-	*/
-	int FinishLoan(Date& currentDate);
+	void SetState(LoanState state) { this->state = state;}
+	void SetDeliveredDate(const Date& deliveredDate) {this->deliveredDate = deliveredDate;}
 
 	friend std::ostream& operator<<(std::ostream& out, Loan& loan){
 		return out << loan.id << " " << loan.userId << " " << loan.bookId << " " << loan.startDate 

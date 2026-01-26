@@ -7,19 +7,30 @@
 #include "BookManagement/bookManagement.h"
 #include "LoanManagement/loanManagement.h"
 #include "Loan/loan.h"
+#include "Utils/utils.h"
+#include "Library/library.h"
 
 using namespace std;
 
 int main(){
-	UserManagement users;
-	BookManagement books;
-	users.Add("David", "Male", 21, "910539445", "david123car7@gmail.com");
-	users.Add("Diogo", "Male", 21, "910539445", "david123car7@gmail.com");
-	Date date(1,1,2026);
-	books.Add("C++ Basics", "CJ", date, BookGenre::fantasy, BookState::available); 
-	books.Add("C++ Basics", "CJ", date, BookGenre::fantasy, BookState::available); 
-	books.Remove(1);
-	books.PrintBooks();
+	Library library;
+	Date date(1,1,2005);
+	Date date1(1,2,2005);
+	Date date2(1,3,2005);
+	Date date3(1,5,2005);
+	library.AddUser("David", "Male", 21, "kazzio", "ola");
+	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
+	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
+	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
+	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
+	library.CreateLoan(0,0, date, date1, date2);
+	library.CreateLoan(1,0, date, date1, date2);
+	library.CreateLoan(2,0, date, date1, date2);
+	library.FinishLoan(0, date3);
+	library.FinishLoan(1, date3);
+	library.FinishLoan(2, date3);
+	library.PrintLoans();
+	library.PrintUsers();
 	return 0;
 }
 

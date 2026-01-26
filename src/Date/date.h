@@ -15,6 +15,14 @@ struct Date{
 	Date(uint8_t day, uint8_t month, uint16_t year);
 	
 	/**
+	 * @brief Overloads the + operator to calculate a date plus days
+	 *
+	 * @param[in] days Number of days
+	 * @return A new date resulted of the operation
+	 */
+	Date operator+(unsigned int days)const;
+
+	/**
 	* @brief Overloads the stream insertion operator to print the Date.
 	* * Outputs the date in the format: day/month/year.
 	*
@@ -22,7 +30,7 @@ struct Date{
 	* @param[in]     date  The Date object to be printed.
 	* @return A reference to the modified output stream to allow chaining.
 	*/
-	friend std::ostream& operator<<(std::ostream& out, Date& date){
+	friend std::ostream& operator<<(std::ostream& out, const Date& date){
 		return out << (int)date.day << "/" << (int)date.month << "/" << date.year;
 	}
 

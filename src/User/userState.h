@@ -6,5 +6,5 @@ enum class UserState{
 	banned,
 };
 
-std::ostream& operator<<(std::ostream& out, UserState& state);
+std::ostream& operator<<(std::ostream& out, UserState state);
 

@@ -13,7 +13,6 @@ enum class BookGenre{
 	noGenre,
 };
 
-
 /**
 * @brief Overloads the stream insertion operator to print the BookGenre.
 *
