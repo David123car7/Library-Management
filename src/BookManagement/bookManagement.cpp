@@ -45,6 +45,29 @@ bool BookManagement::BookExists(unsigned int id){
 	else return false;
 }
 
+
+int BookManagement::GetBooksQnt(){
+	return books.size();
+}
+
+int BookManagement::GetAvailableBooksQnt(){
+	int qnt = 0;
+	for(auto& [key, book]: books){
+		if(book.GetState() == BookState::available)
+			qnt++;
+	}
+	return qnt;
+}
+
+int BookManagement::GetNotAvailableBooksQnt(){
+	int qnt = 0;
+	for(auto& [key, book]: books){
+		if(book.GetState() == BookState::notAvailable)
+			qnt++;
+	}
+	return qnt;
+}
+
 int BookManagement::PrintBook(unsigned int id){
 	const Book* book = GetBook(id);
 	if(book == nullptr) return 0;

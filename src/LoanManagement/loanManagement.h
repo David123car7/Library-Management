@@ -10,6 +10,12 @@ class LoanManagement{
 
 	public:
 	/**
+	 * @brief Gets the next id for the loans Map
+	 *
+	 * @return the next id
+	 */
+	int GetNextId();
+	/**
 	 * @brief Addes a book to the loan map
 	 *
 	 * @param[in] bookId Book Id
@@ -19,7 +25,7 @@ class LoanManagement{
 	 * @param[in] state Loan State
 	 * @return The id of the Loan added
 	 */
-	int Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, LoanState state);
+	int Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, const Date& deliveredDate, LoanState state);
 
 	/**
 	 * @brief Checks if there is a key in the user map
@@ -122,5 +128,12 @@ class LoanManagement{
 	 */
 	int PrintLoan(unsigned int id);
 
+	/**
+	 * @brief Prints the user loans
+	 *
+	 * @param[in] userId User Id
+	 * @return 0 if the user does not exist,
+	 * 1 if user were printed
+	 */
 	int PrintUserLoans(unsigned int userId);
 };

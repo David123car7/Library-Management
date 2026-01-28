@@ -12,7 +12,7 @@ Result Library::CreateLoan(unsigned int bookId, unsigned int userId,const Date& 
 	if(book->GetState() != BookState::available) return Result::BookNotAvailable;
 	if(Result res = CheckInUser(*user, currentDate); res != Result::Sucess) return res;
 	if(loansManagement.GetUserMapSize(userId) >= MAX_LOANS) return Result::LoansMaxReached;
-	int loanId = loansManagement.Add(bookId, userId, startDate, endDate, LoanState::toPickUp);
+	int loanId = loansManagement.Add(bookId, userId, startDate, endDate, Date(), LoanState::toPickUp);
 	loansManagement.AddIdUserMap(userId, loanId);	
 	book->SetState(BookState::notAvailable);		
 	return Result::Sucess;
@@ -45,7 +45,7 @@ Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
 	if(deliveredDate > loan->GetEndDate()){
 		ApplyPenalty(*user, deliveredDate);	
 	}
-	loansHistoryManagement.Add(loan->GetBookId(), loan->GetUserId(), loan->GetStartDate(), loan->GetEndDate(), loan->GetState());
+	loansHistoryManagement.Add(loan->GetBookId(), loan->GetUserId(), loan->GetStartDate(), loan->GetEndDate(), deliveredDate,loan->GetState());
 	loansManagement.Remove(loanId);
 	return Result::Sucess;
 }
@@ -117,7 +117,7 @@ void Library::LoanBook(Loan& loan){
 
 Result Library::PrintUserLoans(unsigned int userId){
 	PrintLoanColumns();
-	loansManagement.PrintUserLoans(userId);
+	if(int res = loansManagement.PrintUserLoans(userId); res == 0) return Result::UserNull; 
 	return Result::Sucess;
 }
 
@@ -134,4 +134,17 @@ Result Library::PrintBooksUserLoans(unsigned int userId){
 		cout << "\n";
 	}
 	return Result::Sucess;
+}
+
+void Library::PrintBooksQnt(){
+	cout << booksManagement.GetBooksQnt() << "\n";
+}
+
+
+void Library::PrintAvailableBooksQnt(){
+	cout << booksManagement.GetAvailableBooksQnt() << "\n";
+}
+
+void Library::PrintNotAvailableBooksQnt(){
+	cout << booksManagement.GetNotAvailableBooksQnt() << "\n";
 }

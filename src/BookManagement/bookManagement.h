@@ -52,6 +52,27 @@ class BookManagement{
 	const Book* GetBook(unsigned int id) const;
 
 	/**
+	 * @brief Gets the quantity if books
+	 *
+	 * @return the quantity of the book
+	 */
+	int GetBooksQnt();
+	
+	/**
+	 * @brief Gets the quantity of available books
+	 *
+	 * @return the quantity of available books
+	 */
+	int GetAvailableBooksQnt();
+	
+	/**
+	 * @brief Gets the quantity of not available books
+	 *
+	 * @return the quantity of not available books
+	 */
+	int GetNotAvailableBooksQnt();
+
+	/**
 	 * @brief Prints all books
 	 *
 	 */

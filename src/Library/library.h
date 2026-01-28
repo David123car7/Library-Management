@@ -111,7 +111,17 @@ class Library{
 	 */
 	Result CreateLoan(unsigned int bookId, unsigned int userId,const Date& currentDate, const Date& startDate, const Date& endDate);
 
-
+	/**
+	 * @brief Called when a user picks the book he loaned
+	 *
+	 * @param[in] loanId Loan Id
+	 * @param[in] pickedUpDate Date the book was picked 
+	 * @return Result::LoanNull if the loan does not exist,
+	 * Result::UserNull if the user associated with the loan does not exist,
+	 * Result::BookNull if the user associated with the loan does not exist,
+	 * Result::LoanNotPickedup if the pickedUpDate is greater than the end date of the loan 
+	 * Result::Sucess if the book was picked
+	 */
 	Result PickupLoan(unsigned int loanId, const Date& pickedUpDate);
 
 	/**
@@ -149,30 +159,64 @@ class Library{
 	 */
 	Result BanUser(unsigned int userId, const Date& startDate);
 	
+	void PrintBooksQnt();
+	void PrintAvailableBooksQnt();
+	void PrintNotAvailableBooksQnt();
+
+	/**
+	 * @brief Prints all books
+	 *
+	 */
 	void PrintBooks(){
 		PrintBookColumns();
 		booksManagement.PrintBooks();
 	}
 	
+	/**
+	 * @brief Prints all active loans
+	 *
+	 */
 	void PrintLoans(){ 
 		PrintLoanColumns();
 		loansManagement.PrintLoans();
 	}
 
+	/**
+	 * @brief Prints past loans
+	 *
+	 */
 	void PrintHistoryLoans(){ 
 		PrintLoanColumns();
 		loansHistoryManagement.PrintLoans();
 	}
 	
+	/**
+	 * @brief Prints all users
+	 *
+	 */
 	void PrintUsers(){
 		PrintUserColumns();
 		usersManagement.PrintUsers();
 	}
 	
+	/**
+	 * @brief Prints all loans associated with a user
+	 *
+	 * @param[[TODO:direction]] userId User Id 
+	 * @return Result::UserNull if the user does not exist,
+	 * Result::Sucess if the loans were printed sucesseful
+	 */
 	Result PrintUserLoans(unsigned int userId);	
 	
+	/**
+	 * @brief Prints the books being loaned to a user 
+	 *
+	 * @param[in] userId User Id
+	 * @return Result::UserNull if the user does not exist,
+	 * Result::Sucess if the books were printed sucesseful
+	 */
 	Result PrintBooksUserLoans(unsigned int userId);
-	
+
 	void PrintUserColumns(){
 		std::cout << "ID" " | " << " | " << "NAME" << " | " << "GENDER" << " | " << "AGE" << " | " << 
 			"PHONE NUMBER" << " | " << "EMAIL" << " | " << "STATE" << " | " << "OCCURRENCES" <<

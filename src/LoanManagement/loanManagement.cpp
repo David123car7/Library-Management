@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int LoanManagement::Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, LoanState state){
+int LoanManagement::GetNextId(){
 	int id;
 	if(loans.empty()) id = 0;
 	else{
@@ -10,7 +10,12 @@ int LoanManagement::Add(unsigned int bookId, unsigned int userId, const Date& st
 		id = it->first;
 		id++;
 	}
-	Loan loan(id, bookId, userId, startDate, endDate, state);
+	return id;
+}
+
+int LoanManagement::Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, const Date& deliveredDate ,LoanState state){
+	int id = GetNextId();
+	Loan loan(id, bookId, userId, startDate, endDate, deliveredDate, state);
 	loans[id] = loan;
 	return id;
 }
