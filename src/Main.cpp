@@ -20,17 +20,16 @@ int main(){
 	Date date3(1,5,2005);
 	library.AddUser("David", "Male", 21, "kazzio", "ola");
 	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
-	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
-	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
+	library.AddBook("86", "Goat", date, BookGenre::fantasy, BookState::available); 
+	library.AddBook("Vim", "Bruh", date, BookGenre::fantasy, BookState::available); 
 	library.AddBook("C++", "CJ", date, BookGenre::fantasy, BookState::available); 
 	library.CreateLoan(0,0, date, date1, date2);
 	library.CreateLoan(1,0, date, date1, date2);
 	library.CreateLoan(2,0, date, date1, date2);
-	library.FinishLoan(0, date3);
-	library.FinishLoan(1, date3);
+	library.PickupLoan(0, date);
+	library.PickupLoan(1, date);
 	library.FinishLoan(2, date3);
 	library.PrintLoans();
-	library.PrintUsers();
 	return 0;
 }
 

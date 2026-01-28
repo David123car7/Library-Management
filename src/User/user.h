@@ -17,8 +17,7 @@ class User: public Person{
 	std::string phoneNumber;
 	std::string email;
 	UserProfile profile;
-	std::vector<uint8_t> currentLoans;
-
+	
 	public:
 	User(): phoneNumber{""}, email{""}{}
 
@@ -44,7 +43,6 @@ class User: public Person{
 	UserState GetState() const {return profile.state;}
 	int GetOccurrences() const {return profile.occurrences;}
 	Date GetBanExpireDate() const {return profile.banExpireDate;}
-	int GetCurrentLoans() const {return currentLoans.size();}
 
 	int SetEmail(std::string email);
 	int SetPhoneNumber(std::string phoneNumber);
@@ -53,37 +51,10 @@ class User: public Person{
 	void IncrementOccurrences() {profile.occurrences++;}
 	void SetBanExpireDate(Date& date) {profile.banExpireDate = date;}
 
-	/**
-	 * @brief Adds a id to the vector of currentLoans
-	 *
-	 * @param[in] id Id 
-	 * @return 1 if the loan was added
-	 * 0 if the loan allready exists
-	 */
-	int AddLoanId(uint8_t id);
-
-	/**
-	 * @brief Removes a id from the vector of currentLoans
-	 *
-	 * @param[in] id Id
-	 * @return 1 if the loan was removed
-	 * 0 if the loan did not exist
-	 */
-	int RemoveLoanId(uint8_t id);
-
-	/**
-	 * @brief Checks if the loan id exists inside the vector of loan ids
-	 *
-	 * @param[in] id Loan Id
-	 * @return true if the loan exists
-	 * false if the loan does not exist
-	 */
-	bool CheckLoanIdExists(uint8_t id);
-
 	friend std::ostream& operator<<(std::ostream& out, const User& user){
-		return out << user.GetId() << " " << user.GetName() << " " << user.GetGender() << " " << user.GetAge() << " " 
-			<< user.phoneNumber << " " << user.email << " " << user.profile.state << " " << (int)user.profile.occurrences << 
-			" " << user.profile.banExpireDate;
+		return out << user.GetId() << " | " << user.GetName() << " | " << user.GetGender() << " | " << user.GetAge() << " | " 
+			<< user.phoneNumber << " | " << user.email << " | " << user.profile.state << " | " << (int)user.profile.occurrences << 
+			" | " << user.profile.banExpireDate;
 	}
 
 };

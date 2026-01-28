@@ -11,6 +11,8 @@ enum class Result{
 	BookNotAvailable,
 	InvalidDate,
 	LoanFinished,
+	LoanPickedUp,
+	LoanNotPickedUp,
 };
 
 std::ostream& operator<<(std::ostream& out, Result result);

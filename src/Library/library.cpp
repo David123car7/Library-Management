@@ -8,58 +8,43 @@ Result Library::CreateLoan(unsigned int bookId, unsigned int userId,const Date& 
 	if(user == nullptr) return Result::UserNull;
 	Book* book = booksManagement.GetBook(bookId);
 	if(book == nullptr) return Result::BookNull;
-	if(Result res = IsBookAvailable(*book); res != Result::Sucess) return res;
+	if(book->GetState() != BookState::available) return Result::BookNotAvailable;
 	if(Result res = CheckInUser(*user, currentDate); res != Result::Sucess) return res;
-	if(user->GetCurrentLoans() >= MAX_LOANS) return Result::LoansMaxReached;
+	if(loansManagement.GetUserMapSize(userId) >= MAX_LOANS) return Result::LoansMaxReached;
 	int loanId = loansManagement.Add(bookId, userId, startDate, endDate, LoanState::toPickUp);
-	user->AddLoanId(loanId);	
+	loansManagement.AddIdUserMap(userId, loanId);	
 	book->SetState(BookState::notAvailable);		
 	return Result::Sucess;
 }
 
-Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
-	Loan* loan = loansManagement.GetLoan(loanId);
-	if(loan == nullptr) return Result::LoanNull;
-	User* user = usersManagement.GetUser(loan->GetUserId());
-	if(user == nullptr) return Result::UserNull;
-	Book* book = booksManagement.GetBook(loan->GetBookId());
-	if(book == nullptr) return Result::BookNull;
-	if(loan->GetState() == LoanState::finished)
-		return Result::LoanFinished;
-	loan->SetState(LoanState::finished);
-	loan->SetDeliveredDate(deliveredDate);
-	book->SetState(BookState::available);
-	if(deliveredDate > loan->GetEndDate()){
-		user->IncrementOccurrences();
-		if(user->GetOccurrences() >= MAX_USER_OCCURRENCES){
-			BanUser(loan->GetUserId(), deliveredDate);	
-		}
+Result Library::PickupLoan(unsigned int loanId, const Date& pickedUpDate){
+	Loan* loan = nullptr;
+	User* user = nullptr;
+	Book* book = nullptr;
+	if(Result res = GetLoanContext(loanId, user, loan, book); res != Result::Sucess)
+		return res;
+	if(loan->GetState() != LoanState::toPickUp) return Result::LoanPickedUp;
+	if(pickedUpDate > loan->GetEndDate()){
+		DeactivateLoan(*loan, *user, *book, pickedUpDate);
+		ApplyPenalty(*user, pickedUpDate);
+		return Result::LoanNotPickedUp;
 	}
+	LoanBook(*loan);
 	return Result::Sucess;
 }
 
-Result Library::IsBookAvailable(unsigned int bookId){
-	const Book* book = booksManagement.GetBook(bookId);
-	if(book == nullptr) return Result::BookNull;
-	return IsBookAvailable(*book);
-}
-
-Result Library::IsBookAvailable(const Book& book){
-	if(book.GetState() == BookState::available) return Result::Sucess;
-	else return Result::BookNotAvailable;
-}
-
-Result Library::CanUserLoan(unsigned int userId){
-	const User* user = usersManagement.GetUser(userId);
-	if(user == nullptr) return Result::UserNull;
-	return CanUserLoan(*user);
-}
-
-
-Result Library::CanUserLoan(const User& user){
-	if(user.GetCurrentLoans() > MAX_LOANS) return Result::LoansMaxReached;
-	if(user.GetState() == UserState::active) return Result::Sucess;
-	else return Result::UserBanned;
+Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
+	Loan* loan = nullptr;
+	User* user = nullptr;
+	Book* book = nullptr;
+	if(Result res = GetLoanContext(loanId, user, loan, book); res != Result::Sucess)
+		return res;
+	if(loan->GetState() == LoanState::finished) return Result::LoanFinished;
+	DeactivateLoan(*loan, *user, *book, deliveredDate);
+	if(deliveredDate > loan->GetEndDate()){
+		ApplyPenalty(*user, deliveredDate);	
+	}
+	return Result::Sucess;
 }
 
 Result Library::CheckInUser(unsigned int userId, const Date& currentDate){	
@@ -93,5 +78,60 @@ Result Library::BanUser(unsigned int userId, const Date& startDate){
 	return BanUser(*user, startDate);
 }
 
+Result Library::GetLoanContext(unsigned int loanId, User*& user, Loan*& loan, Book*& book){
+	loan = loansManagement.GetLoan(loanId);
+	if(loan == nullptr) return Result::LoanNull;
+	user = usersManagement.GetUser(loan->GetUserId());
+	if(user == nullptr) return Result::UserNull;
+	book = booksManagement.GetBook(loan->GetBookId());
+	if(book == nullptr) return Result::BookNull;
+	return Result::Sucess;
+}
+
+void Library::DeactivateLoan(Loan& loan, User& user, Book& book, const Date& date){
+	loan.SetState(LoanState::finished);
+	loan.SetDeliveredDate(date);
+	book.SetState(BookState::available);
+	loansManagement.RemoveIdUserMap(user.GetId(),loan.GetId());
+}
+
+void Library::ApplyPenalty(User& user, const Date& date){
+	user.IncrementOccurrences();
+	if(user.GetOccurrences() > MAX_USER_OCCURRENCES){
+		BanUser(user, date);	
+	}
+}
+
+void Library::ActivateLoan(Loan& loan, User& user, Book& book){
+	loan.SetState(LoanState::toPickUp);
+	book.SetState(BookState::notAvailable);
+	loansManagement.AddIdUserMap(user.GetId(), loan.GetId());
+}
+
+void Library::LoanBook(Loan& loan){
+	loan.SetState(LoanState::loaned);	
+}
+
+Result Library::PrintUserLoans(unsigned int userId){
+	PrintLoanColumns();
+	loansManagement.PrintUserLoans(userId);
+	return Result::Sucess;
+}
+
+
+
+Result Library::PrintBooksUserLoans(unsigned int userId){
+	const User* user = usersManagement.GetUser(userId);
+	if(user == nullptr) return Result::UserNull;
+	const vector<unsigned int>* loans = loansManagement.GetUserLoanIds(userId);
+	PrintBookColumns();
+	for(unsigned int i=0; i<loans->size(); i++){
+		const Loan* loan = loansManagement.GetLoan(loans[i]);
+		if(loan == nullptr) return Result::LoanNull;
+		booksManagement.PrintBook(loan->GetBookId());
+		cout << "\n";
+	}
+	return Result::Sucess;
+}
 
 

@@ -18,6 +18,6 @@ enum class BookState{
 * @param[in]     bookState The BookState value to be printed.
 * @return A reference to the modified output stream to allow chaining.
 */
-std::ostream& operator<<(std::ostream& out, BookState& bookState);
+std::ostream& operator<<(std::ostream& out, BookState bookState);
 
 

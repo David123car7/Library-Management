@@ -35,7 +35,6 @@ const Book* BookManagement::GetBook(unsigned int id) const{
 }
 
 void BookManagement::PrintBooks(){
-	cout << "ID" << " | " << "NAME" << " | " << "AUTHOR" << " | " << "DATE" << " | " << "GENRE" << "\n";
 	for(auto& [key, book]: books){
 		cout << book << "\n";
 	}
@@ -46,4 +45,10 @@ bool BookManagement::BookExists(unsigned int id){
 	else return false;
 }
 
+int BookManagement::PrintBook(unsigned int id){
+	const Book* book = GetBook(id);
+	if(book == nullptr) return 0;
+	cout << *book;
+	return 1;
+}
 

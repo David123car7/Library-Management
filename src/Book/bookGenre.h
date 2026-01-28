@@ -20,6 +20,6 @@ enum class BookGenre{
 * @param[in]     genre The BookGenre value to be printed.
 * @return A reference to the modified output stream.
 */
-std::ostream& operator<<(std::ostream& out, BookGenre& genre);
+std::ostream& operator<<(std::ostream& out, BookGenre genre);
 
 

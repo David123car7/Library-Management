@@ -13,6 +13,8 @@ ostream& operator<<(ostream& out, Result result){
 		case Result::BookNotAvailable: return out << "Book is not available";
 		case Result::InvalidDate: return out << "The date is invalid";
 		case Result::LoanFinished: return out << "The loan is allready finished";
+		case Result::LoanPickedUp: return out << "Th loan was allready picked up";
+		case Result::LoanNotPickedUp: return out << "The loan was not picked up";
 		default: return out << "Unknown Result";
 	}
 }

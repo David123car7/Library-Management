@@ -13,6 +13,54 @@ class Library{
 	LoanManagement loansManagement;
 	
 	/**
+	 * @brief Gets the user, loan and book related to a loan
+	 *
+	 * @param[[TODO:direction]] loanId Loan Id
+	 * @param[in] user Reference to the User Object
+	 * @param[in] loan Reference to the Loan Object
+	 * @param[in] book Reference to the Book Object
+	 * @return Result::UserNull if the user related to the loan does not exist,
+	 * Result::BookNull if the book related to the loan does not exist,
+	 * Result::LoanNull if the loan does not exist
+	 * Result::Sucess if all objects were retrieved sucesseful
+	 */
+	Result GetLoanContext(unsigned int loanId, User*& user, Loan*& loan, Book*& book);
+
+	/**
+	 * @brief Applys the penalty to a user by banning the user for a period of time
+	 *
+	 * @param[in] user User Id
+	 * @param[in] date Date the penalty starts 
+	 * */
+	void ApplyPenalty(User& user, const Date& date);
+
+	/**
+	 * @brief Activates the loan
+	 *
+	 * @param[in] loan Reference to the Loan Object 
+	 * @param[in] user Reference to the User Object 
+	 * @param[in] book Reference to the Book Object 
+	 */
+	void ActivateLoan(Loan& loan, User& user, Book& book);
+
+	/**
+	 * @brief Loans the book
+	 *
+	 * @param[in] loan Reference to the Loan Object
+	 */
+	void LoanBook(Loan& loan);
+
+	/**
+	 * @brief Deactivates the loan
+	 *
+	 * @param[in] loan Reference to the Loan object
+	 * @param[in] user Reference to the User object
+	 * @param[in] book Reference to the Book object
+	 * @param[in] date Date the loan was deactivated 
+	 */
+	void DeactivateLoan(Loan& loan, User& user, Book& book, const Date& date);
+
+	/**
 	 * @brief Does the user check in by checking the user state, if it is banned
 	 * will check if the ban expire date has passed if passed the user will be unbanned
 	 *
@@ -24,26 +72,6 @@ class Library{
 	 */
 	Result CheckInUser(User& user, const Date& currentDate);
 	
-	/**
-	 * @brief Checks if the user can loan a book
-	 *
-	 * @param[in] user Reference to a user object
-	 * @return Result::UserNull if the user does no exist
-	 * Result::LoansMaxReached if the user reached the max of loans
-	 * Result::UserBanned if the user is banned
-	 * Result::Sucess if the user is active
-	 */
-	Result CanUserLoan(const User& user);
-
-	/**
-	 * @brief Checks if the book is available
-	 *
-	 * @param[in] bookId Book Id
-	 * Result::BookNotAvailable if the books is not available,
-	 * Result::Sucess if the book is available
-	 */
-	Result IsBookAvailable(const Book& book);
-
 	/**
 	 * @brief Bans the user temporary
 	 *
@@ -59,16 +87,24 @@ class Library{
 		return usersManagement.Add(name, gender, age, email, phoneNumber);
 	}	
 	int RemoveUser(unsigned int id){return usersManagement.Remove(id);}
-	void PrintUsers(){usersManagement.PrintUsers();}
 
 	int AddBook(std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state){
 		return booksManagement.Add(name, author, releaseDate, genre, state);
 	}
 	int RemoveBook(unsigned int id){return booksManagement.Remove(id);}
-	void PrintBooks(){booksManagement.PrintBooks();}
-			
-	void PrintLoans(){ loansManagement.PrintLoans();}
-	
+	void PrintBooks(){
+		PrintBookColumns();
+		booksManagement.PrintBooks();
+	}
+	void PrintLoans(){ 
+		PrintLoanColumns();
+		loansManagement.PrintLoans();
+	}
+	void PrintUsers(){
+		PrintUserColumns();
+		usersManagement.PrintUsers();
+	}
+
 	/**
 	 * @brief Adds a loan
 	 *
@@ -85,6 +121,9 @@ class Library{
 	 */
 	Result CreateLoan(unsigned int bookId, unsigned int userId,const Date& currentDate, const Date& startDate, const Date& endDate);
 
+
+	Result PickupLoan(unsigned int loanId, const Date& pickedUpDate);
+
 	/**
 	 * @Finishes the loan 
 	 *
@@ -97,27 +136,6 @@ class Library{
 	 */
 	Result FinishLoan(unsigned int loanId, const Date& deliveredDate);
 
-	/**
-	 * @brief Checks if the book is available
-	 *
-	 * @param[in] bookId Book Id
-	 * @return Result::BookNull if book does not exist, 
-	 * Result::BookNotAvailable if the books is not available,
-	 * Result::Sucess if the book is available
-	 */
-	Result IsBookAvailable(unsigned int bookId);
-
-	/**
-	 * @brief Checks if the user can loan a book
-	 *
-	 * @param[in] userId User Id
-	 * @return Result::UserNull if the user does no exist
-	 * Result::LoansMaxReached if the user reached the max of loans
-	 * Result::UserBanned if the user is banned
-	 * Result::Sucess if the user is active
-	 */
-	Result CanUserLoan(unsigned int userId);
-	
 	/**
 	 * @brief Does the user check in by checking the user state, if it is banned
 	 * will check if the ban expire date has passed if passed the user will be unbanned
@@ -140,4 +158,19 @@ class Library{
 	 * Result::Sucesseful if the user was banned sucessefuly
 	 */
 	Result BanUser(unsigned int userId, const Date& startDate);
+
+	Result PrintUserLoans(unsigned int userId);	
+	Result PrintBooksUserLoans(unsigned int userId);
+	void PrintUserColumns(){
+		std::cout << "ID" " | " << " | " << "NAME" << " | " << "GENDER" << " | " << "AGE" << " | " << 
+			"PHONE NUMBER" << " | " << "EMAIL" << " | " << "STATE" << " | " << "OCCURRENCES" <<
+			" | " << "BAN EXPIRE DATE" << "\n";
+	}
+	void PrintBookColumns(){
+		std::cout << "ID" << " | " << "NAME" << " | " << "AUTHOR" << " | " << "DATE" << " | " << "GENRE" << "\n";
+	}
+	void PrintLoanColumns(){
+		std::cout << "ID" << " | " << "USER ID" << " | " << "BOOK ID" << " | " << "START DATE" << " | "
+			"END DATE" << " | " << "DELIVERED DATE" << " | " << "STATE" << "\n";
+	}
 };

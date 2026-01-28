@@ -63,7 +63,7 @@ class Book {
 	* @param[in]     book  The Book object to be printed.
 	* @return A reference to the modified output stream.
 	*/
-	friend std::ostream& operator<<(std::ostream& out, Book& book){
-		return out << book.id << " " << book.name << " " << book.author << " " << book.releaseDate << " " << book.genre << " " << book.state;	
+	friend std::ostream& operator<<(std::ostream& out, const Book& book){
+		return out << book.id << " | " << book.name << " | " << book.author << " | " << book.releaseDate << " | " << book.genre << " | " << book.state;	
 	}
 };

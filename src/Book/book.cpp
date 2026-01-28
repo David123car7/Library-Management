@@ -28,7 +28,7 @@ void Book::SetState(BookState state){
 	this->state = state;
 }
 
-ostream& operator<<(ostream& out, BookGenre& genre){
+ostream& operator<<(ostream& out, BookGenre genre){
 	switch(genre){
 		case BookGenre::fantasy: return out << "Fantasy";
 		case BookGenre::horror: return out << "Horror";
@@ -38,7 +38,7 @@ ostream& operator<<(ostream& out, BookGenre& genre){
 	}
 }
 
-ostream& operator<<(ostream& out, BookState& genre){
+ostream& operator<<(ostream& out, BookState genre){
 	switch(genre){
 		case BookState::available: return out << "Available";
 		case BookState::notAvailable: return out << "Not Available";

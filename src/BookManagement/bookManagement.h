@@ -56,4 +56,6 @@ class BookManagement{
 	 *
 	 */
 	void PrintBooks();
+
+	int PrintBook(unsigned int id);
 };

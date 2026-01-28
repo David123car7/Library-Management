@@ -7,4 +7,4 @@ enum class LoanState{
 	finished,
 };
 
-std::ostream& operator<<(std::ostream& out, LoanState& state);
+std::ostream& operator<<(std::ostream& out, LoanState state);

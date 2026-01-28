@@ -43,8 +43,7 @@ class Loan{
 	void SetState(LoanState state) { this->state = state;}
 	void SetDeliveredDate(const Date& deliveredDate) {this->deliveredDate = deliveredDate;}
 
-	friend std::ostream& operator<<(std::ostream& out, Loan& loan){
-		return out << loan.id << " " << loan.userId << " " << loan.bookId << " " << loan.startDate 
-			<< " " << loan.endDate << " " << loan.deliveredDate << " " << loan.state;
+	friend std::ostream& operator<<(std::ostream& out, const Loan& loan){
+		return out << loan.id << " | " << loan.userId << " | " << loan.bookId << " | " << loan.startDate << " | " << loan.endDate << " | " << loan.deliveredDate << " | " << loan.state;
 	}
 };
