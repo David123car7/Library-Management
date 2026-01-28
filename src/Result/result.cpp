@@ -15,6 +15,7 @@ ostream& operator<<(ostream& out, Result result){
 		case Result::LoanFinished: return out << "The loan is allready finished";
 		case Result::LoanPickedUp: return out << "Th loan was allready picked up";
 		case Result::LoanNotPickedUp: return out << "The loan was not picked up";
+		case Result::LoansEmpty: return out << "User does not have any loans";
 		default: return out << "Unknown Result";
 	}
 }

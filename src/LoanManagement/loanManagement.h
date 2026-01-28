@@ -49,6 +49,11 @@ class LoanManagement{
 	 */
 	int GetUserMapSize(unsigned int key);
 
+	/**
+	 * @brief Gets the loan ids associated with a given key
+	 *
+	 * @param[in] key User Id
+	 */
 	const std::vector<unsigned int>* GetUserLoanIds(unsigned key);
 
 	/**

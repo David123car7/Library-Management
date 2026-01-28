@@ -11,6 +11,7 @@ class Library{
 	UserManagement usersManagement;
 	BookManagement booksManagement;
 	LoanManagement loansManagement;
+	LoanManagement loansHistoryManagement;
 	
 	/**
 	 * @brief Gets the user, loan and book related to a loan
@@ -92,18 +93,7 @@ class Library{
 		return booksManagement.Add(name, author, releaseDate, genre, state);
 	}
 	int RemoveBook(unsigned int id){return booksManagement.Remove(id);}
-	void PrintBooks(){
-		PrintBookColumns();
-		booksManagement.PrintBooks();
-	}
-	void PrintLoans(){ 
-		PrintLoanColumns();
-		loansManagement.PrintLoans();
-	}
-	void PrintUsers(){
-		PrintUserColumns();
-		usersManagement.PrintUsers();
-	}
+
 
 	/**
 	 * @brief Adds a loan
@@ -158,9 +148,31 @@ class Library{
 	 * Result::Sucesseful if the user was banned sucessefuly
 	 */
 	Result BanUser(unsigned int userId, const Date& startDate);
+	
+	void PrintBooks(){
+		PrintBookColumns();
+		booksManagement.PrintBooks();
+	}
+	
+	void PrintLoans(){ 
+		PrintLoanColumns();
+		loansManagement.PrintLoans();
+	}
 
+	void PrintHistoryLoans(){ 
+		PrintLoanColumns();
+		loansHistoryManagement.PrintLoans();
+	}
+	
+	void PrintUsers(){
+		PrintUserColumns();
+		usersManagement.PrintUsers();
+	}
+	
 	Result PrintUserLoans(unsigned int userId);	
+	
 	Result PrintBooksUserLoans(unsigned int userId);
+	
 	void PrintUserColumns(){
 		std::cout << "ID" " | " << " | " << "NAME" << " | " << "GENDER" << " | " << "AGE" << " | " << 
 			"PHONE NUMBER" << " | " << "EMAIL" << " | " << "STATE" << " | " << "OCCURRENCES" <<

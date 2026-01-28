@@ -6,6 +6,7 @@ Result Library::CreateLoan(unsigned int bookId, unsigned int userId,const Date& 
 	if(startDate > endDate) return Result::InvalidDate;
 	User* user = usersManagement.GetUser(userId);
 	if(user == nullptr) return Result::UserNull;
+	if(user->GetState() == UserState::banned) return Result::UserBanned;
 	Book* book = booksManagement.GetBook(bookId);
 	if(book == nullptr) return Result::BookNull;
 	if(book->GetState() != BookState::available) return Result::BookNotAvailable;
@@ -44,6 +45,8 @@ Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
 	if(deliveredDate > loan->GetEndDate()){
 		ApplyPenalty(*user, deliveredDate);	
 	}
+	loansHistoryManagement.Add(loan->GetBookId(), loan->GetUserId(), loan->GetStartDate(), loan->GetEndDate(), loan->GetState());
+	loansManagement.Remove(loanId);
 	return Result::Sucess;
 }
 
@@ -118,20 +121,17 @@ Result Library::PrintUserLoans(unsigned int userId){
 	return Result::Sucess;
 }
 
-
-
 Result Library::PrintBooksUserLoans(unsigned int userId){
 	const User* user = usersManagement.GetUser(userId);
 	if(user == nullptr) return Result::UserNull;
 	const vector<unsigned int>* loans = loansManagement.GetUserLoanIds(userId);
+	if(loans == nullptr) return Result::LoansEmpty;
 	PrintBookColumns();
 	for(unsigned int i=0; i<loans->size(); i++){
-		const Loan* loan = loansManagement.GetLoan(loans[i]);
+		const Loan* loan = loansManagement.GetLoan(loans->at(i));
 		if(loan == nullptr) return Result::LoanNull;
 		booksManagement.PrintBook(loan->GetBookId());
 		cout << "\n";
 	}
 	return Result::Sucess;
 }
-
-

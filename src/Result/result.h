@@ -13,6 +13,7 @@ enum class Result{
 	LoanFinished,
 	LoanPickedUp,
 	LoanNotPickedUp,
+	LoansEmpty,
 };
 
 std::ostream& operator<<(std::ostream& out, Result result);

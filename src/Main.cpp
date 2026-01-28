@@ -27,9 +27,9 @@ int main(){
 	library.CreateLoan(1,0, date, date1, date2);
 	library.CreateLoan(2,0, date, date1, date2);
 	library.PickupLoan(0, date);
-	library.PickupLoan(1, date);
-	library.FinishLoan(2, date3);
-	library.PrintLoans();
+	library.FinishLoan(1, date);
+	library.FinishLoan(0, date2);
+	library.PrintHistoryLoans();
 	return 0;
 }
 

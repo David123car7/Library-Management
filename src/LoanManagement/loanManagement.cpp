@@ -48,7 +48,7 @@ const vector<unsigned int>* LoanManagement::GetUserLoanIds(unsigned key){
 bool LoanManagement::LoanIdUserMapExists(unsigned int key, unsigned int id){
 	if(!ExistsKeyUserMap(key)) return false;
 	vector<unsigned int>& ids = loansUserMap[key];
-	for(int i=0; i<ids.size(); i++){
+	for(unsigned int i=0; i<ids.size(); i++){
 		if(ids[i] == id)
 			return true;
 	}
@@ -56,7 +56,7 @@ bool LoanManagement::LoanIdUserMapExists(unsigned int key, unsigned int id){
 }
 
 int LoanManagement::AddIdUserMap(unsigned int key, unsigned int id){
-	if(!LoanIdUserMapExists(key, id)) return 0;
+	if(LoanIdUserMapExists(key, id)) return 0;
 	loansUserMap[key].push_back(id);
 	return 1;
 }
@@ -65,7 +65,7 @@ int LoanManagement::AddIdUserMap(unsigned int key, unsigned int id){
 int LoanManagement::RemoveIdUserMap(unsigned int key, unsigned int id){
 	if(!ExistsKeyUserMap(key)) return 0;
 	vector<unsigned int>& ids = loansUserMap[key];
-	for(int i=0; i<ids.size(); i++){
+	for(unsigned int i=0; i<ids.size(); i++){
 		if(ids[i] == id){
 			ids[i] = ids.back();
 			ids.pop_back();
@@ -73,6 +73,11 @@ int LoanManagement::RemoveIdUserMap(unsigned int key, unsigned int id){
 		}
 	}
 	return 0;
+}
+
+int LoanManagement::GetUserMapSize(unsigned int key){
+	if(!ExistsKeyUserMap(key)) return 0;
+	return loansUserMap[key].size();
 }
 
 void LoanManagement::PrintLoans(){
@@ -91,8 +96,10 @@ int LoanManagement::PrintLoan(unsigned int id){
 int LoanManagement::PrintUserLoans(unsigned int userId){
 	if(!ExistsKeyUserMap(userId)) return 0;
 	vector<unsigned int>& ids = loansUserMap[userId];
-	for(int i=0; i<ids.size(); i++){
-		cout << ids[i];	
+	for(unsigned int i=0; i<ids.size(); i++){
+		const Loan* loan = GetLoan(ids[i]);
+		if(loan != nullptr)
+			cout << *loan << "\n";
 	}
 	return 1;
 }
