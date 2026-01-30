@@ -79,3 +79,13 @@ bool operator<=(const Date& date1, const Date& date2){
 	return date1.day <= date2.day;
 
 }
+
+Date StringToDate(std::string& value){
+	vector<string> dateParsed = ParseString(value, '/');
+	if(dateParsed.empty()) throw invalid_argument("Invalid Date: " + value);
+	int day = stoi(dateParsed[0]);
+	int month = stoi(dateParsed[1]);
+	int year = stoi(dateParsed[2]);
+	Date date((uint8_t)day, (uint8_t)month, (uint16_t)year);
+	return date;
+}

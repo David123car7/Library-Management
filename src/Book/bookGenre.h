@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 
 /**
@@ -21,5 +20,13 @@ enum class BookGenre{
 * @return A reference to the modified output stream.
 */
 std::ostream& operator<<(std::ostream& out, BookGenre genre);
+
+/**
+ * @brief Converts a string to Book Genre
+ *
+ * @param[in] value String 
+ * @return Book Genre converted from a string
+ */
+BookGenre StringToBookGenre(std::string& value);
 
 

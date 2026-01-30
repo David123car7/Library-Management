@@ -12,7 +12,7 @@ class Library{
 	BookManagement booksManagement;
 	LoanManagement loansManagement;
 	LoanManagement loansHistoryManagement;
-	
+
 	/**
 	 * @brief Gets the user, loan and book related to a loan
 	 *
@@ -158,7 +158,10 @@ class Library{
 	 * Result::Sucesseful if the user was banned sucessefuly
 	 */
 	Result BanUser(unsigned int userId, const Date& startDate);
-	
+
+	void OpenLibrary();
+	void CloseLibrary();
+
 	void PrintBooksQnt();
 	void PrintAvailableBooksQnt();
 	void PrintNotAvailableBooksQnt();

@@ -1,0 +1,55 @@
+\doxysection{library.\+h}
+\hypertarget{library_8h_source}{}\label{library_8h_source}\index{Library/library.h@{Library/library.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../UserManagement/userManagement.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../LoanManagement/loanManagement.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../BookManagement/bookManagement.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../Result/result.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../Constants/constants.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classLibrary}{Library}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \doxymbox{\hyperlink{classUserManagement}{UserManagement}}\ usersManagement;}
+\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{classBookManagement}{BookManagement}}\ booksManagement;}
+\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{classLoanManagement}{LoanManagement}}\ loansManagement;}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ Result\ CheckInUser(\doxymbox{\hyperlink{classUser}{User}}\&\ user,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate);}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ Result\ CanUserLoan(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classUser}{User}}\&\ user);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00045\ \ \ \ \ Result\ IsBookAvailable(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classBook}{Book}}\&\ book);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00055\ \ \ \ \ Result\ BanUser(\doxymbox{\hyperlink{classUser}{User}}\&\ user,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ startDate);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ AddUser(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ gender,\ \textcolor{keywordtype}{int}\ age,\ \textcolor{keyword}{const}\ std::string\&\ email,\ \textcolor{keyword}{const}\ std::string\&\ phoneNumber)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ usersManagement.Add(name,\ gender,\ age,\ email,\ phoneNumber);}
+\DoxyCodeLine{00060\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ RemoveUser(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{\textcolor{keywordflow}{return}\ usersManagement.Remove(\textcolor{keywordtype}{id});\}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ PrintUsers()\{usersManagement.PrintUsers();\}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ AddBook(std::string\ name,\ std::string\ author,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ releaseDate,\ BookGenre\ genre,\ BookState\ state)\{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ booksManagement.Add(name,\ author,\ releaseDate,\ genre,\ state);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ RemoveBook(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{\textcolor{keywordflow}{return}\ booksManagement.Remove(\textcolor{keywordtype}{id});\}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ PrintBooks()\{booksManagement.PrintBooks();\}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ PrintLoans()\{\ loansManagement.PrintLoans();\}}
+\DoxyCodeLine{00071\ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ Result\ \doxymbox{\hyperlink{classLibrary_a5a42c904926ed4e7124ecf82f46123db}{CreateLoan}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ startDate,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ endDate);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00098\ \ \ \ \ Result\ \doxymbox{\hyperlink{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481}{FinishLoan}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ loanId,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ deliveredDate);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00108\ \ \ \ \ Result\ IsBookAvailable(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00119\ \ \ \ \ Result\ CanUserLoan(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId);}
+\DoxyCodeLine{00120\ \ \ \ \ }
+\DoxyCodeLine{00131\ \ \ \ \ Result\ CheckInUser(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00142\ \ \ \ \ Result\ BanUser(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ startDate);}
+\DoxyCodeLine{00143\ \};}
+
+\end{DoxyCode}

@@ -33,7 +33,7 @@ struct Date{
 	friend std::ostream& operator<<(std::ostream& out, const Date& date){
 		return out << (int)date.day << "/" << (int)date.month << "/" << date.year;
 	}
-
+	
 	/**
 	* @brief Overloads the < operator
 	*
@@ -75,4 +75,6 @@ struct Date{
 	*/
 	friend bool operator<=(const Date& date1, const Date& date2);
 };
+
+Date StringToDate(std::string& value);
 

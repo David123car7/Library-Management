@@ -38,6 +38,7 @@ class Loan{
 	int GetUserId() const {return userId;}
 	const Date& GetStartDate() const {return startDate;}
 	const Date& GetEndDate() const {return endDate;}
+	const Date& GetDeliveredDate() const {return deliveredDate;}
 	LoanState GetState() const {return state;}
 
 	void SetState(LoanState state) { this->state = state;}

@@ -1,7 +1,17 @@
 #include "bookManagement.h"
+#include "../Constants/constants.h"
 #include <stdexcept>
+#include <fstream>
+#include "../Utils/utils.h"
 
 using namespace std;
+
+int BookManagement::Add(const Book& book){
+	int id = book.GetId();
+	if(BookExists(id)) return 0;
+	books[id] = book;
+	return 1;
+}
 
 int BookManagement::Add(string name, string author, Date& releaseDate, BookGenre genre, BookState state){
 	if(name.empty()) throw invalid_argument("Name cant be empty!");
@@ -66,6 +76,34 @@ int BookManagement::GetNotAvailableBooksQnt(){
 			qnt++;
 	}
 	return qnt;
+}
+
+int BookManagement::StoreDataInFile(){
+	ofstream outf{BOOKS_FILE_NAME};
+	if (!outf) return 0;
+	for(auto& [key, book]: books){
+		outf << book.GetId() << "," << book.GetName() << "," << book.GetAuthor() << "," << book.GetReleaseDate() 
+			<< "," << book.GetGenre() << "," << book.GetState() << "\n";
+	}
+	return 1;
+}
+
+int BookManagement::ReadDataFromFile(){
+	ifstream inf{BOOKS_FILE_NAME, ios::in};
+	if (!inf) return 0;
+	string line{};
+	while(getline(inf,line)){
+		vector<string> words = ParseString(line, ',');		
+		for(unsigned int i=0; i<words.size(); i++){
+			int id = stoi(words[0]);
+			Date date = StringToDate(words[3]);
+			BookGenre genre = StringToBookGenre(words[4]);
+			BookState state = StringToBookState(words[5]);
+			Book book(id, words[1], words[2], date, genre, state); 
+			Add(book);
+		}
+	}
+	return 1;
 }
 
 int BookManagement::PrintBook(unsigned int id){

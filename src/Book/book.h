@@ -43,7 +43,7 @@ class Book {
 	int GetId() const {return id;}
 	const std::string& GetName() const {return name;}
 	const std::string& GetAuthor() const {return author;}
-	const Date& GetRealeaseDate() const {return releaseDate;}
+	const Date& GetReleaseDate() const {return releaseDate;}
 	BookGenre GetGenre() const {return genre;}
 	BookState GetState() const {return state;}
 

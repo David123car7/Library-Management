@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 enum class LoanState{
 	toPickUp,
@@ -8,3 +9,7 @@ enum class LoanState{
 };
 
 std::ostream& operator<<(std::ostream& out, LoanState state);
+
+LoanState StringToLoanState(std::string& value);
+
+

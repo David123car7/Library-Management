@@ -1,9 +1,18 @@
 #include "userManagement.h"
 #include "../User/user.h"
+#include "../Utils/utils.h"
+#include "../Constants/constants.h"
 #include <string>
+#include <fstream>
 #include <stdexcept>
 
 using namespace std;
+
+int UserManagement::Add(const User& user, unsigned int id){
+	if(UserExists(id)) return 0;
+	users[id] = user;
+	return 1;
+}
 
 int UserManagement::Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber){	
 	if(name.empty()) throw invalid_argument("Name cant be empty.");
@@ -40,9 +49,57 @@ int UserManagement::Remove(unsigned int id){
 	return 1;
 }
 
+int UserManagement::ReadDataFromFile(){
+	ifstream rf{USERS_FILE_NAME, ios::binary};
+	if(!rf) return 0;
+	while(rf.peek() != EOF){
+		unsigned int id, age;
+		uint8_t occurrences;
+		UserState state;
+		string name, gender, email, phoneNumber;
+		Date banExpireDate;
+		rf.read(reinterpret_cast<char*>(&id), sizeof(id));
+		ReadBinaryToString(rf, name);
+		ReadBinaryToString(rf, gender);
+		rf.read(reinterpret_cast<char*>(&age), sizeof(age));
+		ReadBinaryToString(rf, phoneNumber);
+		ReadBinaryToString(rf, email);
+		rf.read(reinterpret_cast<char*>(&state), sizeof(state));
+		rf.read(reinterpret_cast<char*>(&occurrences), sizeof(occurrences));
+		rf.read(reinterpret_cast<char*>(&banExpireDate), sizeof(banExpireDate));
+		User user(id, name, gender, age, phoneNumber, email, state, occurrences);
+		Add(user, id);
+	}
+	rf.close();
+	return 1;
+}
+
+int UserManagement::StoreDataInFile(){
+	ofstream wf{USERS_FILE_NAME, ios::binary};
+	if(!wf) return 0;
+	for(auto& [key, user]: users){
+		unsigned int id = user.GetId();
+		unsigned int age = user.GetAge();
+		UserState state = user.GetState();
+		Date banExpireDate = user.GetBanExpireDate();
+		uint8_t occurrences = user.GetOccurrences();
+		wf.write(reinterpret_cast<char*>(&id), sizeof(id));
+		StoreStringToBinary(wf, user.GetName());
+		StoreStringToBinary(wf, user.GetGender());
+		wf.write(reinterpret_cast<char*>(&age), sizeof(age));
+		StoreStringToBinary(wf, user.GetPhoneNumber());
+		StoreStringToBinary(wf, user.GetEmail());
+		wf.write(reinterpret_cast<char*>(&state), sizeof(state));
+		wf.write(reinterpret_cast<char*>(&occurrences), sizeof(occurrences));
+		wf.write(reinterpret_cast<char*>(&banExpireDate), sizeof(banExpireDate));
+	}
+	wf.close();
+	return 1;
+}
+
 void UserManagement::PrintUsers(){
 	for(const auto& [key, user]: users){
-		cout << user;	
+		cout << user << "\n";
 	}
 }
 

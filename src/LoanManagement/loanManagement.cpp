@@ -1,4 +1,6 @@
 #include "loanManagement.h"
+#include "../Utils/utils.h"
+#include <fstream>
 
 using namespace std;
 
@@ -11,6 +13,12 @@ int LoanManagement::GetNextId(){
 		id++;
 	}
 	return id;
+}
+
+int LoanManagement::Add(Loan& loan, unsigned int id){
+	if(LoanExists(id)) return 0;
+	loans[id] = loan;
+	return 1;
 }
 
 int LoanManagement::Add(unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, const Date& deliveredDate ,LoanState state){
@@ -83,6 +91,37 @@ int LoanManagement::RemoveIdUserMap(unsigned int key, unsigned int id){
 int LoanManagement::GetUserMapSize(unsigned int key){
 	if(!ExistsKeyUserMap(key)) return 0;
 	return loansUserMap[key].size();
+}
+
+int LoanManagement::StoreDataInFile(){
+	ofstream wf{LOANS_FILE_NAME};
+	if(!wf) return 0;
+	for(auto& [key, loan]: loans){
+		wf << loan.GetId() << "," << loan.GetBookId() << "," << loan.GetUserId() << "," << loan.GetStartDate() << "," << loan.GetEndDate()
+			<< "," << loan.GetDeliveredDate() << "," << loan.GetState() << "\n";
+	}
+	return 1;
+}
+
+int LoanManagement::ReadDataFromFile(){
+	ifstream rf{LOANS_FILE_NAME, ios::in};
+	if(!rf) return 0;
+	string line{};
+	while(getline(rf,line)){
+		vector<string> words = ParseString(line, ',');		
+		for(unsigned int i=0; i<words.size(); i++){
+			unsigned int id = stoi(words[0]);
+			unsigned int bookId = stoi(words[1]);
+			unsigned int userId = stoi(words[2]);
+			Date startDate = StringToDate(words[3]);
+			Date endDate = StringToDate(words[4]);
+			Date deliveredDate = StringToDate(words[5]);
+			LoanState state = StringToLoanState(words[6]);
+			Loan loan(id, bookId, userId, startDate, endDate, deliveredDate, state);
+			Add(loan, id);	
+		}
+	}
+	return 1;
 }
 
 void LoanManagement::PrintLoans(){

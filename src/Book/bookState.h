@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ostream>
+#include <string>
 
 /**
 * @brief Represents the state of a book..
@@ -20,4 +21,5 @@ enum class BookState{
 */
 std::ostream& operator<<(std::ostream& out, BookState bookState);
 
+BookState StringToBookState(std::string& value);
 

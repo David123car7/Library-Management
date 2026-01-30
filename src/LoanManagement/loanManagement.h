@@ -7,6 +7,8 @@ class LoanManagement{
 	private:
 	std::map<unsigned int, Loan> loans;
 	std::map<unsigned int, std::vector<unsigned int>> loansUserMap; //map that holds the loan ids related to a user
+	
+	int Add(Loan& loan, unsigned int id);
 
 	public:
 	/**
@@ -115,6 +117,10 @@ class LoanManagement{
 	 * false if the loan does not exist
 	 */
 	bool LoanExists(unsigned int id);
+
+	int StoreDataInFile();
+
+	int ReadDataFromFile();
 
 	/**
 	 * @brief Prints all loans

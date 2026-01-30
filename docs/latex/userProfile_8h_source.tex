@@ -1,0 +1,27 @@
+\doxysection{user\+Profile.\+h}
+\hypertarget{userProfile_8h_source}{}\label{userProfile_8h_source}\index{User/userProfile.h@{User/userProfile.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}userState.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Date/date.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }UserProfile\{}
+\DoxyCodeLine{00010\ \ \ \ \ UserState\ state;}
+\DoxyCodeLine{00011\ \ \ \ \ uint8\_t\ occurrences;}
+\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ banExpireDate;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ UserProfile():\ state\{UserState::active\},\ occurrences\{0\},\ banExpireDate\{\}\ \{\}}
+\DoxyCodeLine{00015\ \ \ \ \ UserProfile(UserState\ state,\ uint8\_t\ occurrences,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ banExpireDate):}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ state\{state\},}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ occurrences\{occurrences\},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ banExpireDate\{banExpireDate\}\ \{\}}
+\DoxyCodeLine{00019\ \ \ \ \ UserProfile(UserState\ state,\ uint8\_t\ occurrences):}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ state\{state\},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ occurrences\{occurrences\},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ banExpireDate\{\}\ \{\}}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+
+\end{DoxyCode}

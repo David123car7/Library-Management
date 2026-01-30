@@ -11,6 +11,15 @@
 class BookManagement{
 	private:
 	std::map<unsigned int, Book> books;
+	
+	/**
+	 * @brief Adds a book to the map
+	 *
+	 * @param[in] book Reference to a book object 
+	 * @return 0 if a book with the same id allready exists
+	 * 1 if the book was added
+	 * */
+	int Add(const Book& book);
 
 	public:
 	
@@ -73,10 +82,33 @@ class BookManagement{
 	int GetNotAvailableBooksQnt();
 
 	/**
+	 * @brief Stores all books in a csv file
+	 *
+	 * @return 0 if the data was not saved
+	 * 1 if the data was saved
+	 */
+	int StoreDataInFile();
+
+	/**
+	 * @brief Reads books data from a csv file
+	 *
+	 * @return 0 if the data was not read
+	 * 1 if the data was read and load sucessfuly
+	 */
+	int ReadDataFromFile();
+
+	/**
 	 * @brief Prints all books
 	 *
 	 */
 	void PrintBooks();
 
+	/**
+	 * @brief Prints a book
+	 *
+	 * @param[in] id Book Id 
+	 * @return 0 if the book does not exist,
+	 * 1 if the book was printed
+	 */
 	int PrintBook(unsigned int id);
 };

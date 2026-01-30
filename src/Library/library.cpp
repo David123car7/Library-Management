@@ -115,6 +115,18 @@ void Library::LoanBook(Loan& loan){
 	loan.SetState(LoanState::loaned);	
 }
 
+void Library::OpenLibrary(){
+	booksManagement.ReadDataFromFile();
+	usersManagement.ReadDataFromFile();
+	loansManagement.ReadDataFromFile();
+}
+
+void Library::CloseLibrary(){
+	booksManagement.StoreDataInFile();
+	usersManagement.StoreDataInFile();
+	loansManagement.StoreDataInFile();
+}
+
 Result Library::PrintUserLoans(unsigned int userId){
 	PrintLoanColumns();
 	if(int res = loansManagement.PrintUserLoans(userId); res == 0) return Result::UserNull; 

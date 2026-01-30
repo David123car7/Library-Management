@@ -1,0 +1,28 @@
+\doxysection{loan\+Management.\+h}
+\hypertarget{loanManagement_8h_source}{}\label{loanManagement_8h_source}\index{LoanManagement/loanManagement.h@{LoanManagement/loanManagement.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../Loan/loan.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classLoanManagement}{LoanManagement}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ std::map<unsigned\ int,\ Loan>\ loans;\ \ \ \ \ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classLoanManagement_a62a8f1afdf356b39cc0edf32b253022d}{Add}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ startDate,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structDate}{Date}}\&\ endDate,\ LoanState\ state);}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6}{Remove}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{classLoan}{Loan}}*\ \doxymbox{\hyperlink{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926}{GetLoan}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classLoan}{Loan}}*\ \doxymbox{\hyperlink{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926}{GetLoan}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403}{LoanExists}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classLoanManagement_ae49e58498dbdc2557f5df9e25814f095}{PrintLoans}}();}
+\DoxyCodeLine{00062\ \};}
+
+\end{DoxyCode}

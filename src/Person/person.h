@@ -8,7 +8,7 @@ class Person{
 	unsigned int id;
         std::string name;
 	std::string gender;
-	int age;
+	unsigned int age;
 
 	public:
 	Person(): id{0}, name{""}, gender{""}, age{0} {}	
@@ -21,7 +21,7 @@ class Person{
 	 * @param[in] gender Gender
 	 * @param[in] age Age
 	 */
-	Person(unsigned int id, std::string name, std::string gender, int age): 
+	Person(unsigned int id, std::string name, std::string gender, unsigned int age): 
 		id{id},
 		name{name}, 
 		gender{gender}, 

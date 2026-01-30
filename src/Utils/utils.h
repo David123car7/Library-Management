@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <fstream>
 #include "../Constants/constants.h"
 
 /**
@@ -21,3 +23,10 @@ int GetMonthDays(uint8_t month, unsigned int year);
  * false if the string is not valid
  */
 bool isInvalidString(const std::string& x);
+
+std::vector<std::string> ParseString(const std::string& line, char c);
+
+void StoreStringToBinary(std::ofstream& wf, const std::string& value);
+void ReadBinaryToString(std::ifstream& rf, std::string& value);
+
+

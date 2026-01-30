@@ -1,0 +1,22 @@
+\doxysection{result.\+h}
+\hypertarget{result_8h_source}{}\label{result_8h_source}\index{Result/result.h@{Result/result.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{enum\ class}\ Result\{}
+\DoxyCodeLine{00005\ \ \ \ \ Sucess,}
+\DoxyCodeLine{00006\ \ \ \ \ UserNull,}
+\DoxyCodeLine{00007\ \ \ \ \ UserBanned,}
+\DoxyCodeLine{00008\ \ \ \ \ BookNull,}
+\DoxyCodeLine{00009\ \ \ \ \ LoanNull,}
+\DoxyCodeLine{00010\ \ \ \ \ LoansMaxReached,}
+\DoxyCodeLine{00011\ \ \ \ \ BookNotAvailable,}
+\DoxyCodeLine{00012\ \ \ \ \ InvalidDate,}
+\DoxyCodeLine{00013\ \ \ \ \ LoanFinished,}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ std::ostream\&\ operator<<(std::ostream\&\ out,\ Result\ result);}
+
+\end{DoxyCode}
