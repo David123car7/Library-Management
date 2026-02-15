@@ -5,6 +5,7 @@ enum class Result{
 	Sucess,
 	UserNull,
 	UserBanned,
+	UserNotRemoved,
 	BookNull,
 	LoanNull,
 	LoansMaxReached,

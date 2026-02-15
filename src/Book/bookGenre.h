@@ -29,4 +29,10 @@ std::ostream& operator<<(std::ostream& out, BookGenre genre);
  */
 BookGenre StringToBookGenre(std::string& value);
 
+/**
+ * @brief Displays all book genre options
+ *
+ */
+void DisplayBookGenreOptions();
+
 

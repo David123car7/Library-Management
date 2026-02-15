@@ -14,7 +14,7 @@ int UserManagement::Add(const User& user, unsigned int id){
 	return 1;
 }
 
-int UserManagement::Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber){	
+int UserManagement::Add(string name, string gender, int age, string email, string phoneNumber){	
 	if(name.empty()) throw invalid_argument("Name cant be empty.");
 	if(gender.empty()) throw invalid_argument("Gender cant be empty.");
 	if(age < 0 || age > 120) throw invalid_argument("Age is invalid");
@@ -106,7 +106,7 @@ void UserManagement::PrintUsers(){
 int UserManagement::PrintUser(unsigned int id){
 	const User* user = GetUser(id);
 	if(user == nullptr) return 0;
-	cout << user;
+	cout << *user;
 	return 1;
 }
 

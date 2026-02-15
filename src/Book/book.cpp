@@ -75,4 +75,9 @@ BookGenre StringToBookGenre(string& value){
 	else throw invalid_argument("Invalid BookGenre: " + value);
 }
 
+void DisplayBookGenreOptions(){
+
+}
+
+
 

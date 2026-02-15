@@ -87,7 +87,7 @@ class Library{
 	int AddUser(const std::string& name, const std::string& gender, int age, const std::string& email, const std::string& phoneNumber){
 		return usersManagement.Add(name, gender, age, email, phoneNumber);
 	}	
-	int RemoveUser(unsigned int id){return usersManagement.Remove(id);}
+	Result RemoveUser(unsigned int id);
 
 	int AddBook(std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state){
 		return booksManagement.Add(name, author, releaseDate, genre, state);
@@ -165,6 +165,18 @@ class Library{
 	void PrintBooksQnt();
 	void PrintAvailableBooksQnt();
 	void PrintNotAvailableBooksQnt();
+
+	int PrintUser(unsigned int userId){
+		return usersManagement.PrintUser(userId);
+	}
+
+	int PrintBook(unsigned int bookId){
+		return booksManagement.PrintBook(bookId);
+	}
+
+	int PrintLoan(unsigned int loanId){
+		return loansManagement.PrintLoan(loanId);
+	}
 
 	/**
 	 * @brief Prints all books

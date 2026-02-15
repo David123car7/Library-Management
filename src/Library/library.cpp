@@ -50,6 +50,14 @@ Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
 	return Result::Sucess;
 }
 
+Result Library::RemoveUser(unsigned int userId){
+	if(loansManagement.ExistsKeyUserMap(userId)) 
+		return Result::UserNotRemoved;
+	if(int res = usersManagement.Remove(userId); res == 1)
+		return Result::Sucess;
+	else return Result::UserNull;
+}
+
 Result Library::CheckInUser(unsigned int userId, const Date& currentDate){	
 	User* user = usersManagement.GetUser(userId);
 	if(user == nullptr) return Result::UserNull;
