@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream>
 #include "../Constants/constants.h"
+#include "../Date/date.h"
 
 /**
  * @brief Gets the days a month has
@@ -29,4 +30,5 @@ std::vector<std::string> ParseString(const std::string& line, char c);
 void StoreStringToBinary(std::ofstream& wf, const std::string& value);
 void ReadBinaryToString(std::ifstream& rf, std::string& value);
 
+Date StringToDate(std::string& value);
 

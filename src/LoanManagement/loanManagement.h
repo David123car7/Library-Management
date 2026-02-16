@@ -7,9 +7,10 @@ class LoanManagement{
 	private:
 	std::map<unsigned int, Loan> loans;
 	std::map<unsigned int, std::vector<unsigned int>> loansUserMap; //map that holds the loan ids related to a user
+	std::map<unsigned int, std::vector<unsigned int>> loansBookMap; //map that holds the loan ids relatad to a book
 	
-	int Add(Loan& loan, unsigned int id);
-
+	int Add(Loan& loan);
+	
 	public:
 	/**
 	 * @brief Gets the next id for the loans Map
@@ -39,6 +40,15 @@ class LoanManagement{
 	bool ExistsKeyUserMap(unsigned int key);
 
 	/**
+	 * @brief Checks if there is a key in the books map
+	 *
+	 * @param[in] key User Id
+	 * @return 0 if it does not exist,
+	 * 1 if it does exist
+	 */
+	bool ExistsKeyBookMap(unsigned int key);
+
+	/**
 	 * @brief Checks if a loan id associated with a given key exists in the user map
 	 *
 	 * @param[in] key User Id 
@@ -47,6 +57,16 @@ class LoanManagement{
 	 * false if the loan id does not exist in the associated key
 	 */
 	bool LoanIdUserMapExists(unsigned int key, unsigned int id);
+
+	/**
+	 * @brief Checks if a loan id associated with a given key exists in the book map
+	 *
+	 * @param[in] key Book Id
+	 * @param[in] id Loan Id
+	 * @return true if the loan id exists
+	 * false if the loan id does not exist in the associated key
+	 */
+	bool LoanIdBookMapExists(unsigned int key, unsigned int id);
 
 	/**
 	 * @brief Gets the size of the vector assosiated with the key in the user map
@@ -83,6 +103,26 @@ class LoanManagement{
 	 * 0 if the loan id does not exist
 	 */
 	int RemoveIdUserMap(unsigned int key, unsigned int id);
+
+	/**
+	 * @brief Adds a loan id to the book map
+	 *
+	 * @param[in] key Book Id 
+	 * @param[in] id Loan Id 
+	 * @return 1 if the loan id was added
+	 * 0 if the loan id allready exists
+	 */
+	int AddIdBookMap(unsigned int key, unsigned int id);
+
+	/**
+	 * @brief Removes a loan id drom the book map
+	 *
+	 * @param[in] key Book Id 
+	 * @param[in] id Loan Id 
+	 * @return 1 if the loan id was removed
+	 * 0 if the loan id does not exist
+	 */
+	int RemoveIdBookMap(unsigned int key, unsigned int id);
 
 	/**
 	 * @brief Removes a loan from the loan map
@@ -133,6 +173,7 @@ class LoanManagement{
 	 * @param [in] ud Loan Id
 	 */
 	int PrintLoan(unsigned int id);
+
 
 	/**
 	 * @brief Prints the user loans

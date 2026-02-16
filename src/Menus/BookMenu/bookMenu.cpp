@@ -34,41 +34,74 @@ void BookMenu(Library& library){
 				continue;
 			case 3:
 				PrintBookIO(library);
+				continue;
 			case 4:
 				library.PrintBooks();
+				continue;
+			case 0:
+				return;
 		}
 	}
 }
 
 void AddBookIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	string name, author, releaseDate;
+	string name, author, releaseDateAux, genreAux, stateAux;
+	Date releaseDate;
 	BookGenre genre;
-	BookState state;
-	cout << "Name: " << "\n";
+	cout << "Name: ";
 	cin >> name;
-	cout << "Author: " << "\n";
+	cout << "Author: ";
 	cin >> author;
-	cout << "Date(dd/mm/yyyy):" << "\n";
-	cin >> releaseDate;
+	cout << "Release Date(dd/mm/yyyy): ";
+	cin >> releaseDateAux;
 
-	vector<string> date = ParseString(releaseDate, '/');	
+	vector<string> date = ParseString(releaseDateAux, '/');	
 	try{
 		int day = stoi(date[0]);
 		int month = stoi(date[1]);
 		int year = stoi(date[2]);
+		releaseDate = Date(day,month, year);
+		cout << "BookGenre: ";
+		cin >> genreAux;
+		genre = StringToBookGenre(genreAux);
+		cout << library.AddBook(name, author, releaseDate, genre, BookState::available);
 	}
 	catch(exception& e){
-		cout << e.what();
+		cout << "Error: " << e.what() << "\n";
 		return;
 	}
-
-	cout << "BookGenre:" << "\n";
 }
 
 void RemoveBookIO(Library& library){
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	int id;
+	cout << "Id: ";
+	if(!(cin >> id)){
+		cout << "Error: Invalid Id" << "\n";
+		cin.clear();
+		return;
+	}
+
+	if(Result res = library.RemoveBook(id); res == Result::Sucess)
+		cout << "Book Removed Successfully" << "\n";
+	else if(res == Result::UserNotRemoved)
+		cout << "Error: Book cant be removed because its being referenced in another place" << "\n";
+	else if(res == Result::UserNull)
+		cout << "Error: Book does not exist" << "\n";
 }
 
 void PrintBookIO(Library& library){
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	int id;
+	cout << "Id: ";
+	if(!(cin >> id)){
+		cout << "Error: Invalid Id" << "\n";
+		cin.clear();
+		return;
+	}
+
+	if(int res = library.PrintBook(id); res != 1)
+		cout << "Error: Book does not exist";
 }
 

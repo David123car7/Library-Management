@@ -41,3 +41,13 @@ void ReadBinaryToString(ifstream& rf, string& value){
 	value.resize(len);
 	rf.read(&value[0], len);
 }
+
+Date StringToDate(std::string& value){
+	vector<string> dateParsed = ParseString(value, '/');
+	if(dateParsed.empty()) throw invalid_argument("Invalid Date: " + value);
+	int day = stoi(dateParsed[0]);
+	int month = stoi(dateParsed[1]);
+	int year = stoi(dateParsed[2]);
+	Date date((uint8_t)day, (uint8_t)month, (uint16_t)year);
+	return date;
+}

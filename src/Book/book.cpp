@@ -47,20 +47,6 @@ ostream& operator<<(ostream& out, BookState state){
 	}
 }
 
-istream& operator>>(istream& in, BookGenre& genre) {
-    std::string token;
-    in >> token; 
-
-    if (token == "Fantasy")      genre = BookGenre::fantasy;
-    else if (token == "Horror")  genre = BookGenre::horror;
-    else if (token == "Romance") genre = BookGenre::romance;
-    else if (token == "Action")  genre = BookGenre::action;
-    else {
-        in.setstate(std::ios::failbit);
-    }
-    return in;
-}
-
 BookState StringToBookState(string& value){
 	if(value == "Available") return BookState::available;
 	else if(value == "Not_Available") return BookState::notAvailable;

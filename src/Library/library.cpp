@@ -13,7 +13,8 @@ Result Library::CreateLoan(unsigned int bookId, unsigned int userId,const Date& 
 	if(Result res = CheckInUser(*user, currentDate); res != Result::Sucess) return res;
 	if(loansManagement.GetUserMapSize(userId) >= MAX_LOANS) return Result::LoansMaxReached;
 	int loanId = loansManagement.Add(bookId, userId, startDate, endDate, Date(), LoanState::toPickUp);
-	loansManagement.AddIdUserMap(userId, loanId);	
+	loansManagement.AddIdUserMap(user->GetId(), loanId);
+	loansManagement.AddIdBookMap(book->GetId(), loanId);
 	book->SetState(BookState::notAvailable);		
 	return Result::Sucess;
 }
@@ -45,8 +46,6 @@ Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
 	if(deliveredDate > loan->GetEndDate()){
 		ApplyPenalty(*user, deliveredDate);	
 	}
-	loansHistoryManagement.Add(loan->GetBookId(), loan->GetUserId(), loan->GetStartDate(), loan->GetEndDate(), deliveredDate,loan->GetState());
-	loansManagement.Remove(loanId);
 	return Result::Sucess;
 }
 
@@ -56,6 +55,14 @@ Result Library::RemoveUser(unsigned int userId){
 	if(int res = usersManagement.Remove(userId); res == 1)
 		return Result::Sucess;
 	else return Result::UserNull;
+}
+
+Result Library::RemoveBook(unsigned int bookId){
+	if(loansManagement.ExistsKeyBookMap(bookId)) 
+		return Result::BookNotRemoved;
+	if(int res = booksManagement.Remove(bookId); res == 1)
+		return Result::Sucess;
+	else return Result::BookNull;
 }
 
 Result Library::CheckInUser(unsigned int userId, const Date& currentDate){	
@@ -100,10 +107,18 @@ Result Library::GetLoanContext(unsigned int loanId, User*& user, Loan*& loan, Bo
 }
 
 void Library::DeactivateLoan(Loan& loan, User& user, Book& book, const Date& date){
+	int userId = user.GetId();
+	int bookId = book.GetId();
+	int loanId = loan.GetId();
 	loan.SetState(LoanState::finished);
 	loan.SetDeliveredDate(date);
 	book.SetState(BookState::available);
-	loansManagement.RemoveIdUserMap(user.GetId(),loan.GetId());
+	loansHistoryManagement.AddIdUserMap(userId, loanId);
+	loansManagement.RemoveIdUserMap(userId, loanId);
+	loansHistoryManagement.AddIdBookMap(bookId, loanId);
+	loansManagement.RemoveIdBookMap(bookId, loanId);
+	loansHistoryManagement.Add(bookId, userId, loan.GetStartDate(), loan.GetEndDate(), date , loan.GetState());
+	loansManagement.Remove(loanId);
 }
 
 void Library::ApplyPenalty(User& user, const Date& date){
@@ -111,12 +126,6 @@ void Library::ApplyPenalty(User& user, const Date& date){
 	if(user.GetOccurrences() > MAX_USER_OCCURRENCES){
 		BanUser(user, date);	
 	}
-}
-
-void Library::ActivateLoan(Loan& loan, User& user, Book& book){
-	loan.SetState(LoanState::toPickUp);
-	book.SetState(BookState::notAvailable);
-	loansManagement.AddIdUserMap(user.GetId(), loan.GetId());
 }
 
 void Library::LoanBook(Loan& loan){

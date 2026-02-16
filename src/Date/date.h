@@ -76,5 +76,4 @@ struct Date{
 	friend bool operator<=(const Date& date1, const Date& date2);
 };
 
-Date StringToDate(std::string& value);
 

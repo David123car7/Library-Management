@@ -36,15 +36,6 @@ class Library{
 	void ApplyPenalty(User& user, const Date& date);
 
 	/**
-	 * @brief Activates the loan
-	 *
-	 * @param[in] loan Reference to the Loan Object 
-	 * @param[in] user Reference to the User Object 
-	 * @param[in] book Reference to the Book Object 
-	 */
-	void ActivateLoan(Loan& loan, User& user, Book& book);
-
-	/**
 	 * @brief Loans the book
 	 *
 	 * @param[in] loan Reference to the Loan Object
@@ -92,8 +83,7 @@ class Library{
 	int AddBook(std::string name, std::string author, Date& releaseDate, BookGenre genre, BookState state){
 		return booksManagement.Add(name, author, releaseDate, genre, state);
 	}
-	int RemoveBook(unsigned int id){return booksManagement.Remove(id);}
-
+	Result RemoveBook(unsigned int bookId);
 
 	/**
 	 * @brief Adds a loan

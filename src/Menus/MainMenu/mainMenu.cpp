@@ -1,7 +1,9 @@
 #include "mainMenu.h"
 #include "../UserMenu/userMenu.h"
 #include "../BookMenu/bookMenu.h"
+#include "../LoanMenu/loanMenu.h"
 #include <limits>
+#include <cstdlib>
 
 using namespace std;
 
@@ -27,11 +29,16 @@ void MainMenu(Library& library){
 		switch(x){
 			case 1:
 				UserMenu(library);
+				break;
 			case 2:
 				BookMenu(library);
+				break;
+			case 3: 
+				LoanMenu(library);
+				break;
 			case 4:
 				library.CloseLibrary();
-
+				exit(0);
 		}
 	}
 }

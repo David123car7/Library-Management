@@ -15,7 +15,8 @@ int LoanManagement::GetNextId(){
 	return id;
 }
 
-int LoanManagement::Add(Loan& loan, unsigned int id){
+int LoanManagement::Add(Loan& loan){
+	int id = loan.GetId();
 	if(LoanExists(id)) return 0;
 	loans[id] = loan;
 	return 1;
@@ -53,6 +54,10 @@ bool LoanManagement::ExistsKeyUserMap(unsigned int key){
 	return loansUserMap.contains(key);
 }
 
+bool LoanManagement::ExistsKeyBookMap(unsigned int key){
+	return loansBookMap.contains(key);
+}
+
 const vector<unsigned int>* LoanManagement::GetUserLoanIds(unsigned key){
 	if(!ExistsKeyUserMap(key)) return nullptr;
 	return &loansUserMap[key];
@@ -61,6 +66,16 @@ const vector<unsigned int>* LoanManagement::GetUserLoanIds(unsigned key){
 bool LoanManagement::LoanIdUserMapExists(unsigned int key, unsigned int id){
 	if(!ExistsKeyUserMap(key)) return false;
 	vector<unsigned int>& ids = loansUserMap[key];
+	for(unsigned int i=0; i<ids.size(); i++){
+		if(ids[i] == id)
+			return true;
+	}
+	return false;
+}
+
+bool LoanManagement::LoanIdBookMapExists(unsigned int key, unsigned int id){
+	if(!ExistsKeyBookMap(key)) return false;
+	vector<unsigned int>& ids = loansBookMap[key];
 	for(unsigned int i=0; i<ids.size(); i++){
 		if(ids[i] == id)
 			return true;
@@ -78,6 +93,26 @@ int LoanManagement::AddIdUserMap(unsigned int key, unsigned int id){
 int LoanManagement::RemoveIdUserMap(unsigned int key, unsigned int id){
 	if(!ExistsKeyUserMap(key)) return 0;
 	vector<unsigned int>& ids = loansUserMap[key];
+	for(unsigned int i=0; i<ids.size(); i++){
+		if(ids[i] == id){
+			ids[i] = ids.back();
+			ids.pop_back();
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int LoanManagement::AddIdBookMap(unsigned int key, unsigned int id){
+	if(LoanIdBookMapExists(key, id)) return 0;
+	loansUserMap[key].push_back(id);
+	return 1;
+}
+
+
+int LoanManagement::RemoveIdBookMap(unsigned int key, unsigned int id){
+	if(!ExistsKeyBookMap(key)) return 0;
+	vector<unsigned int>& ids = loansBookMap[key];
 	for(unsigned int i=0; i<ids.size(); i++){
 		if(ids[i] == id){
 			ids[i] = ids.back();
@@ -118,7 +153,7 @@ int LoanManagement::ReadDataFromFile(){
 			Date deliveredDate = StringToDate(words[5]);
 			LoanState state = StringToLoanState(words[6]);
 			Loan loan(id, bookId, userId, startDate, endDate, deliveredDate, state);
-			Add(loan, id);	
+			Add(loan);	
 		}
 	}
 	return 1;
