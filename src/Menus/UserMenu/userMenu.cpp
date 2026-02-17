@@ -1,4 +1,5 @@
 #include "userMenu.h"
+#include "../MenuUtils/menuUtils.h"
 #include <limits>
 #include <iostream>
 
@@ -10,6 +11,7 @@ void DisplayUserMenu(){
 	cout << "2 - Remove User" << "\n";
 	cout << "3 - Print User" << "\n";
 	cout << "4 - Print Users" << "\n";
+	cout << "5 - Print User Loans" << "\n";
 	cout << "0 - Go Back" << "\n";
 	cout << "--------------------" << "\n";
 }
@@ -37,6 +39,9 @@ void UserMenu(Library& library){
 			case 4:
 				library.PrintUsers();
 				continue;
+			case 5:
+				PrintUserLoansIO(library);
+				continue;
 			case 0:
 				return;
 		}
@@ -46,16 +51,14 @@ void UserMenu(Library& library){
 void AddUserIO(Library& library){
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		string name, gender, email, phoneNumber;
-		int age;
-
 		cout << "Name: ";
 		cin >> name;
 		cout << "Gender: ";
 		cin >> gender;
 		cout << "Age: ";
-		if(!(cin >> age)){
-			cout << "Error: Invalid Age" << "\n";
-			cin.clear();
+		int age = InputInteger();
+		if(age == -1){		
+			cout << "Error: Invalid Id" << "\n";
 			return;
 		}
 		cout << "Email: ";
@@ -74,11 +77,10 @@ void AddUserIO(Library& library){
 
 void RemoveUserIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;
-	cout << "Id: ";
-	if(!(cin >> id)){
+	cout << "User Id : ";
+	int id = InputInteger();
+	if(id == -1){		
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
 
@@ -92,18 +94,26 @@ void RemoveUserIO(Library& library){
 
 void PrintUserIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;	
-	cout << "Id: " << "\n";
-	if(!(cin >> id)){
+	cout << "User Id: ";
+	int id = InputInteger();
+	if(id == -1){		
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
 	if(int res = library.PrintUser(id); res != 1)
 		cout << "Error: User does not exist";
 }
 
-
+void PrintUserLoansIO(Library& library){
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cout << "User Id: ";
+	int id = InputInteger();
+	if(id == -1){
+		cout << "Error: Invalid Id" << "\n";
+		return;
+	}
+	library.PrintUserLoans(id);
+}
 
 
 

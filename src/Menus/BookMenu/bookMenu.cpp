@@ -1,5 +1,6 @@
 #include "bookMenu.h"
 #include "../../Utils/utils.h"
+#include "../MenuUtils/menuUtils.h"
 #include <limits>
 
 using namespace std;
@@ -75,14 +76,12 @@ void AddBookIO(Library& library){
 
 void RemoveBookIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;
-	cout << "Id: ";
-	if(!(cin >> id)){
+	cout << "Book Id:";
+	int id = InputInteger();
+	if(id == -1){
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
-
 	if(Result res = library.RemoveBook(id); res == Result::Sucess)
 		cout << "Book Removed Successfully" << "\n";
 	else if(res == Result::BookNotRemoved)
@@ -93,14 +92,12 @@ void RemoveBookIO(Library& library){
 
 void PrintBookIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;
-	cout << "Id: ";
-	if(!(cin >> id)){
+	cout << "Book Id:";
+	int id = InputInteger();
+	if(id == -1){
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
-
 	if(int res = library.PrintBook(id); res != 1)
 		cout << "Error: Book does not exist";
 }

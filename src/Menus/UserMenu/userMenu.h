@@ -7,6 +7,7 @@ void UserMenu(Library& library);
 void AddUserIO(Library& library);
 void RemoveUserIO(Library& library);
 void PrintUserIO(Library& library);
+void PrintUserLoansIO(Library& library);
 
 
 

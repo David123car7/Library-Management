@@ -54,24 +54,30 @@ void LoanMenu(Library& library){
 
 void AddLoanIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	unsigned int bookId, userId;
 	Date startDate, endDate, currentDate;
 	string aux;
 	cout << "Book Id: ";
-	cin >> bookId;
+	unsigned int bookId = InputInteger();
+	if(bookId == -1){		
+		cout << "Error: Invalid Id" << "\n";
+		return;
+	}
 	cout << "User Id; ";
-	cin >> userId;
+	int userId = InputInteger();
+	if(userId == -1){		
+		cout << "Error: Invalid Id" << "\n";
+		return;
+	}
 	try{
 		cout << "Current Date(dd/mm/yyyy): ";
 		cin >> aux;
+		currentDate = StringToDate(aux);
 		cout << "Start Date(dd/mm/yyyy): ";
 		cin >> aux;
 		startDate = StringToDate(aux);
 		cout << "End Date(dd/mm/yyyy): ";
 		cin >> aux;
 		endDate = StringToDate(aux);
-		currentDate = StringToDate(aux);
-		cout << startDate << " " << endDate << " " << currentDate;
 	}
 	catch(exception& e){
 		cout << "Error: " << e.what();
@@ -81,18 +87,17 @@ void AddLoanIO(Library& library){
 
 void DeliverLoanIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;
 	Date pickedUpDate;
 	string aux;
-	cout << "Id: ";
-	if(!(cin >> id)){
+	cout << "Loan Id: ";
+	int id = InputInteger();
+	if(id == -1){		
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
 	try{
-		string name = "Delivered Date(dd/mm/yyyy): "; 	
-		pickedUpDate = InputDate(name);
+		cout << "Delivered Date(dd/mm/yyyy): ";
+		pickedUpDate = InputDate();
 	}
 	catch(exception& e){
 		cout << "Error: " << e.what();
@@ -102,18 +107,17 @@ void DeliverLoanIO(Library& library){
 
 void FinishLoanIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;
 	Date deliveredDate;
 	string aux;
-	cout << "Id: ";
-	if(!(cin >> id)){
+	cout << "Loan Id: ";
+	int id = InputInteger();
+	if(id == -1){		
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
 	try{
-		string name = "Delivered Date(dd/mm/yyyy): "; 	
-		deliveredDate = InputDate(name);
+		cout << "Delivered Date(dd/mm/yyyy): ";
+		deliveredDate = InputDate();
 	}
 	catch(exception& e){
 		cout << "Error: " << e.what();
@@ -123,14 +127,12 @@ void FinishLoanIO(Library& library){
 
 void PrintLoanIO(Library& library){
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	int id;
-	cout << "Id: ";
-	if(!(cin >> id)){
+	cout << "Loan Id: ";
+	int id = InputInteger();
+	if(id == -1){		
 		cout << "Error: Invalid Id" << "\n";
-		cin.clear();
 		return;
 	}
-
 	if(int res = library.PrintLoan(id); res != 1)
 		cout << "Error: Loan does not exist";
 }

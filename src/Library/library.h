@@ -207,7 +207,7 @@ class Library{
 	/**
 	 * @brief Prints all loans associated with a user
 	 *
-	 * @param[[TODO:direction]] userId User Id 
+	 * @param[in] userId User Id 
 	 * @return Result::UserNull if the user does not exist,
 	 * Result::Sucess if the loans were printed sucesseful
 	 */

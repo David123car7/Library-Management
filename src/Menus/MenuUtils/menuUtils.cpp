@@ -1,13 +1,22 @@
 #include "menuUtils.h"
 #include "../../Utils/utils.h"
 #include <iostream>
+#include <limits>
 #include <vector>
 
 using namespace std;
 
-Date InputDate(string& name){
+Date InputDate(){
 	string aux;
-	cout << name;
 	cin >> aux;
 	return StringToDate(aux);
+}
+
+int InputInteger(){
+	int id;	
+	if(!(cin >> id)){
+		cin.clear();
+		return -1;
+	}
+	return id;
 }
