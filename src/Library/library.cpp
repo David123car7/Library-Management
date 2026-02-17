@@ -139,17 +139,23 @@ void Library::LoanBook(Loan& loan){
 void Library::OpenLibrary(){
 	booksManagement.ReadDataFromFile();
 	usersManagement.ReadDataFromFile();
-	loansManagement.ReadLoansDataFromFile();
-	loansManagement.ReadUserLoansDataFromFile();
-	loansManagement.ReadBookLoansDataFromFile();
+	loansManagement.ReadLoansDataFromFile("data/loans.csv");
+	loansManagement.ReadUserLoansDataFromFile("data/userLoans.csv");
+	loansManagement.ReadBookLoansDataFromFile("data/bookLoans.csv");
+	loansHistoryManagement.ReadLoansDataFromFile("data/loansHistory.csv");
+	loansHistoryManagement.ReadUserLoansDataFromFile("data/userLoansHistory.csv");
+	loansHistoryManagement.ReadBookLoansDataFromFile("data/bookLoansHistory.csv");
 }
 
 void Library::CloseLibrary(){
 	booksManagement.StoreDataInFile();
 	usersManagement.StoreDataInFile();
-	loansManagement.StoreLoansDataInFile();
-	loansManagement.StoreUserLoansDataInFile();
-	loansManagement.StoreBookLoansDataInFile();
+	loansManagement.StoreLoansDataInFile("data/loans.csv");
+	loansManagement.StoreUserLoansDataInFile("data/userLoans.csv");
+	loansManagement.StoreBookLoansDataInFile("data/bookLoans.csv");
+	loansHistoryManagement.StoreLoansDataInFile("data/loansHistory.csv");
+	loansHistoryManagement.StoreUserLoansDataInFile("data/userLoansHistory.csv");
+	loansHistoryManagement.StoreBookLoansDataInFile("data/bookLoansHistory.csv");
 }
 
 Result Library::PrintUserLoans(unsigned int userId){

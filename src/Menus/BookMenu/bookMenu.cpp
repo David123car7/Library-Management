@@ -85,9 +85,9 @@ void RemoveBookIO(Library& library){
 
 	if(Result res = library.RemoveBook(id); res == Result::Sucess)
 		cout << "Book Removed Successfully" << "\n";
-	else if(res == Result::UserNotRemoved)
+	else if(res == Result::BookNotRemoved)
 		cout << "Error: Book cant be removed because its being referenced in another place" << "\n";
-	else if(res == Result::UserNull)
+	else if(res == Result::BookNull)
 		cout << "Error: Book does not exist" << "\n";
 }
 

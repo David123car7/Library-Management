@@ -164,7 +164,7 @@ class LoanManagement{
 	 * @return 0 if the data was not stored
 	 * 1 if the data was stored
 	 */
-	int StoreLoansDataInFile();
+	int StoreLoansDataInFile(std::string fileName);
 
 
 	/**
@@ -173,7 +173,7 @@ class LoanManagement{
 	 * @return 0 if the loan data was not readed
 	 * 1 if the loan data was readed and loaded into the program
 	 */
-	int ReadLoansDataFromFile();
+	int ReadLoansDataFromFile(std::string fileName);
 
 	/**
 	 * @brief Stores the map with all loans ids associated with a user
@@ -181,7 +181,7 @@ class LoanManagement{
 	 * @return 0 if the data was not stored
 	 * 1 if the data was stored	 
 	 */
-	int StoreUserLoansDataInFile();
+	int StoreUserLoansDataInFile(std::string fileName);
 
 	/**
 	 * @brief Reads all loans associated witha a user from a file
@@ -189,7 +189,7 @@ class LoanManagement{
 	 * @return 0 if the  data was not readed
 	 * 1 if the data was readed and loaded into the program
 	 */
-	int ReadUserLoansDataFromFile();
+	int ReadUserLoansDataFromFile(std::string fileName);
 
 	/**
 	 * @brief Stores the map with all loans ids associated with a book 
@@ -197,7 +197,7 @@ class LoanManagement{
 	 * @return 0 if the data was not stored
 	 * 1 if the data was stored	 
 	 */
-	int StoreBookLoansDataInFile();
+	int StoreBookLoansDataInFile(std::string fileName);
 
 	/**
 	 * @brief Reads all loans associated witha a book from a file
@@ -205,7 +205,7 @@ class LoanManagement{
 	 * @return 0 if the  data was not readed
 	 * 1 if the data was readed and loaded into the program
 	 */
-	int ReadBookLoansDataFromFile();
+	int ReadBookLoansDataFromFile(std::string fileName);
 
 	/**
 	 * @brief Prints all loans

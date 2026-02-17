@@ -128,8 +128,8 @@ int LoanManagement::GetUserMapSize(unsigned int key){
 	return loansUserMap[key].size();
 }
 
-int LoanManagement::StoreLoansDataInFile(){
-	ofstream wf{LOANS_FILE_NAME};
+int LoanManagement::StoreLoansDataInFile(string fileName){
+	ofstream wf{fileName};
 	if(!wf) return 0;
 	for(auto& [key, loan]: loans){
 		wf << loan.GetId() << "," << loan.GetBookId() << "," << loan.GetUserId() << "," << loan.GetStartDate() << "," << loan.GetEndDate()
@@ -141,8 +141,8 @@ int LoanManagement::StoreLoansDataInFile(){
 	return 1;
 }
 
-int LoanManagement::StoreUserLoansDataInFile(){
-	ofstream wf{LOANS_USER_FILE_NAME};
+int LoanManagement::StoreUserLoansDataInFile(string fileName){
+	ofstream wf{fileName};
 	if(!wf) return 0;
 	for(auto& [userId, loanIds]: loansUserMap){
 		wf << userId;
@@ -154,8 +154,8 @@ int LoanManagement::StoreUserLoansDataInFile(){
 	return 1;
 }
 
-int LoanManagement::StoreBookLoansDataInFile(){
-	ofstream wf{LOANS_BOOK_FILE_NAME};
+int LoanManagement::StoreBookLoansDataInFile(string fileName){
+	ofstream wf{fileName};
 	if(!wf) return 0;
 	for(auto& [userId, bookIds]: loansBookMap){
 		wf << userId;
@@ -167,8 +167,8 @@ int LoanManagement::StoreBookLoansDataInFile(){
 	return 1;
 }
 
-int LoanManagement::ReadBookLoansDataFromFile(){
-	ifstream rf{LOANS_BOOK_FILE_NAME};
+int LoanManagement::ReadBookLoansDataFromFile(string fileName){
+	ifstream rf{fileName};
 	if(!rf) return 0;
 	string line{};
 	while(getline(rf,line)){
@@ -180,8 +180,8 @@ int LoanManagement::ReadBookLoansDataFromFile(){
 	return 1;
 }
 
-int LoanManagement::ReadUserLoansDataFromFile(){
-	ifstream rf{LOANS_USER_FILE_NAME};
+int LoanManagement::ReadUserLoansDataFromFile(string fileName){
+	ifstream rf{fileName};
 	if(!rf) return 0;
 	string line{};
 	while(getline(rf,line)){
@@ -193,8 +193,8 @@ int LoanManagement::ReadUserLoansDataFromFile(){
 	return 1;
 }
 
-int LoanManagement::ReadLoansDataFromFile(){
-	ifstream rf{LOANS_FILE_NAME, ios::in};
+int LoanManagement::ReadLoansDataFromFile(string fileName){
+	ifstream rf{fileName, ios::in};
 	if(!rf) return 0;
 	string line{};
 	while(getline(rf,line)){
