@@ -13,8 +13,8 @@ Result Library::CreateLoan(unsigned int bookId, unsigned int userId,const Date& 
 	if(Result res = CheckInUser(*user, currentDate); res != Result::Sucess) return res;
 	if(loansManagement.GetUserMapSize(userId) >= MAX_LOANS) return Result::LoansMaxReached;
 	int loanId = loansManagement.Add(bookId, userId, startDate, endDate, Date(), LoanState::toPickUp);
-	loansManagement.AddIdUserMap(user->GetId(), loanId);
-	loansManagement.AddIdBookMap(book->GetId(), loanId);
+	loansManagement.AddIdUserMap(userId, loanId);
+	loansManagement.AddIdBookMap(bookId, loanId);
 	book->SetState(BookState::notAvailable);		
 	return Result::Sucess;
 }
@@ -139,13 +139,17 @@ void Library::LoanBook(Loan& loan){
 void Library::OpenLibrary(){
 	booksManagement.ReadDataFromFile();
 	usersManagement.ReadDataFromFile();
-	loansManagement.ReadDataFromFile();
+	loansManagement.ReadLoansDataFromFile();
+	loansManagement.ReadUserLoansDataFromFile();
+	loansManagement.ReadBookLoansDataFromFile();
 }
 
 void Library::CloseLibrary(){
 	booksManagement.StoreDataInFile();
 	usersManagement.StoreDataInFile();
-	loansManagement.StoreDataInFile();
+	loansManagement.StoreLoansDataInFile();
+	loansManagement.StoreUserLoansDataInFile();
+	loansManagement.StoreBookLoansDataInFile();
 }
 
 Result Library::PrintUserLoans(unsigned int userId){

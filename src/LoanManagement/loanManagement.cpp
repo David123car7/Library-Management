@@ -105,7 +105,7 @@ int LoanManagement::RemoveIdUserMap(unsigned int key, unsigned int id){
 
 int LoanManagement::AddIdBookMap(unsigned int key, unsigned int id){
 	if(LoanIdBookMapExists(key, id)) return 0;
-	loansUserMap[key].push_back(id);
+	loansBookMap[key].push_back(id);
 	return 1;
 }
 
@@ -144,9 +144,53 @@ int LoanManagement::StoreLoansDataInFile(){
 int LoanManagement::StoreUserLoansDataInFile(){
 	ofstream wf{LOANS_USER_FILE_NAME};
 	if(!wf) return 0;
-	for(auto& [key, loanId]: loansUserMap){
-			
+	for(auto& [userId, loanIds]: loansUserMap){
+		wf << userId;
+		for(unsigned int i=0; i<loanIds.size(); i++){
+			wf << "," << loanIds[i];	
+		}
+		wf << "\n";
 	}
+	return 1;
+}
+
+int LoanManagement::StoreBookLoansDataInFile(){
+	ofstream wf{LOANS_BOOK_FILE_NAME};
+	if(!wf) return 0;
+	for(auto& [userId, bookIds]: loansBookMap){
+		wf << userId;
+		for(unsigned int i=0; i<bookIds.size(); i++){
+			wf << "," << bookIds[i];	
+		}
+		wf << "\n";
+	}
+	return 1;
+}
+
+int LoanManagement::ReadBookLoansDataFromFile(){
+	ifstream rf{LOANS_BOOK_FILE_NAME};
+	if(!rf) return 0;
+	string line{};
+	while(getline(rf,line)){
+		vector<string> words = ParseString(line, ',');		
+		for(unsigned int i=1; i<words.size(); i++){
+			AddIdBookMap(stoi(words[0]), stoi(words[i]));
+		}
+	}
+	return 1;
+}
+
+int LoanManagement::ReadUserLoansDataFromFile(){
+	ifstream rf{LOANS_USER_FILE_NAME};
+	if(!rf) return 0;
+	string line{};
+	while(getline(rf,line)){
+		vector<string> words = ParseString(line, ',');		
+		for(unsigned int i=1; i<words.size(); i++){
+			AddIdUserMap(stoi(words[0]), stoi(words[i]));
+		}
+	}
+	return 1;
 }
 
 int LoanManagement::ReadLoansDataFromFile(){

@@ -18,7 +18,8 @@ int main(){
 	//library.AddBook("c++", "cj", date, BookGenre::fantasy, BookState::available); 
 	library.CreateLoan(0,0, date, date2, date3);
 	//library.FinishLoan(0, date3);
-
+		
+	library.CloseLibrary();
 	return 0;
 }
 
