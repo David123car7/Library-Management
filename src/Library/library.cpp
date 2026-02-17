@@ -52,6 +52,8 @@ Result Library::FinishLoan(unsigned int loanId, const Date& deliveredDate){
 Result Library::RemoveUser(unsigned int userId){
 	if(loansManagement.ExistsKeyUserMap(userId)) 
 		return Result::UserNotRemoved;
+	if(loansHistoryManagement.ExistsKeyUserMap(userId)) 
+		return Result::UserNotRemoved;
 	if(int res = usersManagement.Remove(userId); res == 1)
 		return Result::Sucess;
 	else return Result::UserNull;
@@ -59,6 +61,8 @@ Result Library::RemoveUser(unsigned int userId){
 
 Result Library::RemoveBook(unsigned int bookId){
 	if(loansManagement.ExistsKeyBookMap(bookId)) 
+		return Result::BookNotRemoved;
+	if(loansHistoryManagement.ExistsKeyBookMap(bookId)) 
 		return Result::BookNotRemoved;
 	if(int res = booksManagement.Remove(bookId); res == 1)
 		return Result::Sucess;

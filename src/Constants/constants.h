@@ -10,3 +10,4 @@ const int BAN_DAYS = 15;
 constexpr std::string BOOKS_FILE_NAME = "data/books.csv";
 constexpr std::string USERS_FILE_NAME = "data/users.dat";
 constexpr std::string LOANS_FILE_NAME = "data/loans.csv";
+constexpr std::string LOANS_USER_FILE_NAME = "data/loans.csv";

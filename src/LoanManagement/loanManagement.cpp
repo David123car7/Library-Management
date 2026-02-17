@@ -128,17 +128,28 @@ int LoanManagement::GetUserMapSize(unsigned int key){
 	return loansUserMap[key].size();
 }
 
-int LoanManagement::StoreDataInFile(){
+int LoanManagement::StoreLoansDataInFile(){
 	ofstream wf{LOANS_FILE_NAME};
 	if(!wf) return 0;
 	for(auto& [key, loan]: loans){
 		wf << loan.GetId() << "," << loan.GetBookId() << "," << loan.GetUserId() << "," << loan.GetStartDate() << "," << loan.GetEndDate()
 			<< "," << loan.GetDeliveredDate() << "," << loan.GetState() << "\n";
 	}
+	for(auto& [key, loanId]: loansUserMap){
+		
+	}
 	return 1;
 }
 
-int LoanManagement::ReadDataFromFile(){
+int LoanManagement::StoreUserLoansDataInFile(){
+	ofstream wf{LOANS_USER_FILE_NAME};
+	if(!wf) return 0;
+	for(auto& [key, loanId]: loansUserMap){
+			
+	}
+}
+
+int LoanManagement::ReadLoansDataFromFile(){
 	ifstream rf{LOANS_FILE_NAME, ios::in};
 	if(!rf) return 0;
 	string line{};

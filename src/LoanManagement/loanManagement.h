@@ -158,9 +158,54 @@ class LoanManagement{
 	 */
 	bool LoanExists(unsigned int id);
 
-	int StoreDataInFile();
+	/**
+	 * @brief Stores the loan data in the file
+	 *
+	 * @return 0 if the data was not stored
+	 * 1 if the data was stored
+	 */
+	int StoreLoansDataInFile();
 
-	int ReadDataFromFile();
+
+	/**
+	 * @brief Reads the loan data from a file
+	 *
+	 * @return 0 if the loan data was not readed
+	 * 1 if the loan data was readed and loaded into the program
+	 */
+	int ReadLoansDataFromFile();
+
+	/**
+	 * @brief Stores the map with all loans ids associated with a user
+	 *
+	 * @return 0 if the data was not stored
+	 * 1 if the data was stored	 
+	 */
+	int StoreUserLoansDataInFile();
+
+	/**
+	 * @brief Reads all loans associated witha a user from a file
+	 *
+	 * @return 0 if the  data was not readed
+	 * 1 if the data was readed and loaded into the program
+	 */
+	int ReadUserLoansDataFromFile();
+
+	/**
+	 * @brief Stores the map with all loans ids associated with a book 
+	 *
+	 * @return 0 if the data was not stored
+	 * 1 if the data was stored	 
+	 */
+	int StoreBookLoansDataInFile();
+
+	/**
+	 * @brief Reads all loans associated witha a book from a file
+	 *
+	 * @return 0 if the  data was not readed
+	 * 1 if the data was readed and loaded into the program
+	 */
+	int ReadBookLoansDataFromFile();
 
 	/**
 	 * @brief Prints all loans

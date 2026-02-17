@@ -9,9 +9,10 @@ void DisplayLoanMenu(){
 	cout << "\n" << "--------------------" << "\n";
 	cout << "1 - Add Loan" << "\n";
 	cout << "2 - Deliver Loan" << "\n";
-	cout << "3 - Remove Loan" << "\n";
+	cout << "3 - Finish Loan" << "\n";
 	cout << "4 - Print Loan" << "\n";
 	cout << "5 - Print Loans" << "\n";
+	cout << "6 - Print Loans History" << "\n";
 	cout << "0 - Go Back" << "\n";
 	cout << "--------------------" << "\n";
 }
@@ -41,6 +42,9 @@ void LoanMenu(Library& library){
 				continue;
 			case 5:
 				library.PrintLoans();
+				continue;
+			case 6: 
+				library.PrintHistoryLoans();
 				continue;
 			case 0:
 				return;
