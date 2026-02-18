@@ -57,7 +57,7 @@ void AddLoanIO(Library& library){
 	Date startDate, endDate, currentDate;
 	string aux;
 	cout << "Book Id: ";
-	unsigned int bookId = InputInteger();
+	int bookId = InputInteger();
 	if(bookId == -1){		
 		cout << "Error: Invalid Id" << "\n";
 		return;
@@ -133,6 +133,7 @@ void PrintLoanIO(Library& library){
 		cout << "Error: Invalid Id" << "\n";
 		return;
 	}
+
 	if(int res = library.PrintLoan(id); res != 1)
 		cout << "Error: Loan does not exist";
 }

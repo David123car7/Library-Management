@@ -4,7 +4,7 @@
 #include <string>
 
 /**
-* @brief Represents the state of a book..
+* @brief Represents the state of a book
 */
 enum class BookState{
 	available,
@@ -21,5 +21,12 @@ enum class BookState{
 */
 std::ostream& operator<<(std::ostream& out, BookState bookState);
 
+/**
+ * @brief Converts a string to book state
+ *
+ * @param[in] value Reference to a string 
+ * @return The book state converted from a string 
+ * @throws invalid_argument if the string is not a valid BookState
+ */
 BookState StringToBookState(std::string& value);
 

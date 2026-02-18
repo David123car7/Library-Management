@@ -32,6 +32,8 @@ class UserManagement{
 	 * @param[in] email User Email 
 	 * @param[in] phoneNumber User PhoneNumber 
 	 * @return user id that was added
+	 * @throws invalid_argument If the name, gender, email or phoneNumber are empty
+	 * If the age is not valid
 	 */
 	int Add(std::string name, std::string gender, int age, std::string email, std::string phoneNumber);
 

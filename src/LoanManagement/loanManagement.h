@@ -9,6 +9,13 @@ class LoanManagement{
 	std::map<unsigned int, std::vector<unsigned int>> loansUserMap; //map that holds the loan ids related to a user
 	std::map<unsigned int, std::vector<unsigned int>> loansBookMap; //map that holds the loan ids relatad to a book
 	
+	/**
+	 * @brief Adds a Loan to the loans map
+	 *
+	 * @param[in] loan Loan object
+	 * @return 1 if the loan was added
+	*  0 if a loan with the same id allready exists
+	 */
 	int Add(Loan& loan);
 	
 	public:

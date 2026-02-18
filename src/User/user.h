@@ -19,6 +19,10 @@ class User: public Person{
 	UserProfile profile;
 
 	public:
+	/**
+	 * @brief Default Constructor 
+	 *
+	 */
 	User(): phoneNumber{""}, email{""}{}
 
 	/**

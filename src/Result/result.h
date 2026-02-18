@@ -1,6 +1,9 @@
 #pragma once
 #include <ostream>
 
+/**
+ * @brief Represents the outcome of library operations (e.g., borrowing, returning).
+ */
 enum class Result{
 	Sucess,
 	UserNull,

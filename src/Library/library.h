@@ -149,21 +149,60 @@ class Library{
 	 */
 	Result BanUser(unsigned int userId, const Date& startDate);
 
+	/**
+	 * @brief Logic to open the library
+	 */
 	void OpenLibrary();
+
+	/**
+	 * @brief Logic to close the library
+	 */
 	void CloseLibrary();
 
+	/**
+	 * @brief Prints the amount of books exist on the library
+	 */
 	void PrintBooksQnt();
+
+	/**
+	 * @brief Prints the amount of available books exist on the library
+	 */
 	void PrintAvailableBooksQnt();
+
+	/**
+	 * @brief Prints the amount of not available books exist on the library
+	 */
 	void PrintNotAvailableBooksQnt();
 
+	/**
+	 * @brief Prints a user
+	 *
+	 * @param[in] userId User Id 
+	 * @return 1 if the user was printed
+	 * 0 if the user does not exist
+	 */
 	int PrintUser(unsigned int userId){
 		return usersManagement.PrintUser(userId);
 	}
 
+	/**
+	 * @brief Prints a book
+	 *
+	 * @param[in] bookId Book Id 
+	 * @return 1 if the book was printed
+	 * 0 if the book does not exist
+	 */
 	int PrintBook(unsigned int bookId){
 		return booksManagement.PrintBook(bookId);
 	}
-
+	
+	/**
+	 * @brief Prints a loan
+	 *
+	 * @param[in] userId Loan Id 
+	 * @return 1 if the loan was printed
+	 * 0 if the loan does not exist
+	 */
 	int PrintLoan(unsigned int loanId){
 		return loansManagement.PrintLoan(loanId);
 	}
@@ -222,14 +261,25 @@ class Library{
 	 */
 	Result PrintBooksUserLoans(unsigned int userId);
 
+	/**
+	 * @brief Prints the user colums
+	 */
 	void PrintUserColumns(){
 		std::cout << "ID" " | " << " | " << "NAME" << " | " << "GENDER" << " | " << "AGE" << " | " << 
 			"PHONE NUMBER" << " | " << "EMAIL" << " | " << "STATE" << " | " << "OCCURRENCES" <<
 			" | " << "BAN EXPIRE DATE" << "\n";
 	}
+
+	/**
+	 * @brief Prints the book columns
+	 */
 	void PrintBookColumns(){
 		std::cout << "ID" << " | " << "NAME" << " | " << "AUTHOR" << " | " << "DATE" << " | " << "GENRE" << "\n";
 	}
+	
+	/**
+	 * @brief Prints the loan columns
+	 */
 	void PrintLoanColumns(){
 		std::cout << "ID" << " | " << "USER ID" << " | " << "BOOK ID" << " | " << "START DATE" << " | "
 			"END DATE" << " | " << "DELIVERED DATE" << " | " << "STATE" << "\n";

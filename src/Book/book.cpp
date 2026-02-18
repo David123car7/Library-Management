@@ -1,6 +1,5 @@
 #include "book.h"
 #include <stdexcept>
-#include "../Utils/utils.h"
 #include <stdexcept>
 
 using namespace std;
@@ -61,9 +60,6 @@ BookGenre StringToBookGenre(string& value){
 	else throw invalid_argument("Invalid BookGenre: " + value);
 }
 
-void DisplayBookGenreOptions(){
-
-}
 
 
 

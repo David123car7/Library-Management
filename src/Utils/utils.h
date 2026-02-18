@@ -25,10 +25,37 @@ int GetMonthDays(uint8_t month, unsigned int year);
  */
 bool isInvalidString(const std::string& x);
 
+/**
+ * @brief Parses a string
+ *
+ * @param[in] line string to be parsed
+ * @param[in] c char that will divide the string
+ * @return a vector<string> with the string parsed
+ */
 std::vector<std::string> ParseString(const std::string& line, char c);
 
+/**
+ * @brief Stores a string into binary file
+ *
+ * @param[in, out] wf Reference to a ofstream 
+ * @param[in] value Reference to a string
+ */
 void StoreStringToBinary(std::ofstream& wf, const std::string& value);
+
+/**
+ * @brief Reads from a binary file
+ *
+ * @param[in, out] rf Reference to a ifstream 
+ * @param[in] value Reference to a string
+ */
 void ReadBinaryToString(std::ifstream& rf, std::string& value);
 
+/**
+ * @brief Converts a string to a date
+ *
+ * @param[in] value Reference to a string
+ * @return the converted date 
+ * @throws invalid_argument If the string is not a valid date
+ * */
 Date StringToDate(std::string& value);
 

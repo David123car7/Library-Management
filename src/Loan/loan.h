@@ -14,7 +14,22 @@ class Loan{
 	LoanState state;	
 
 	public:
+	/**
+	 * @brief Default constructor
+	 *
+	 */
 	Loan(): id{0}, bookId{0}, userId{0}, startDate{}, endDate{}, deliveredDate{}, state{LoanState::toPickUp}{}
+
+	/**
+	 * @brief Loan Constructor
+	 *
+	 * @param[in] id Loan Id 
+	 * @param[in] bookId Book Id 
+	 * @param[in] userId User Id 
+	 * @param[in] startDate Start Date
+	 * @param[in] endDate End Date 
+	 * @param[in] state Loan State 
+	 */
 	Loan(unsigned int id, unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, LoanState state):
 		id{id},
 		bookId{bookId},
@@ -24,6 +39,17 @@ class Loan{
 		deliveredDate{},
 		state{state}{}
 
+	/**
+	 * @brief Loan Constructor
+	 *
+	 * @param[in] id Loan Id 
+	 * @param[in] bookId Book Id 
+	 * @param[in] userId User Id 
+	 * @param[in] startDate Start Date
+	 * @param[in] endDate End Date 
+	 * @param[in] deliveredDate Delivered Date 
+	 * @param[in] state Loan State 
+	 */
 	Loan(unsigned int id, unsigned int bookId, unsigned int userId, const Date& startDate, const Date& endDate, const Date& deliveredDate, LoanState state):
 		id{id},
 		bookId{bookId},

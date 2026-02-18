@@ -11,6 +11,10 @@ class Person{
 	unsigned int age;
 
 	public:
+	/**
+	 * @brief Default Constructor
+	 *
+	 */
 	Person(): id{0}, name{""}, gender{""}, age{0} {}	
 
 	/**

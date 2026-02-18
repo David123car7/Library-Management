@@ -12,6 +12,7 @@ void DisplayUserMenu(){
 	cout << "3 - Print User" << "\n";
 	cout << "4 - Print Users" << "\n";
 	cout << "5 - Print User Loans" << "\n";
+	cout << "6 - Print Books User Loans" << "\n";
 	cout << "0 - Go Back" << "\n";
 	cout << "--------------------" << "\n";
 }
@@ -41,6 +42,9 @@ void UserMenu(Library& library){
 				continue;
 			case 5:
 				PrintUserLoansIO(library);
+				continue;
+			case 6:
+				PrintBooksUserLoansIO(library);
 				continue;
 			case 0:
 				return;
@@ -115,6 +119,15 @@ void PrintUserLoansIO(Library& library){
 	library.PrintUserLoans(id);
 }
 
-
+void PrintBooksUserLoansIO(Library& library){
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cout << "User Id: ";
+	int id = InputInteger();
+	if(id == -1){
+		cout << "Error: Invalid Id" << "\n";
+		return;
+	}
+	library.PrintBooksUserLoans(id);
+}
 
 

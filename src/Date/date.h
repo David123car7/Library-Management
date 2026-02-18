@@ -11,7 +11,19 @@ struct Date{
 	uint8_t month;
 	uint16_t year;
 	
+	/**
+	 * @brief Default Constructor
+	 *
+	 */
 	Date(): day{0}, month{0}, year{0}{};
+
+	/**
+	 * @brief Date constructor
+	 *
+	 * @param[in] day Day 
+	 * @param[in] month Month 
+	 * @param[in] year Year 
+	 */
 	Date(uint8_t day, uint8_t month, uint16_t year);
 	
 	/**

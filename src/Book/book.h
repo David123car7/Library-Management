@@ -19,6 +19,10 @@ class Book {
 	BookState state;
 	
 	public:
+	/**
+	 * @brief Default Constructor
+	 *
+	 */
 	Book(): id{0}, name{""}, author{""}, releaseDate{}, genre{BookGenre::noGenre}, state{BookState::noState} {}
 
 	/**
