@@ -10,7 +10,6 @@
 
 /**
  * @brief Class that represents the user
- * Future Improvements: Add binary search to the vector of current loans
  */
 class User: public Person{
 	private:

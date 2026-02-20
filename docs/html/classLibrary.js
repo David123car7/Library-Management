@@ -1,9 +1,25 @@
 var classLibrary =
 [
     [ "BanUser", "classLibrary.html#a435701b7404fc6f311af5ae493bd6561", null ],
-    [ "CanUserLoan", "classLibrary.html#a789b52b73bd9edf773a87920d1fb3a50", null ],
     [ "CheckInUser", "classLibrary.html#a22ce2de2be9018414578e1e13dbfb4ed", null ],
+    [ "CloseLibrary", "classLibrary.html#adb5a8dd4110c79b4e4395ddbbde1dfe2", null ],
     [ "CreateLoan", "classLibrary.html#a5a42c904926ed4e7124ecf82f46123db", null ],
     [ "FinishLoan", "classLibrary.html#a009c6eb6e272d5ea2893c6660e2a6481", null ],
-    [ "IsBookAvailable", "classLibrary.html#af167e3b70ea6ad2fb2ccdb210a5d2bbb", null ]
+    [ "OpenLibrary", "classLibrary.html#a2a8ffd877ca78f4db4165a062d128f75", null ],
+    [ "PickupLoan", "classLibrary.html#a14998c597acc2a559e45465f8e6bde53", null ],
+    [ "PrintAvailableBooksQnt", "classLibrary.html#a411a3b89de3e540d418e1f71b9c45e40", null ],
+    [ "PrintBook", "classLibrary.html#a20e3e90f7064eb72e9b18ee7afb25318", null ],
+    [ "PrintBookColumns", "classLibrary.html#a582a56376ab3b33b14b9c5f7fe4372bc", null ],
+    [ "PrintBooks", "classLibrary.html#a06a662e1c37a64eabd9a9c0e2c71c2a5", null ],
+    [ "PrintBooksQnt", "classLibrary.html#a7fa13329ab32718506214fec42e2ad00", null ],
+    [ "PrintBooksUserLoans", "classLibrary.html#ab1b3756cae54ba806f9d6f9365cc1018", null ],
+    [ "PrintHistoryLoans", "classLibrary.html#acd280e13d7f74d05b12aa06a5d86c4be", null ],
+    [ "PrintLoan", "classLibrary.html#a4fc427975dd5183bd8e1293c5286a69a", null ],
+    [ "PrintLoanColumns", "classLibrary.html#aea3d8439bb2c4903c99c1592b14c99a7", null ],
+    [ "PrintLoans", "classLibrary.html#af5c1e1cfd3572fc4b61d5f61d57117fc", null ],
+    [ "PrintNotAvailableBooksQnt", "classLibrary.html#a31ab773548d50f396b831e09d54ab652", null ],
+    [ "PrintUser", "classLibrary.html#ae474a0da9864b544e4a32319fb092f77", null ],
+    [ "PrintUserColumns", "classLibrary.html#a3efce585e88a83847029a37dcd8f5c46", null ],
+    [ "PrintUserLoans", "classLibrary.html#ac66af2b9972d70310ef6a01d4317465c", null ],
+    [ "PrintUsers", "classLibrary.html#aa485c54d0992103a3ab9648babeb123c", null ]
 ];

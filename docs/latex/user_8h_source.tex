@@ -7,26 +7,53 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../Person/person.h"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }User:\ \textcolor{keyword}{public}\ Person\{}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00009\ \ \ \ \ std::string\ phoneNumber;}
-\DoxyCodeLine{00010\ \ \ \ \ std::string\ email;}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ User(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ std::string\ name,\ std::string\ gender,\ \textcolor{keywordtype}{int}\ age,\ std::string\ phoneNumber,\ std::string\ email);}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetPhoneNumber()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ phoneNumber;\}}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetEmail()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ email;\}}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ SetEmail(std::string\ email);}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ SetPhoneNumber(std::string\ phoneNumber);}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsUserValid(User\ user);}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ User\&\ user)\{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ user.GetId()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.GetName()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.GetGender()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.GetAge()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.phoneNumber\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.email;}
-\DoxyCodeLine{00023\ \ \ \ \ \}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \string~User()\ \{\}}
-\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}userState.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}userProfile.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cstdint>}\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUser}{User}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classPerson}{Person}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ phoneNumber;}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ email;}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{structUserProfile}{UserProfile}}\ profile;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classUser_a4a0137053e591fbb79d9057dd7d2283d}{User}}():\ phoneNumber\{\textcolor{stringliteral}{"{}"{}}\},\ email\{\textcolor{stringliteral}{"{}"{}}\}\{\}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classUser_aa59ea360f3690d9ed768c605e9714eeb}{User}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ std::string\ name,\ std::string\ gender,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ age,\ std::string\ phoneNumber,\ std::string\ email,\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ UserState\ state,\ \textcolor{keywordtype}{int}\ occurrences):\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPerson}{Person}}(id,\ name,\ gender,\ age),}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ phoneNumber\{phoneNumber\},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ email\{email\},}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ profile\{\mbox{\hyperlink{structUserProfile}{UserProfile}}(state,\ occurrences)\}\{\}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetPhoneNumber()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ phoneNumber;\}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetEmail()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ email;\}}
+\DoxyCodeLine{00046\ \ \ \ \ UserState\ GetState()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ profile.state;\}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ GetOccurrences()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ profile.occurrences;\}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{structDate}{Date}}\ GetBanExpireDate()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ profile.banExpireDate;\}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ SetEmail(std::string\ email);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ SetPhoneNumber(std::string\ phoneNumber);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ SetState(UserState\ state)\ \{profile.state\ =\ state;\}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ SetOccurrences(\textcolor{keywordtype}{int}\ value)\ \{profile.occurrences\ =\ value;\}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ IncrementOccurrences()\ \{profile.occurrences++;\}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ SetBanExpireDate(\mbox{\hyperlink{structDate}{Date}}\&\ date)\ \{profile.banExpireDate\ =\ date;\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUser_aff77c33f3972e0f24ceba79c55847e01}{AddLoanId}}(uint8\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUser_a3de640773df6274a4d8098f6f0e4be40}{RemoveLoanId}}(uint8\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUser_a4daf7d1cb45b42920eed8117b4f978d2}{CheckLoanIdExists}}(uint8\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00083\ \ \ \ \ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classUser}{User}}\&\ user)\{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ user.GetId()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.GetName()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.GetGender()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.GetAge()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ user.phoneNumber\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.email\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.profile.state\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ (int)user.profile.occurrences\ <<\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ "{}}\ <<\ user.profile.banExpireDate;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \};}
 
 \end{DoxyCode}

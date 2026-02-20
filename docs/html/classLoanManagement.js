@@ -1,9 +1,28 @@
 var classLoanManagement =
 [
-    [ "Add", "classLoanManagement.html#a62a8f1afdf356b39cc0edf32b253022d", null ],
+    [ "Add", "classLoanManagement.html#abae839623c9623393c3a4d3e4c4c8555", null ],
+    [ "AddIdBookMap", "classLoanManagement.html#a47ea8e3562f8e8b6a33150c43217d9f4", null ],
+    [ "AddIdUserMap", "classLoanManagement.html#abf478cc51867bd7b6578c45fa2363699", null ],
+    [ "ExistsKeyBookMap", "classLoanManagement.html#a310dc24f57ff60c2cab938302333be43", null ],
+    [ "ExistsKeyUserMap", "classLoanManagement.html#ae76fb9df2e1563953e8323584eca4f4e", null ],
     [ "GetLoan", "classLoanManagement.html#ae8aff1e0656b261eccc8db75d3fdf926", null ],
     [ "GetLoan", "classLoanManagement.html#a5f4aa9b522f91f234f3c476258a420e8", null ],
+    [ "GetNextId", "classLoanManagement.html#a3007b7d3687765a2c4c9341438867a9d", null ],
+    [ "GetUserLoanIds", "classLoanManagement.html#a87e517926025edfc528f4a6c38506163", null ],
+    [ "GetUserMapSize", "classLoanManagement.html#afdbf0ba577bee5e72a803195da46bed7", null ],
     [ "LoanExists", "classLoanManagement.html#ac37dc34bbd9354de1b37d055e553b403", null ],
+    [ "LoanIdBookMapExists", "classLoanManagement.html#a97e6426623bc154115444c31210b7d9f", null ],
+    [ "LoanIdUserMapExists", "classLoanManagement.html#a81d0eb3a25d15675eb60d4d00b991c76", null ],
+    [ "PrintLoan", "classLoanManagement.html#a8c8e5108c8850655d9bb8397c471b295", null ],
     [ "PrintLoans", "classLoanManagement.html#ae49e58498dbdc2557f5df9e25814f095", null ],
-    [ "Remove", "classLoanManagement.html#a124cdde17fad0c2b63367548d0aee5a6", null ]
+    [ "PrintUserLoans", "classLoanManagement.html#a2aef0c7eb11297008ebacee709f07c0a", null ],
+    [ "ReadBookLoansDataFromFile", "classLoanManagement.html#a22a548bfb91b10b693653b9ecec0ea4c", null ],
+    [ "ReadLoansDataFromFile", "classLoanManagement.html#aa0d6076f0aac7d0276dc5e68c1dccceb", null ],
+    [ "ReadUserLoansDataFromFile", "classLoanManagement.html#a3669a250cc960f4a20021b850473dd6e", null ],
+    [ "Remove", "classLoanManagement.html#a124cdde17fad0c2b63367548d0aee5a6", null ],
+    [ "RemoveIdBookMap", "classLoanManagement.html#af04830d3013a103ee1263990ce0db946", null ],
+    [ "RemoveIdUserMap", "classLoanManagement.html#a4d434f3e5a9107b2e16ffbc00941cc41", null ],
+    [ "StoreBookLoansDataInFile", "classLoanManagement.html#a7d57935dab62554c3e076526c0d48645", null ],
+    [ "StoreLoansDataInFile", "classLoanManagement.html#a211f084ff0901999b1f4e34c56b8b4b4", null ],
+    [ "StoreUserLoansDataInFile", "classLoanManagement.html#a81402e689a60353d69e4b8f6d9d52eff", null ]
 ];

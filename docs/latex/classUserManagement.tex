@@ -1,41 +1,186 @@
 \doxysection{User\+Management Class Reference}
 \hypertarget{classUserManagement}{}\label{classUserManagement}\index{UserManagement@{UserManagement}}
+
+
+Responsible for managing the users.  
+
+
+
+
+{\ttfamily \#include $<$user\+Management.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classUserManagement_ac025fe373f9cdc743c2b3b633e1e2c13}\label{classUserManagement_ac025fe373f9cdc743c2b3b633e1e2c13} 
-void {\bfseries Add} (\doxymbox{\hyperlink{classUser}{User}} user)
-\item 
-\Hypertarget{classUserManagement_a4d08e2203ff78183c0df053c914c829e}\label{classUserManagement_a4d08e2203ff78183c0df053c914c829e} 
-int {\bfseries Remove} (const std::\+string \&name, int id)
-\item 
-\Hypertarget{classUserManagement_a59027a33ca1a00c2ab422e7ef7a8bbe2}\label{classUserManagement_a59027a33ca1a00c2ab422e7ef7a8bbe2} 
-int {\bfseries Remove} (char key, int id)
-\item 
-\Hypertarget{classUserManagement_a08f8091278ead27994d1aa54636bd666}\label{classUserManagement_a08f8091278ead27994d1aa54636bd666} 
-\doxymbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+User} (char key, int id)
-\item 
-\Hypertarget{classUserManagement_a5e04060cc3ac641a5321f5a87d9969d3}\label{classUserManagement_a5e04060cc3ac641a5321f5a87d9969d3} 
-\doxymbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+User} (const std::\+string \&name, int id)
-\item 
-\Hypertarget{classUserManagement_a3ec73f26100b6fd4f26291db8dce970e}\label{classUserManagement_a3ec73f26100b6fd4f26291db8dce970e} 
-const \doxymbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+User\+Read\+Only} (const std::\+string \&name, int id)
-\item 
-\Hypertarget{classUserManagement_a0a18a7ce69f1feff3d8f37a5a671fe9b}\label{classUserManagement_a0a18a7ce69f1feff3d8f37a5a671fe9b} 
-const \doxymbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+User\+Read\+Only} (char key, int id)
-\item 
+int \mbox{\hyperlink{classUserManagement_ab066acefa4f05b30d1f37fd333e0be49}{Add}} (std\+::string name, std\+::string gender, int age, std\+::string email, std\+::string phone\+Number)
+\begin{DoxyCompactList}\small\item\em Adds a user to the map of users. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUserManagement_a0214a23f463326942f6b09c9d5abd047}{Remove}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Removes a user from the map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classUserManagement_a9b65efb7b805d78aa354da076ec74911}{Get\+User}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{classUser}{User}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classUserManagement_a2990d14587834bef4fcd0277b21b7241}{Get\+User}} (unsigned int id) const
+\begin{DoxyCompactList}\small\item\em Gets the user (read only) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUserManagement_a26a768dc50120e1e15ca4c5f3e2871d6}{User\+Exists}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Checks if the user with the id exists. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUserManagement_a4ce1ac22476b5f4c2986cf8f3781377d}{Store\+Data\+In\+File}} ()
+\begin{DoxyCompactList}\small\item\em Stores user data in binary file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUserManagement_aabd019ce98dbd986a038e4d9f75ea7e1}{Read\+Data\+From\+File}} ()
+\begin{DoxyCompactList}\small\item\em Reads user data from a binary file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUserManagement_ae7cd2c68352f72a5d61444a66b265053}{Print\+User}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Prints a user. \end{DoxyCompactList}\item 
 \Hypertarget{classUserManagement_aa9b53e0f4a889517e3814c8715b35682}\label{classUserManagement_aa9b53e0f4a889517e3814c8715b35682} 
 void {\bfseries Print\+Users} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classUserManagement_aaf78fdd88baf5f7a9ee118ad3fa83edf}\label{classUserManagement_aaf78fdd88baf5f7a9ee118ad3fa83edf} 
-std::\+map$<$ char, std::\+vector$<$ \doxymbox{\hyperlink{classUser}{User}} $>$ $>$ {\bfseries users}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints all Users. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+Responsible for managing the users. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUserManagement_ab066acefa4f05b30d1f37fd333e0be49}\label{classUserManagement_ab066acefa4f05b30d1f37fd333e0be49} 
+\index{UserManagement@{UserManagement}!Add@{Add}}
+\index{Add@{Add}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily int User\+Management\+::\+Add (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{gender,  }\item[{int}]{age,  }\item[{std\+::string}]{email,  }\item[{std\+::string}]{phone\+Number }\end{DoxyParamCaption})}
+
+
+
+Adds a user to the map of users. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & \doxylink{classUser}{User} Name \\
+\hline
+\mbox{\texttt{ in}}  & {\em gender} & \doxylink{classUser}{User} Gender \\
+\hline
+\mbox{\texttt{ in}}  & {\em age} & \doxylink{classUser}{User} Age \\
+\hline
+\mbox{\texttt{ in}}  & {\em email} & \doxylink{classUser}{User} Email \\
+\hline
+\mbox{\texttt{ in}}  & {\em phone\+Number} & \doxylink{classUser}{User} Phone\+Number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+user id that was added 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & If the name, gender, email or phone\+Number are empty If the age is not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classUserManagement_a9b65efb7b805d78aa354da076ec74911}\label{classUserManagement_a9b65efb7b805d78aa354da076ec74911} 
+\index{UserManagement@{UserManagement}!GetUser@{GetUser}}
+\index{GetUser@{GetUser}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{GetUser()}{GetUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} User\+Management\+::\+Get\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Gets the \doxylink{classUser}{User}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classUserManagement_a2990d14587834bef4fcd0277b21b7241}\label{classUserManagement_a2990d14587834bef4fcd0277b21b7241} 
+\index{UserManagement@{UserManagement}!GetUser@{GetUser}}
+\index{GetUser@{GetUser}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{GetUser()}{GetUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} User\+Management\+::\+Get\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Gets the user (read only) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classUserManagement_ae7cd2c68352f72a5d61444a66b265053}\label{classUserManagement_ae7cd2c68352f72a5d61444a66b265053} 
+\index{UserManagement@{UserManagement}!PrintUser@{PrintUser}}
+\index{PrintUser@{PrintUser}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{PrintUser()}{PrintUser()}}
+{\footnotesize\ttfamily int User\+Management\+::\+Print\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Prints a user. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the user does not exist, 1 if the user exists 
+\end{DoxyReturn}
+\Hypertarget{classUserManagement_aabd019ce98dbd986a038e4d9f75ea7e1}\label{classUserManagement_aabd019ce98dbd986a038e4d9f75ea7e1} 
+\index{UserManagement@{UserManagement}!ReadDataFromFile@{ReadDataFromFile}}
+\index{ReadDataFromFile@{ReadDataFromFile}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{ReadDataFromFile()}{ReadDataFromFile()}}
+{\footnotesize\ttfamily int User\+Management\+::\+Read\+Data\+From\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads user data from a binary file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the user data was not readed, 1 if the user data was readed and loaded 
+\end{DoxyReturn}
+\Hypertarget{classUserManagement_a0214a23f463326942f6b09c9d5abd047}\label{classUserManagement_a0214a23f463326942f6b09c9d5abd047} 
+\index{UserManagement@{UserManagement}!Remove@{Remove}}
+\index{Remove@{Remove}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily int User\+Management\+::\+Remove (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Removes a user from the map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if user was removed 0 if user does not exist 
+\end{DoxyReturn}
+\Hypertarget{classUserManagement_a4ce1ac22476b5f4c2986cf8f3781377d}\label{classUserManagement_a4ce1ac22476b5f4c2986cf8f3781377d} 
+\index{UserManagement@{UserManagement}!StoreDataInFile@{StoreDataInFile}}
+\index{StoreDataInFile@{StoreDataInFile}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{StoreDataInFile()}{StoreDataInFile()}}
+{\footnotesize\ttfamily int User\+Management\+::\+Store\+Data\+In\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stores user data in binary file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not stored, 1 if the data was stored 
+\end{DoxyReturn}
+\Hypertarget{classUserManagement_a26a768dc50120e1e15ca4c5f3e2871d6}\label{classUserManagement_a26a768dc50120e1e15ca4c5f3e2871d6} 
+\index{UserManagement@{UserManagement}!UserExists@{UserExists}}
+\index{UserExists@{UserExists}!UserManagement@{UserManagement}}
+\doxysubsubsection{\texorpdfstring{UserExists()}{UserExists()}}
+{\footnotesize\ttfamily bool User\+Management\+::\+User\+Exists (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if the user with the id exists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if user exists, false if does not exist 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-User\+Management/\+user\+Management.\+h\item 
-User\+Management/\+user\+Management.\+cpp\end{DoxyCompactItemize}
+User\+Management/user\+Management.\+h\item 
+User\+Management/user\+Management.\+cpp\end{DoxyCompactItemize}

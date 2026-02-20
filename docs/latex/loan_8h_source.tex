@@ -7,29 +7,51 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Date/date.h"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}loanState.h"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Loan\{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId;}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId;}
-\DoxyCodeLine{00011\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ startDate;\ }
-\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ endDate;}
-\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{structDate}{Date}}\ deliveredDate;}
-\DoxyCodeLine{00014\ \ \ \ \ LoanState\ state;\ \ \ \ }
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00017\ \ \ \ \ Loan(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ startDate,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ endDate,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ deliveredDate,\ LoanState\ state):}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\{\textcolor{keywordtype}{id}\},}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ bookId\{bookId\},}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ userId\{userId\},}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ startDate\{startDate\},}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ endDate\{endDate\},}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ deliveredDate\{deliveredDate\},}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ state\{state\}\{\}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLoan}{Loan}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId;}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{structDate}{Date}}\ startDate;\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{structDate}{Date}}\ endDate;}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{structDate}{Date}}\ deliveredDate;}
+\DoxyCodeLine{00017\ \ \ \ \ LoanState\ state;\ \ \ \ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classLoan_ac9837063879d5a4d21f288bdd5db6013}{Loan}}():\ id\{0\},\ bookId\{0\},\ userId\{0\},\ startDate\{\},\ endDate\{\},\ deliveredDate\{\},\ state\{LoanState::toPickUp\}\{\}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classLoan_a1db33953e974a269efd2c4e6b9586aa2}{StartLoan}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate);}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classLoan_ae72c0040b70e01b8cb1617588ea7c9de}{FinishLoan}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ currentDate);}
-\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classLoan_a3a0d939f66c6811ca401ab53072c5fcd}{Loan}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ startDate,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ endDate,\ LoanState\ state):}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ id\{id\},}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ bookId\{bookId\},}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ userId\{userId\},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ startDate\{startDate\},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ endDate\{endDate\},}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ deliveredDate\{\},}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ state\{state\}\{\}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classLoan_a7e43e4e93a8155fbfeef419b2f828835}{Loan}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bookId,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ startDate,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ endDate,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ deliveredDate,\ LoanState\ state):}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ id\{id\},}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ bookId\{bookId\},}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ userId\{userId\},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ startDate\{startDate\},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ endDate\{endDate\},}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ deliveredDate\{deliveredDate\},}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ state\{state\}\{\}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ GetId()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ id;\}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ GetBookId()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ bookId;\}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ GetUserId()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ userId;\}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ GetStartDate()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ startDate;\}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ GetEndDate()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ endDate;\}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ GetDeliveredDate()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ deliveredDate;\}}
+\DoxyCodeLine{00071\ \ \ \ \ LoanState\ GetState()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ state;\}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ SetState(LoanState\ state)\ \{\ this-\/>state\ =\ state;\}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ SetDeliveredDate(\textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ deliveredDate)\ \{this-\/>deliveredDate\ =\ deliveredDate;\}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLoan}{Loan}}\&\ loan)\{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ loan.id\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ loan.userId\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ loan.bookId\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ loan.startDate\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ loan.endDate\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ loan.deliveredDate\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ loan.state;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \};}
 
 \end{DoxyCode}

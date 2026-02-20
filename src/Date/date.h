@@ -4,7 +4,7 @@
 #include <ostream>
 
 /**
- * struct Date - Struct that represents a date in the format day/month/year
+ * @brief Struct that represents a date in the format dat/month/year
  */
 struct Date{
 	uint8_t day;

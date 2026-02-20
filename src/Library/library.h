@@ -6,6 +6,9 @@
 #include "../Result/result.h"
 #include "../Constants/constants.h"
 
+/**
+ * @brief Class that represents the library, this will manage the classes UserManagement, BookManagement and LoanManagement.
+ * */
 class Library{
 	private:
 	UserManagement usersManagement;

@@ -3,18 +3,22 @@
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{enum\ class}\ BookGenre\{}
-\DoxyCodeLine{00006\ \ \ \ \ fantasy,}
-\DoxyCodeLine{00007\ \ \ \ \ horror,}
-\DoxyCodeLine{00008\ \ \ \ \ romance,}
-\DoxyCodeLine{00009\ \ \ \ \ action}
-\DoxyCodeLine{00010\ \};}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ std::ostream\&\ operator<<(std::ostream\&\ out,\ BookGenre\&\ genre);}
-\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}\ BookGenre\{}
+\DoxyCodeLine{00008\ \ \ \ \ fantasy,}
+\DoxyCodeLine{00009\ \ \ \ \ horror,}
+\DoxyCodeLine{00010\ \ \ \ \ romance,}
+\DoxyCodeLine{00011\ \ \ \ \ action,}
+\DoxyCodeLine{00012\ \ \ \ \ noGenre,}
+\DoxyCodeLine{00013\ \};}
 \DoxyCodeLine{00014\ }
+\DoxyCodeLine{00022\ std::ostream\&\ operator<<(std::ostream\&\ out,\ BookGenre\ genre);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ BookGenre\ StringToBookGenre(std::string\&\ value);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ DisplayBookGenreOptions();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
 
 \end{DoxyCode}

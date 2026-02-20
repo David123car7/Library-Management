@@ -7,20 +7,31 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ostream>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structDate_abcbfdb992489b37e4f4dbc30f5a3c4d6}{Date}}\{}
-\DoxyCodeLine{00007\ \ \ \ \ uint8\_t\ day;}
-\DoxyCodeLine{00008\ \ \ \ \ uint8\_t\ month;}
-\DoxyCodeLine{00009\ \ \ \ \ uint16\_t\ year;}
-\DoxyCodeLine{00010\ \ \ \ \ }
-\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{structDate_abcbfdb992489b37e4f4dbc30f5a3c4d6}{Date}}(uint8\_t\ day,\ uint8\_t\ month,\ uint16\_t\ year);}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \doxymbox{\hyperlink{structDate_a411ca408275d61ae50587dc91c1dec58}{operator<<}}(std::ostream\&\ out,\ \doxymbox{\hyperlink{structDate_abcbfdb992489b37e4f4dbc30f5a3c4d6}{Date}}\&\ date)\{}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ (int)date.day\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ (\textcolor{keywordtype}{int})date.month\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ date.year;}
-\DoxyCodeLine{00030\ \ \ \ \ \}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structDate_a630e4a95e314c6caa2c9c13b26bf16e4}{operator<}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ date1,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ date2);}
-\DoxyCodeLine{00041\ \ \ \ \ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structDate_ab177b1fe2ddeab85e0032bfa3d6eaa29}{operator>}}(\doxymbox{\hyperlink{structDate}{Date}}\&\ date1,\ \doxymbox{\hyperlink{structDate}{Date}}\&\ date2);}
-\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structDate}{Date}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ uint8\_t\ day;}
+\DoxyCodeLine{00011\ \ \ \ \ uint8\_t\ month;}
+\DoxyCodeLine{00012\ \ \ \ \ uint16\_t\ year;}
+\DoxyCodeLine{00013\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{structDate_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date}}():\ day\{0\},\ month\{0\},\ year\{0\}\{\};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structDate_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date}}(uint8\_t\ day,\ uint8\_t\ month,\ uint16\_t\ year);}
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{structDate}{Date}}\ \mbox{\hyperlink{structDate_a45945b75b6ccb8cedd1e4c9cc979f261}{operator+}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ days)\textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{structDate_ada4f8712609249fde898198589dc73e5}{operator<<}}(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date)\{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ (int)date.day\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ (\textcolor{keywordtype}{int})date.month\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ date.year;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structDate_aa2e695ccf211714fafbc8c73cb7e5419}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date2);}
+\DoxyCodeLine{00058\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structDate_ad442d522a65d30aca55827a74ffd621d}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date2);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structDate_a5c20018c86b496cba7e7ed0dd5aee323}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date2);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structDate_a87454da328d25895944a03fba1e0aed1}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDate}{Date}}\&\ date2);}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
 
 \end{DoxyCode}

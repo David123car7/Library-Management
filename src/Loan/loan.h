@@ -3,6 +3,9 @@
 #include "../Date/date.h"
 #include "loanState.h"
 
+/**
+ * @brief Class that represents a loan
+ */
 class Loan{
 	private:
 	unsigned int id;

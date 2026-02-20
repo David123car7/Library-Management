@@ -2,21 +2,27 @@
 \hypertarget{result_8h_source}{}\label{result_8h_source}\index{Result/result.h@{Result/result.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ostream>}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{keyword}{enum\ class}\ Result\{}
-\DoxyCodeLine{00005\ \ \ \ \ Sucess,}
-\DoxyCodeLine{00006\ \ \ \ \ UserNull,}
-\DoxyCodeLine{00007\ \ \ \ \ UserBanned,}
-\DoxyCodeLine{00008\ \ \ \ \ BookNull,}
-\DoxyCodeLine{00009\ \ \ \ \ LoanNull,}
-\DoxyCodeLine{00010\ \ \ \ \ LoansMaxReached,}
-\DoxyCodeLine{00011\ \ \ \ \ BookNotAvailable,}
-\DoxyCodeLine{00012\ \ \ \ \ InvalidDate,}
-\DoxyCodeLine{00013\ \ \ \ \ LoanFinished,}
-\DoxyCodeLine{00014\ \};}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ std::ostream\&\ operator<<(std::ostream\&\ out,\ Result\ result);}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum\ class}\ Result\{}
+\DoxyCodeLine{00016\ \ \ \ \ Sucess,}
+\DoxyCodeLine{00017\ \ \ \ \ UserNull,}
+\DoxyCodeLine{00018\ \ \ \ \ UserBanned,}
+\DoxyCodeLine{00019\ \ \ \ \ UserNotRemoved,}
+\DoxyCodeLine{00020\ \ \ \ \ BookNotRemoved,}
+\DoxyCodeLine{00021\ \ \ \ \ BookNull,}
+\DoxyCodeLine{00022\ \ \ \ \ LoanNull,}
+\DoxyCodeLine{00023\ \ \ \ \ LoansMaxReached,}
+\DoxyCodeLine{00024\ \ \ \ \ BookNotAvailable,}
+\DoxyCodeLine{00025\ \ \ \ \ InvalidDate,}
+\DoxyCodeLine{00026\ \ \ \ \ LoanFinished,}
+\DoxyCodeLine{00027\ \ \ \ \ LoanPickedUp,}
+\DoxyCodeLine{00028\ \ \ \ \ LoanNotPickedUp,}
+\DoxyCodeLine{00029\ \ \ \ \ LoansEmpty,}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ std::ostream\&\ operator<<(std::ostream\&\ out,\ Result\ result);}
 
 \end{DoxyCode}

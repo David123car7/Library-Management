@@ -3,11 +3,19 @@
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{keyword}{enum\ class}\ LoanState\{}
-\DoxyCodeLine{00004\ \ \ \ \ toPickUp,}
-\DoxyCodeLine{00005\ \ \ \ \ loaned,}
-\DoxyCodeLine{00006\ \ \ \ \ finished,}
-\DoxyCodeLine{00007\ \};}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{enum\ class}\ LoanState\{}
+\DoxyCodeLine{00006\ \ \ \ \ toPickUp,}
+\DoxyCodeLine{00007\ \ \ \ \ loaned,}
+\DoxyCodeLine{00008\ \ \ \ \ finished,}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ std::ostream\&\ operator<<(std::ostream\&\ out,\ LoanState\ state);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ LoanState\ StringToLoanState(std::string\&\ value);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
 
 \end{DoxyCode}

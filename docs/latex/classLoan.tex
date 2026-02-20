@@ -1,59 +1,117 @@
 \doxysection{Loan Class Reference}
 \hypertarget{classLoan}{}\label{classLoan}\index{Loan@{Loan}}
+
+
+Class that represents a loan.  
+
+
+
+
+{\ttfamily \#include $<$loan.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classLoan_ad11795557e78ac318b1013951bba4448}\label{classLoan_ad11795557e78ac318b1013951bba4448} 
-{\bfseries Loan} (unsigned int id, unsigned int book\+Id, unsigned int user\+Id, \doxymbox{\hyperlink{structDate}{Date}} \&start\+Date, \doxymbox{\hyperlink{structDate}{Date}} \&end\+Date, \doxymbox{\hyperlink{structDate}{Date}} \&delivered\+Date, Loan\+State state)
+\Hypertarget{classLoan_ac9837063879d5a4d21f288bdd5db6013}\label{classLoan_ac9837063879d5a4d21f288bdd5db6013} 
+{\bfseries Loan} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLoan_a3a0d939f66c6811ca401ab53072c5fcd}{Loan}} (unsigned int id, unsigned int book\+Id, unsigned int user\+Id, const \mbox{\hyperlink{structDate}{Date}} \&start\+Date, const \mbox{\hyperlink{structDate}{Date}} \&end\+Date, Loan\+State state)
+\begin{DoxyCompactList}\small\item\em \doxylink{classLoan}{Loan} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLoan_a7e43e4e93a8155fbfeef419b2f828835}{Loan}} (unsigned int id, unsigned int book\+Id, unsigned int user\+Id, const \mbox{\hyperlink{structDate}{Date}} \&start\+Date, const \mbox{\hyperlink{structDate}{Date}} \&end\+Date, const \mbox{\hyperlink{structDate}{Date}} \&delivered\+Date, Loan\+State state)
+\begin{DoxyCompactList}\small\item\em \doxylink{classLoan}{Loan} Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classLoan_a49b00b7957808de21b1acc08d25bbdcc}\label{classLoan_a49b00b7957808de21b1acc08d25bbdcc} 
+int {\bfseries Get\+Id} () const
 \item 
-int \doxymbox{\hyperlink{classLoan_a1db33953e974a269efd2c4e6b9586aa2}{Start\+Loan}} (\doxymbox{\hyperlink{structDate}{Date}} \&current\+Date)
-\begin{DoxyCompactList}\small\item\em Starts the loan by changing the book state to loaned. \end{DoxyCompactList}\item 
-int \doxymbox{\hyperlink{classLoan_ae72c0040b70e01b8cb1617588ea7c9de}{Finish\+Loan}} (\doxymbox{\hyperlink{structDate}{Date}} \&current\+Date)
-\begin{DoxyCompactList}\small\item\em Finishes the loan by changing the loan state to finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{classLoan_afcac5aad65df37ae2e815081b4ef97ac}\label{classLoan_afcac5aad65df37ae2e815081b4ef97ac} 
+int {\bfseries Get\+Book\+Id} () const
+\item 
+\Hypertarget{classLoan_a3b03d5c3f0ff1762a735a5bec17aa352}\label{classLoan_a3b03d5c3f0ff1762a735a5bec17aa352} 
+int {\bfseries Get\+User\+Id} () const
+\item 
+\Hypertarget{classLoan_adc5f8c74846cc3d5e4254b0063771722}\label{classLoan_adc5f8c74846cc3d5e4254b0063771722} 
+const \mbox{\hyperlink{structDate}{Date}} \& {\bfseries Get\+Start\+Date} () const
+\item 
+\Hypertarget{classLoan_a57fd5223f1644b9d8bfd53e98d2e14bb}\label{classLoan_a57fd5223f1644b9d8bfd53e98d2e14bb} 
+const \mbox{\hyperlink{structDate}{Date}} \& {\bfseries Get\+End\+Date} () const
+\item 
+\Hypertarget{classLoan_a2e373d042c4e7ae4101e038591edc271}\label{classLoan_a2e373d042c4e7ae4101e038591edc271} 
+const \mbox{\hyperlink{structDate}{Date}} \& {\bfseries Get\+Delivered\+Date} () const
+\item 
+\Hypertarget{classLoan_ae1567fb525f041f5098006bcb3f1611a}\label{classLoan_ae1567fb525f041f5098006bcb3f1611a} 
+Loan\+State {\bfseries Get\+State} () const
+\item 
+\Hypertarget{classLoan_ac6a8456d4dc9f73cc222ffb767d30579}\label{classLoan_ac6a8456d4dc9f73cc222ffb767d30579} 
+void {\bfseries Set\+State} (Loan\+State state)
+\item 
+\Hypertarget{classLoan_a027a9fe86005a9808589381a4e5b5b63}\label{classLoan_a027a9fe86005a9808589381a4e5b5b63} 
+void {\bfseries Set\+Delivered\+Date} (const \mbox{\hyperlink{structDate}{Date}} \&delivered\+Date)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoan_ad584ea796972133e4eb1c8ef3d1b8072}\label{classLoan_ad584ea796972133e4eb1c8ef3d1b8072} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, const \mbox{\hyperlink{classLoan}{Loan}} \&loan)
+\end{DoxyCompactItemize}
 
 
-\label{doc-func-members}
-\Hypertarget{classLoan_doc-func-members}
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classLoan_ae72c0040b70e01b8cb1617588ea7c9de}\index{Loan@{Loan}!FinishLoan@{FinishLoan}}
-\index{FinishLoan@{FinishLoan}!Loan@{Loan}}
-\doxysubsubsection{\texorpdfstring{FinishLoan()}{FinishLoan()}}
-{\footnotesize\ttfamily \label{classLoan_ae72c0040b70e01b8cb1617588ea7c9de} 
-int Loan::\+\+Finish\+Loan (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structDate}{Date}} \&}]{current\+Date}{}\end{DoxyParamCaption})}
+\doxysubsection{Detailed Description}
+Class that represents a loan. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLoan_a3a0d939f66c6811ca401ab53072c5fcd}\label{classLoan_a3a0d939f66c6811ca401ab53072c5fcd} 
+\index{Loan@{Loan}!Loan@{Loan}}
+\index{Loan@{Loan}!Loan@{Loan}}
+\doxysubsubsection{\texorpdfstring{Loan()}{Loan()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Loan\+::\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id,  }\item[{unsigned int}]{book\+Id,  }\item[{unsigned int}]{user\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{start\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{end\+Date,  }\item[{Loan\+State}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Finishes the loan by changing the loan state to finished. 
+\doxylink{classLoan}{Loan} Constructor. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em current\+Date} & The current date when the function is called \\
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+Date} & Start \doxylink{structDate}{Date} \\
+\hline
+\mbox{\texttt{ in}}  & {\em end\+Date} & End \doxylink{structDate}{Date} \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & \doxylink{classLoan}{Loan} State \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
--\/1 if the current date is greater than the end\+Date 1 if the current date is lesser than the end\+Date (In all cases the loan state is changed) 
-\end{DoxyReturn}
-\Hypertarget{classLoan_a1db33953e974a269efd2c4e6b9586aa2}\index{Loan@{Loan}!StartLoan@{StartLoan}}
-\index{StartLoan@{StartLoan}!Loan@{Loan}}
-\doxysubsubsection{\texorpdfstring{StartLoan()}{StartLoan()}}
-{\footnotesize\ttfamily \label{classLoan_a1db33953e974a269efd2c4e6b9586aa2} 
-int Loan::\+\+Start\+Loan (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structDate}{Date}} \&}]{current\+Date}{}\end{DoxyParamCaption})}
+\Hypertarget{classLoan_a7e43e4e93a8155fbfeef419b2f828835}\label{classLoan_a7e43e4e93a8155fbfeef419b2f828835} 
+\index{Loan@{Loan}!Loan@{Loan}}
+\index{Loan@{Loan}!Loan@{Loan}}
+\doxysubsubsection{\texorpdfstring{Loan()}{Loan()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Loan\+::\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id,  }\item[{unsigned int}]{book\+Id,  }\item[{unsigned int}]{user\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{start\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{end\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{delivered\+Date,  }\item[{Loan\+State}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Starts the loan by changing the book state to loaned. 
+\doxylink{classLoan}{Loan} Constructor. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em current\+Date} & The current date when the function is called. \\
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+Date} & Start \doxylink{structDate}{Date} \\
+\hline
+\mbox{\texttt{ in}}  & {\em end\+Date} & End \doxylink{structDate}{Date} \\
+\hline
+\mbox{\texttt{ in}}  & {\em delivered\+Date} & Delivered \doxylink{structDate}{Date} \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & \doxylink{classLoan}{Loan} State \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 if the current date is greater than the end date of the loan. 1 if the loan state is changed successfully. 
-\end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Loan/\+loan.\+h\item 
-Loan/\+loan.\+cpp\end{DoxyCompactItemize}
+Loan/loan.\+h\end{DoxyCompactItemize}

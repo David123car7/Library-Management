@@ -4,7 +4,7 @@
 #include <cstdint>
 
 /**
- * struct UserProfile - Struct that holds user related data to determine his state
+ * @brief Struct that holds user related data to determine his state
  */
 struct UserProfile{
 	UserState state;

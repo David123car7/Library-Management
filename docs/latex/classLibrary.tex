@@ -1,51 +1,96 @@
 \doxysection{Library Class Reference}
 \hypertarget{classLibrary}{}\label{classLibrary}\index{Library@{Library}}
+
+
+Class that represents the library, this will manage the classes \doxylink{classUserManagement}{User\+Management}, \doxylink{classBookManagement}{Book\+Management} and \doxylink{classLoanManagement}{Loan\+Management}.  
+
+
+
+
+{\ttfamily \#include $<$library.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classLibrary_a2090ffb239fa764e200f5c6c494da641}\label{classLibrary_a2090ffb239fa764e200f5c6c494da641} 
-int {\bfseries Add\+User} (const std::\+string \&name, const std::\+string \&gender, int age, const std::\+string \&email, const std::\+string \&phone\+Number)
+int {\bfseries Add\+User} (const std\+::string \&name, const std\+::string \&gender, int age, const std\+::string \&email, const std\+::string \&phone\+Number)
 \item 
-\Hypertarget{classLibrary_a9143e721ca1fe9cb656b6a33570ae050}\label{classLibrary_a9143e721ca1fe9cb656b6a33570ae050} 
-int {\bfseries Remove\+User} (unsigned int id)
-\item 
-\Hypertarget{classLibrary_aa485c54d0992103a3ab9648babeb123c}\label{classLibrary_aa485c54d0992103a3ab9648babeb123c} 
-void {\bfseries Print\+Users} ()
+\Hypertarget{classLibrary_a266a387ff5ad671b750dc47cf420c67e}\label{classLibrary_a266a387ff5ad671b750dc47cf420c67e} 
+Result {\bfseries Remove\+User} (unsigned int id)
 \item 
 \Hypertarget{classLibrary_abac1619dbd439515554284d4c0388018}\label{classLibrary_abac1619dbd439515554284d4c0388018} 
-int {\bfseries Add\+Book} (std::\+string name, std::\+string author, \doxymbox{\hyperlink{structDate}{Date}} \&release\+Date, Book\+Genre genre, Book\+State state)
+int {\bfseries Add\+Book} (std\+::string name, std\+::string author, \mbox{\hyperlink{structDate}{Date}} \&release\+Date, Book\+Genre genre, Book\+State state)
 \item 
-\Hypertarget{classLibrary_acecabd8c07c62ca164ef4a010c995268}\label{classLibrary_acecabd8c07c62ca164ef4a010c995268} 
-int {\bfseries Remove\+Book} (unsigned int id)
+\Hypertarget{classLibrary_aa7797cdf23d0cd4f27bc9b83f99c3746}\label{classLibrary_aa7797cdf23d0cd4f27bc9b83f99c3746} 
+Result {\bfseries Remove\+Book} (unsigned int book\+Id)
 \item 
+Result \mbox{\hyperlink{classLibrary_a5a42c904926ed4e7124ecf82f46123db}{Create\+Loan}} (unsigned int book\+Id, unsigned int user\+Id, const \mbox{\hyperlink{structDate}{Date}} \&current\+Date, const \mbox{\hyperlink{structDate}{Date}} \&start\+Date, const \mbox{\hyperlink{structDate}{Date}} \&end\+Date)
+\begin{DoxyCompactList}\small\item\em Adds a loan. \end{DoxyCompactList}\item 
+Result \mbox{\hyperlink{classLibrary_a14998c597acc2a559e45465f8e6bde53}{Pickup\+Loan}} (unsigned int loan\+Id, const \mbox{\hyperlink{structDate}{Date}} \&picked\+Up\+Date)
+\begin{DoxyCompactList}\small\item\em Called when a user picks the book he loaned. \end{DoxyCompactList}\item 
+Result \mbox{\hyperlink{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481}{Finish\+Loan}} (unsigned int loan\+Id, const \mbox{\hyperlink{structDate}{Date}} \&delivered\+Date)
+\item 
+Result \mbox{\hyperlink{classLibrary_a22ce2de2be9018414578e1e13dbfb4ed}{Check\+In\+User}} (unsigned int user\+Id, const \mbox{\hyperlink{structDate}{Date}} \&current\+Date)
+\begin{DoxyCompactList}\small\item\em Does the user check in by checking the user state, if it is banned will check if the ban expire date has passed if passed the user will be unbanned. \end{DoxyCompactList}\item 
+Result \mbox{\hyperlink{classLibrary_a435701b7404fc6f311af5ae493bd6561}{Ban\+User}} (unsigned int user\+Id, const \mbox{\hyperlink{structDate}{Date}} \&start\+Date)
+\begin{DoxyCompactList}\small\item\em Bans the user temporary. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_a2a8ffd877ca78f4db4165a062d128f75}\label{classLibrary_a2a8ffd877ca78f4db4165a062d128f75} 
+void {\bfseries Open\+Library} ()
+\begin{DoxyCompactList}\small\item\em Logic to open the library. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_adb5a8dd4110c79b4e4395ddbbde1dfe2}\label{classLibrary_adb5a8dd4110c79b4e4395ddbbde1dfe2} 
+void {\bfseries Close\+Library} ()
+\begin{DoxyCompactList}\small\item\em Logic to close the library. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_a7fa13329ab32718506214fec42e2ad00}\label{classLibrary_a7fa13329ab32718506214fec42e2ad00} 
+void {\bfseries Print\+Books\+Qnt} ()
+\begin{DoxyCompactList}\small\item\em Prints the amount of books exist on the library. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_a411a3b89de3e540d418e1f71b9c45e40}\label{classLibrary_a411a3b89de3e540d418e1f71b9c45e40} 
+void {\bfseries Print\+Available\+Books\+Qnt} ()
+\begin{DoxyCompactList}\small\item\em Prints the amount of available books exist on the library. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_a31ab773548d50f396b831e09d54ab652}\label{classLibrary_a31ab773548d50f396b831e09d54ab652} 
+void {\bfseries Print\+Not\+Available\+Books\+Qnt} ()
+\begin{DoxyCompactList}\small\item\em Prints the amount of not available books exist on the library. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLibrary_ae474a0da9864b544e4a32319fb092f77}{Print\+User}} (unsigned int user\+Id)
+\begin{DoxyCompactList}\small\item\em Prints a user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLibrary_a20e3e90f7064eb72e9b18ee7afb25318}{Print\+Book}} (unsigned int book\+Id)
+\begin{DoxyCompactList}\small\item\em Prints a book. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLibrary_a4fc427975dd5183bd8e1293c5286a69a}{Print\+Loan}} (unsigned int loan\+Id)
+\begin{DoxyCompactList}\small\item\em Prints a loan. \end{DoxyCompactList}\item 
 \Hypertarget{classLibrary_a06a662e1c37a64eabd9a9c0e2c71c2a5}\label{classLibrary_a06a662e1c37a64eabd9a9c0e2c71c2a5} 
 void {\bfseries Print\+Books} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Prints all books. \end{DoxyCompactList}\item 
 \Hypertarget{classLibrary_af5c1e1cfd3572fc4b61d5f61d57117fc}\label{classLibrary_af5c1e1cfd3572fc4b61d5f61d57117fc} 
 void {\bfseries Print\+Loans} ()
-\item 
-Result \doxymbox{\hyperlink{classLibrary_a5a42c904926ed4e7124ecf82f46123db}{Create\+Loan}} (unsigned int book\+Id, unsigned int user\+Id, const \doxymbox{\hyperlink{structDate}{Date}} \&current\+Date, const \doxymbox{\hyperlink{structDate}{Date}} \&start\+Date, const \doxymbox{\hyperlink{structDate}{Date}} \&end\+Date)
-\begin{DoxyCompactList}\small\item\em Adds a loan. \end{DoxyCompactList}\item 
-Result \doxymbox{\hyperlink{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481}{Finish\+Loan}} (unsigned int loan\+Id, const \doxymbox{\hyperlink{structDate}{Date}} \&delivered\+Date)
-\item 
-Result \doxymbox{\hyperlink{classLibrary_af167e3b70ea6ad2fb2ccdb210a5d2bbb}{Is\+Book\+Available}} (unsigned int book\+Id)
-\begin{DoxyCompactList}\small\item\em Checks if the book is available. \end{DoxyCompactList}\item 
-Result \doxymbox{\hyperlink{classLibrary_a789b52b73bd9edf773a87920d1fb3a50}{Can\+User\+Loan}} (unsigned int user\+Id)
-\begin{DoxyCompactList}\small\item\em Checks if the user can loan a book. \end{DoxyCompactList}\item 
-Result \doxymbox{\hyperlink{classLibrary_a22ce2de2be9018414578e1e13dbfb4ed}{Check\+In\+User}} (unsigned int user\+Id, const \doxymbox{\hyperlink{structDate}{Date}} \&current\+Date)
-\begin{DoxyCompactList}\small\item\em Does the user check in by checking the user state, if it is banned will check if the ban expire date has passed if passed the user will be unbanned. \end{DoxyCompactList}\item 
-Result \doxymbox{\hyperlink{classLibrary_a435701b7404fc6f311af5ae493bd6561}{Ban\+User}} (unsigned int user\+Id, const \doxymbox{\hyperlink{structDate}{Date}} \&start\+Date)
-\begin{DoxyCompactList}\small\item\em Bans the user temporary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints all active loans. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_acd280e13d7f74d05b12aa06a5d86c4be}\label{classLibrary_acd280e13d7f74d05b12aa06a5d86c4be} 
+void {\bfseries Print\+History\+Loans} ()
+\begin{DoxyCompactList}\small\item\em Prints past loans. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_aa485c54d0992103a3ab9648babeb123c}\label{classLibrary_aa485c54d0992103a3ab9648babeb123c} 
+void {\bfseries Print\+Users} ()
+\begin{DoxyCompactList}\small\item\em Prints all users. \end{DoxyCompactList}\item 
+Result \mbox{\hyperlink{classLibrary_ac66af2b9972d70310ef6a01d4317465c}{Print\+User\+Loans}} (unsigned int user\+Id)
+\begin{DoxyCompactList}\small\item\em Prints all loans associated with a user. \end{DoxyCompactList}\item 
+Result \mbox{\hyperlink{classLibrary_ab1b3756cae54ba806f9d6f9365cc1018}{Print\+Books\+User\+Loans}} (unsigned int user\+Id)
+\begin{DoxyCompactList}\small\item\em Prints the books being loaned to a user. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_a3efce585e88a83847029a37dcd8f5c46}\label{classLibrary_a3efce585e88a83847029a37dcd8f5c46} 
+void {\bfseries Print\+User\+Columns} ()
+\begin{DoxyCompactList}\small\item\em Prints the user colums. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_a582a56376ab3b33b14b9c5f7fe4372bc}\label{classLibrary_a582a56376ab3b33b14b9c5f7fe4372bc} 
+void {\bfseries Print\+Book\+Columns} ()
+\begin{DoxyCompactList}\small\item\em Prints the book columns. \end{DoxyCompactList}\item 
+\Hypertarget{classLibrary_aea3d8439bb2c4903c99c1592b14c99a7}\label{classLibrary_aea3d8439bb2c4903c99c1592b14c99a7} 
+void {\bfseries Print\+Loan\+Columns} ()
+\begin{DoxyCompactList}\small\item\em Prints the loan columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\label{doc-func-members}
-\Hypertarget{classLibrary_doc-func-members}
+\doxysubsection{Detailed Description}
+Class that represents the library, this will manage the classes \doxylink{classUserManagement}{User\+Management}, \doxylink{classBookManagement}{Book\+Management} and \doxylink{classLoanManagement}{Loan\+Management}. 
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classLibrary_a435701b7404fc6f311af5ae493bd6561}\index{Library@{Library}!BanUser@{BanUser}}
+\Hypertarget{classLibrary_a435701b7404fc6f311af5ae493bd6561}\label{classLibrary_a435701b7404fc6f311af5ae493bd6561} 
+\index{Library@{Library}!BanUser@{BanUser}}
 \index{BanUser@{BanUser}!Library@{Library}}
 \doxysubsubsection{\texorpdfstring{BanUser()}{BanUser()}}
-{\footnotesize\ttfamily \label{classLibrary_a435701b7404fc6f311af5ae493bd6561} 
-Result Library::\+\+Ban\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{start\+Date}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Result Library\+::\+Ban\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{start\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -53,37 +98,19 @@ Bans the user temporary.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em start\+Date} & \doxylink{structDate}{Date} that the ban starts \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Result::\+\+User\+Banned if the user is allready banned, Result::\+\+User\+Null if the user does not exist, Result::\+\+Sucesseful if the user was banned sucessefuly 
-\end{DoxyReturn}
-\Hypertarget{classLibrary_a789b52b73bd9edf773a87920d1fb3a50}\index{Library@{Library}!CanUserLoan@{CanUserLoan}}
-\index{CanUserLoan@{CanUserLoan}!Library@{Library}}
-\doxysubsubsection{\texorpdfstring{CanUserLoan()}{CanUserLoan()}}
-{\footnotesize\ttfamily \label{classLibrary_a789b52b73bd9edf773a87920d1fb3a50} 
-Result Library::\+\+Can\+User\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id}{}\end{DoxyParamCaption})}
-
-
-
-Checks if the user can loan a book. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\mbox{\texttt{ in}}  & {\em start\+Date} & \doxylink{structDate}{Date} that the ban starts \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Result::\+\+User\+Null if the user does no exist Result::\+\+Loans\+Max\+Reached if the user reached the max of loans Result::\+\+User\+Banned if the user is banned Result::\+\+Sucess if the user is active 
+Result\+::\+User\+Banned if the user is allready banned, Result\+::\+User\+Null if the user does not exist, Result\+::\+Sucesseful if the user was banned sucessefuly 
 \end{DoxyReturn}
-\Hypertarget{classLibrary_a22ce2de2be9018414578e1e13dbfb4ed}\index{Library@{Library}!CheckInUser@{CheckInUser}}
+\Hypertarget{classLibrary_a22ce2de2be9018414578e1e13dbfb4ed}\label{classLibrary_a22ce2de2be9018414578e1e13dbfb4ed} 
+\index{Library@{Library}!CheckInUser@{CheckInUser}}
 \index{CheckInUser@{CheckInUser}!Library@{Library}}
 \doxysubsubsection{\texorpdfstring{CheckInUser()}{CheckInUser()}}
-{\footnotesize\ttfamily \label{classLibrary_a22ce2de2be9018414578e1e13dbfb4ed} 
-Result Library::\+\+Check\+In\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{current\+Date}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Result Library\+::\+Check\+In\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{current\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -91,19 +118,19 @@ Does the user check in by checking the user state, if it is banned will check if
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em current\+Date} & Current date \\
+\mbox{\texttt{ in}}  & {\em current\+Date} & Current date \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Result::\+\+User\+Null if the user does not exist Result:\+User\+Banned if the user is banned Result::\+\+Sucess if the user is active 
+Result\+::\+User\+Null if the user does not exist Result\+:User\+Banned if the user is banned Result\+::\+Sucess if the user is active 
 \end{DoxyReturn}
-\Hypertarget{classLibrary_a5a42c904926ed4e7124ecf82f46123db}\index{Library@{Library}!CreateLoan@{CreateLoan}}
+\Hypertarget{classLibrary_a5a42c904926ed4e7124ecf82f46123db}\label{classLibrary_a5a42c904926ed4e7124ecf82f46123db} 
+\index{Library@{Library}!CreateLoan@{CreateLoan}}
 \index{CreateLoan@{CreateLoan}!Library@{Library}}
 \doxysubsubsection{\texorpdfstring{CreateLoan()}{CreateLoan()}}
-{\footnotesize\ttfamily \label{classLibrary_a5a42c904926ed4e7124ecf82f46123db} 
-Result Library::\+\+Create\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{book\+Id}{, }\item[{unsigned int}]{user\+Id}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{current\+Date}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{start\+Date}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{end\+Date}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Result Library\+::\+Create\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{book\+Id,  }\item[{unsigned int}]{user\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{current\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{start\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{end\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -111,57 +138,149 @@ Adds a loan.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
+\mbox{\texttt{ in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em start\+Date} & Start \doxylink{structDate}{Date} \\
+\mbox{\texttt{ in}}  & {\em start\+Date} & Start \doxylink{structDate}{Date} \\
 \hline
-\doxymbox{\texttt{in}}  & {\em end\+Date} & End \doxylink{structDate}{Date} \\
+\mbox{\texttt{ in}}  & {\em end\+Date} & End \doxylink{structDate}{Date} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Result::\+\+Book\+Null if the book did not exist, Result::\+\+Book\+Not\+Available if the book was not available, Result::\+\+User\+Null if the user did not exist, Result::\+\+Invalid\+Date if the end date is higher than the start date Result::\+\+Loans\+Max\+Reached if the user has reached the max loans Result:\+Sucessful if the loan was added sucessufly 
+Result\+::\+Book\+Null if the book did not exist, Result\+::\+Book\+Not\+Available if the book was not available, Result\+::\+User\+Null if the user did not exist, Result\+::\+Invalid\+Date if the end date is higher than the start date Result\+::\+Loans\+Max\+Reached if the user has reached the max loans Result\+:Sucessful if the loan was added sucessufly 
 \end{DoxyReturn}
-\Hypertarget{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481}\index{Library@{Library}!FinishLoan@{FinishLoan}}
+\Hypertarget{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481}\label{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481} 
+\index{Library@{Library}!FinishLoan@{FinishLoan}}
 \index{FinishLoan@{FinishLoan}!Library@{Library}}
 \doxysubsubsection{\texorpdfstring{FinishLoan()}{FinishLoan()}}
-{\footnotesize\ttfamily \label{classLibrary_a009c6eb6e272d5ea2893c6660e2a6481} 
-Result Library::\+\+Finish\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{loan\+Id}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{delivered\+Date}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Result Library\+::\+Finish\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{loan\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{delivered\+Date }\end{DoxyParamCaption})}
 
 @\+Finishes the loan
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em loan\+Id} & \doxylink{classLoan}{Loan} Id \\
+\mbox{\texttt{ in}}  & {\em loan\+Id} & \doxylink{classLoan}{Loan} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em delivered\+Date} & \doxylink{structDate}{Date} that the book was delivered \\
+\mbox{\texttt{ in}}  & {\em delivered\+Date} & \doxylink{structDate}{Date} that the book was delivered \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Result::\+\+Loan\+Null if the loan did not exist Result::\+\+Book\+Null if the book associated with the loan did not exist Result::\+\+User\+Null if the user associated with the loan did not exist Result::\+\+Loan\+Allready\+Finished if the loan was allready finished 
+Result\+::\+Loan\+Null if the loan did not exist Result\+::\+Book\+Null if the book associated with the loan did not exist Result\+::\+User\+Null if the user associated with the loan did not exist Result\+::\+Loan\+Allready\+Finished if the loan was allready finished 
 \end{DoxyReturn}
-\Hypertarget{classLibrary_af167e3b70ea6ad2fb2ccdb210a5d2bbb}\index{Library@{Library}!IsBookAvailable@{IsBookAvailable}}
-\index{IsBookAvailable@{IsBookAvailable}!Library@{Library}}
-\doxysubsubsection{\texorpdfstring{IsBookAvailable()}{IsBookAvailable()}}
-{\footnotesize\ttfamily \label{classLibrary_af167e3b70ea6ad2fb2ccdb210a5d2bbb} 
-Result Library::\+\+Is\+Book\+Available (\begin{DoxyParamCaption}\item[{unsigned int}]{book\+Id}{}\end{DoxyParamCaption})}
+\Hypertarget{classLibrary_a14998c597acc2a559e45465f8e6bde53}\label{classLibrary_a14998c597acc2a559e45465f8e6bde53} 
+\index{Library@{Library}!PickupLoan@{PickupLoan}}
+\index{PickupLoan@{PickupLoan}!Library@{Library}}
+\doxysubsubsection{\texorpdfstring{PickupLoan()}{PickupLoan()}}
+{\footnotesize\ttfamily Result Library\+::\+Pickup\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{loan\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{picked\+Up\+Date }\end{DoxyParamCaption})}
 
 
 
-Checks if the book is available. 
+Called when a user picks the book he loaned. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
+\mbox{\texttt{ in}}  & {\em loan\+Id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em picked\+Up\+Date} & \doxylink{structDate}{Date} the book was picked \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Result::\+\+Book\+Null if book does not exist, Result::\+\+Book\+Not\+Available if the books is not available, Result::\+\+Sucess if the book is available 
+Result\+::\+Loan\+Null if the loan does not exist, Result\+::\+User\+Null if the user associated with the loan does not exist, Result\+::\+Book\+Null if the user associated with the loan does not exist, Result\+::\+Loan\+Not\+Pickedup if the picked\+Up\+Date is greater than the end date of the loan Result\+::\+Sucess if the book was picked 
+\end{DoxyReturn}
+\Hypertarget{classLibrary_a20e3e90f7064eb72e9b18ee7afb25318}\label{classLibrary_a20e3e90f7064eb72e9b18ee7afb25318} 
+\index{Library@{Library}!PrintBook@{PrintBook}}
+\index{PrintBook@{PrintBook}!Library@{Library}}
+\doxysubsubsection{\texorpdfstring{PrintBook()}{PrintBook()}}
+{\footnotesize\ttfamily int Library\+::\+Print\+Book (\begin{DoxyParamCaption}\item[{unsigned int}]{book\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints a book. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the book was printed 0 if the book does not exist 
+\end{DoxyReturn}
+\Hypertarget{classLibrary_ab1b3756cae54ba806f9d6f9365cc1018}\label{classLibrary_ab1b3756cae54ba806f9d6f9365cc1018} 
+\index{Library@{Library}!PrintBooksUserLoans@{PrintBooksUserLoans}}
+\index{PrintBooksUserLoans@{PrintBooksUserLoans}!Library@{Library}}
+\doxysubsubsection{\texorpdfstring{PrintBooksUserLoans()}{PrintBooksUserLoans()}}
+{\footnotesize\ttfamily Result Library\+::\+Print\+Books\+User\+Loans (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id }\end{DoxyParamCaption})}
+
+
+
+Prints the books being loaned to a user. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result\+::\+User\+Null if the user does not exist, Result\+::\+Sucess if the books were printed sucesseful 
+\end{DoxyReturn}
+\Hypertarget{classLibrary_a4fc427975dd5183bd8e1293c5286a69a}\label{classLibrary_a4fc427975dd5183bd8e1293c5286a69a} 
+\index{Library@{Library}!PrintLoan@{PrintLoan}}
+\index{PrintLoan@{PrintLoan}!Library@{Library}}
+\doxysubsubsection{\texorpdfstring{PrintLoan()}{PrintLoan()}}
+{\footnotesize\ttfamily int Library\+::\+Print\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{loan\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints a loan. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan was printed 0 if the loan does not exist 
+\end{DoxyReturn}
+\Hypertarget{classLibrary_ae474a0da9864b544e4a32319fb092f77}\label{classLibrary_ae474a0da9864b544e4a32319fb092f77} 
+\index{Library@{Library}!PrintUser@{PrintUser}}
+\index{PrintUser@{PrintUser}!Library@{Library}}
+\doxysubsubsection{\texorpdfstring{PrintUser()}{PrintUser()}}
+{\footnotesize\ttfamily int Library\+::\+Print\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints a user. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the user was printed 0 if the user does not exist 
+\end{DoxyReturn}
+\Hypertarget{classLibrary_ac66af2b9972d70310ef6a01d4317465c}\label{classLibrary_ac66af2b9972d70310ef6a01d4317465c} 
+\index{Library@{Library}!PrintUserLoans@{PrintUserLoans}}
+\index{PrintUserLoans@{PrintUserLoans}!Library@{Library}}
+\doxysubsubsection{\texorpdfstring{PrintUserLoans()}{PrintUserLoans()}}
+{\footnotesize\ttfamily Result Library\+::\+Print\+User\+Loans (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id }\end{DoxyParamCaption})}
+
+
+
+Prints all loans associated with a user. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result\+::\+User\+Null if the user does not exist, Result\+::\+Sucess if the loans were printed sucesseful 
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Library/\+library.\+h\item 
-Library/\+library.\+cpp\end{DoxyCompactItemize}
+Library/library.\+h\item 
+Library/library.\+cpp\end{DoxyCompactItemize}

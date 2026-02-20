@@ -5,7 +5,22 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keywordtype}{bool}\ isInvalidString(\textcolor{keyword}{const}\ std::string\&\ x);}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../Constants/constants.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../Date/date.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{int}\ GetMonthDays(uint8\_t\ month,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ year);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{bool}\ isInvalidString(\textcolor{keyword}{const}\ std::string\&\ x);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00035\ std::vector<std::string>\ ParseString(\textcolor{keyword}{const}\ std::string\&\ line,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ StoreStringToBinary(std::ofstream\&\ wf,\ \textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ ReadBinaryToString(std::ifstream\&\ rf,\ std::string\&\ value);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \mbox{\hyperlink{structDate}{Date}}\ StringToDate(std::string\&\ value);}
+\DoxyCodeLine{00061\ }
 
 \end{DoxyCode}

@@ -3,6 +3,9 @@
 #include <map>
 #include "../Loan/loan.h"
 
+/**
+ * @brief class responsible to manage loans.
+ */
 class LoanManagement{
 	private:
 	std::map<unsigned int, Loan> loans;

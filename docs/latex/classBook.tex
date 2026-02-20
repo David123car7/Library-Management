@@ -1,34 +1,48 @@
 \doxysection{Book Class Reference}
 \hypertarget{classBook}{}\label{classBook}\index{Book@{Book}}
+
+
+Class that represents a book.  
+
+
+
+
+{\ttfamily \#include $<$book.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classBook_a39e579dad03fcca8939ea43bc62afd54}\label{classBook_a39e579dad03fcca8939ea43bc62afd54} 
-{\bfseries Book} (unsigned int id, std::\+string name, std::\+string author, \doxymbox{\hyperlink{structDate}{Date}} \&release\+Date, Book\+Genre genre, Book\+State state)
-\item 
+\Hypertarget{classBook_a2eac9e235a08763158f78533f7a83e1f}\label{classBook_a2eac9e235a08763158f78533f7a83e1f} 
+{\bfseries Book} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBook_a39e579dad03fcca8939ea43bc62afd54}{Book}} (unsigned int id, std\+::string name, std\+::string author, \mbox{\hyperlink{structDate}{Date}} \&release\+Date, Book\+Genre genre, Book\+State state)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{classBook}{Book} object. \end{DoxyCompactList}\item 
 \Hypertarget{classBook_a55dc3c8db5c99c819008d37ccee302ce}\label{classBook_a55dc3c8db5c99c819008d37ccee302ce} 
 int {\bfseries Get\+Id} () const
 \item 
 \Hypertarget{classBook_aecda983d7bb07f325912e2c7a51d65bb}\label{classBook_aecda983d7bb07f325912e2c7a51d65bb} 
-const std::\+string \& {\bfseries Get\+Name} () const
+const std\+::string \& {\bfseries Get\+Name} () const
 \item 
 \Hypertarget{classBook_a37173314acda400e522256308dd51d6c}\label{classBook_a37173314acda400e522256308dd51d6c} 
-const std::\+string \& {\bfseries Get\+Author} () const
+const std\+::string \& {\bfseries Get\+Author} () const
 \item 
-\Hypertarget{classBook_a701f4b7405ef6817be9322aae5b3e3bb}\label{classBook_a701f4b7405ef6817be9322aae5b3e3bb} 
-const \doxymbox{\hyperlink{structDate}{Date}} \& {\bfseries Get\+Realease\+Date} () const
+\Hypertarget{classBook_a055632deb1b5ea216fc45ced400333a5}\label{classBook_a055632deb1b5ea216fc45ced400333a5} 
+const \mbox{\hyperlink{structDate}{Date}} \& {\bfseries Get\+Release\+Date} () const
 \item 
 \Hypertarget{classBook_a4188c805b8e50fd636809b5731ea766b}\label{classBook_a4188c805b8e50fd636809b5731ea766b} 
 Book\+Genre {\bfseries Get\+Genre} () const
 \item 
+\Hypertarget{classBook_a3ce917b896569466d41bd8f1ad38ca41}\label{classBook_a3ce917b896569466d41bd8f1ad38ca41} 
+Book\+State {\bfseries Get\+State} () const
+\item 
 \Hypertarget{classBook_a4cfd3685dfe1dd0eb383eaee076f9bd9}\label{classBook_a4cfd3685dfe1dd0eb383eaee076f9bd9} 
-int {\bfseries Set\+Name} (const std::\+string \&name)
+int {\bfseries Set\+Name} (const std\+::string \&name)
 \item 
 \Hypertarget{classBook_ac50ef7a919fe914c3d8aa1b069afd9a3}\label{classBook_ac50ef7a919fe914c3d8aa1b069afd9a3} 
-int {\bfseries Set\+Author} (const std::\+string \&author)
+int {\bfseries Set\+Author} (const std\+::string \&author)
 \item 
 \Hypertarget{classBook_aae8aa46eb2ae17f332a4c91ff3557ce3}\label{classBook_aae8aa46eb2ae17f332a4c91ff3557ce3} 
-void {\bfseries Set\+Release\+Date} (const \doxymbox{\hyperlink{structDate}{Date}} \&date)
+void {\bfseries Set\+Release\+Date} (const \mbox{\hyperlink{structDate}{Date}} \&date)
 \item 
 \Hypertarget{classBook_a7bbaaaa86cac3e3a40e1c4d438859d59}\label{classBook_a7bbaaaa86cac3e3a40e1c4d438859d59} 
 void {\bfseries Set\+Genre} (const Book\+Genre genre)
@@ -39,12 +53,67 @@ void {\bfseries Set\+State} (const Book\+State state)
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classBook_a8e39f06b415fa038be56840b7a41c7fa}\label{classBook_a8e39f06b415fa038be56840b7a41c7fa} 
-std::\+ostream \& {\bfseries operator$<$$<$} (std::\+ostream \&out, \doxymbox{\hyperlink{classBook}{Book}} \&book)
-\end{DoxyCompactItemize}
+std\+::ostream \& \mbox{\hyperlink{classBook_ac2f0dd5fe295710cb9817dd4bc99c0d5}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classBook}{Book}} \&book)
+\begin{DoxyCompactList}\small\item\em Overloads the stream insertion operator to print the \doxylink{classBook}{Book}\textquotesingle{}s details. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+Class that represents a book. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBook_a39e579dad03fcca8939ea43bc62afd54}\label{classBook_a39e579dad03fcca8939ea43bc62afd54} 
+\index{Book@{Book}!Book@{Book}}
+\index{Book@{Book}!Book@{Book}}
+\doxysubsubsection{\texorpdfstring{Book()}{Book()}}
+{\footnotesize\ttfamily Book\+::\+Book (\begin{DoxyParamCaption}\item[{unsigned int}]{id,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{author,  }\item[{\mbox{\hyperlink{structDate}{Date}} \&}]{release\+Date,  }\item[{Book\+Genre}]{genre,  }\item[{Book\+State}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a new \doxylink{classBook}{Book} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The unique identifier for the book. \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & The title of the book. \\
+\hline
+\mbox{\texttt{ in}}  & {\em author} & The name of the author. \\
+\hline
+\mbox{\texttt{ in}}  & {\em release\+Date} & The publication date of the book. \\
+\hline
+\mbox{\texttt{ in}}  & {\em genre} & The genre or category of the book. \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & The initial state of the book.. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classBook_ac2f0dd5fe295710cb9817dd4bc99c0d5}\label{classBook_ac2f0dd5fe295710cb9817dd4bc99c0d5} 
+\index{Book@{Book}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Book@{Book}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{classBook}{Book}} \&}]{book }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloads the stream insertion operator to print the \doxylink{classBook}{Book}\textquotesingle{}s details. 
+
+Outputs the book information in the following order\+: ID Name Author Release\+Date Genre State
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em out} & The output stream to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em book} & The \doxylink{classBook}{Book} object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the modified output stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Book/\+book.\+h\item 
-Book/\+book.\+cpp\end{DoxyCompactItemize}
+Book/book.\+h\item 
+Book/book.\+cpp\end{DoxyCompactItemize}

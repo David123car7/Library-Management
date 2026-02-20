@@ -1,26 +1,218 @@
 \doxysection{Book\+Management Class Reference}
 \hypertarget{classBookManagement}{}\label{classBookManagement}\index{BookManagement@{BookManagement}}
+
+
+Class responsible to manage books. All books are inside a map where the key is the year of the book and the value is a vector of \doxylink{classBook}{Book}.  
+
+
+
+
+{\ttfamily \#include $<$book\+Management.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classBookManagement_a079928bab2d3827ff5f8bacbb221bdd9}\label{classBookManagement_a079928bab2d3827ff5f8bacbb221bdd9} 
-void {\bfseries Add} (const \doxymbox{\hyperlink{classBook}{Book}} \&book)
-\item 
-\Hypertarget{classBookManagement_aa11f981852526fae40f1500589eb0591}\label{classBookManagement_aa11f981852526fae40f1500589eb0591} 
-int {\bfseries Remove} (int16\+\_\+t year, int id)
-\item 
-\Hypertarget{classBookManagement_a2b7b6a827899133e569336cdc62c2776}\label{classBookManagement_a2b7b6a827899133e569336cdc62c2776} 
-\doxymbox{\hyperlink{classBook}{Book}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Book} (int16\+\_\+t year, int id)
-\item 
-\Hypertarget{classBookManagement_a13afc4477ce99023d33868b64351a7d6}\label{classBookManagement_a13afc4477ce99023d33868b64351a7d6} 
-const \doxymbox{\hyperlink{classBook}{Book}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Book\+Read\+Only} (int16\+\_\+t year, int id)
-\item 
+int \mbox{\hyperlink{classBookManagement_a1a9c4cc7ac29b06dae8b936fad4fbecd}{Add}} (std\+::string name, std\+::string author, \mbox{\hyperlink{structDate}{Date}} \&release\+Date, Book\+Genre genre, Book\+State state)
+\begin{DoxyCompactList}\small\item\em Adds a book to the map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_a937d66d7ed1667ec9379ff1907a5cfd1}{Remove}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Removes a book from the map \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBookManagement_ada3acd9496556e23584c6ffad240f7bf}{Book\+Exists}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Checks if a book with the id exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBook}{Book}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBookManagement_ac79da99224972d7351de48e7ae841dce}{Get\+Book}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Gets the book. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBook}{Book}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBookManagement_af9a3b9c1a0f8e4ba4bae2e214f72c02d}{Get\+Book}} (unsigned int id) const
+\begin{DoxyCompactList}\small\item\em Gets the book. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_ad699c00a494ce263e723bf1163994b60}{Get\+Books\+Qnt}} ()
+\begin{DoxyCompactList}\small\item\em Gets the quantity if books. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_ac0d719e03999cb4ccc85331ade06bc1e}{Get\+Available\+Books\+Qnt}} ()
+\begin{DoxyCompactList}\small\item\em Gets the quantity of available books. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_a9c6a23a4a6bab0ae6ef77f0c1cc97b1c}{Get\+Not\+Available\+Books\+Qnt}} ()
+\begin{DoxyCompactList}\small\item\em Gets the quantity of not available books. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_a006fb1f0ed4f0e3af30c5ae36d98f6b8}{Store\+Data\+In\+File}} ()
+\begin{DoxyCompactList}\small\item\em Stores all books in a csv file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_a3afdddd7428580a304ec94180585a7dd}{Read\+Data\+From\+File}} ()
+\begin{DoxyCompactList}\small\item\em Reads books data from a csv file. \end{DoxyCompactList}\item 
 \Hypertarget{classBookManagement_a3f5f1737c9a727e6f8501b0707e9d855}\label{classBookManagement_a3f5f1737c9a727e6f8501b0707e9d855} 
 void {\bfseries Print\+Books} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints all books. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBookManagement_a9529dad2fa3c852e0a63c203ba80b029}{Print\+Book}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Prints a book. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+Class responsible to manage books. All books are inside a map where the key is the year of the book and the value is a vector of \doxylink{classBook}{Book}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBookManagement_a1a9c4cc7ac29b06dae8b936fad4fbecd}\label{classBookManagement_a1a9c4cc7ac29b06dae8b936fad4fbecd} 
+\index{BookManagement@{BookManagement}!Add@{Add}}
+\index{Add@{Add}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Add (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{author,  }\item[{\mbox{\hyperlink{structDate}{Date}} \&}]{release\+Date,  }\item[{Book\+Genre}]{genre,  }\item[{Book\+State}]{state }\end{DoxyParamCaption})}
+
+
+
+Adds a book to the map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em book} & \doxylink{classBook}{Book} Object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The id of the book added 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_ada3acd9496556e23584c6ffad240f7bf}\label{classBookManagement_ada3acd9496556e23584c6ffad240f7bf} 
+\index{BookManagement@{BookManagement}!BookExists@{BookExists}}
+\index{BookExists@{BookExists}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{BookExists()}{BookExists()}}
+{\footnotesize\ttfamily bool Book\+Management\+::\+Book\+Exists (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if a book with the id exists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classBook}{Book} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if exists false if does not exist 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_ac0d719e03999cb4ccc85331ade06bc1e}\label{classBookManagement_ac0d719e03999cb4ccc85331ade06bc1e} 
+\index{BookManagement@{BookManagement}!GetAvailableBooksQnt@{GetAvailableBooksQnt}}
+\index{GetAvailableBooksQnt@{GetAvailableBooksQnt}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{GetAvailableBooksQnt()}{GetAvailableBooksQnt()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Get\+Available\+Books\+Qnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the quantity of available books. 
+
+\begin{DoxyReturn}{Returns}
+the quantity of available books 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_ac79da99224972d7351de48e7ae841dce}\label{classBookManagement_ac79da99224972d7351de48e7ae841dce} 
+\index{BookManagement@{BookManagement}!GetBook@{GetBook}}
+\index{GetBook@{GetBook}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{GetBook()}{GetBook()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBook}{Book}} \texorpdfstring{$\ast$}{*} Book\+Management\+::\+Get\+Book (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Gets the book. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em } & \\
+\hline
+\end{DoxyParams}
+id \doxylink{classBook}{Book} Id \Hypertarget{classBookManagement_af9a3b9c1a0f8e4ba4bae2e214f72c02d}\label{classBookManagement_af9a3b9c1a0f8e4ba4bae2e214f72c02d} 
+\index{BookManagement@{BookManagement}!GetBook@{GetBook}}
+\index{GetBook@{GetBook}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{GetBook()}{GetBook()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBook}{Book}} \texorpdfstring{$\ast$}{*} Book\+Management\+::\+Get\+Book (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Gets the book. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classBook}{Book} Id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBookManagement_ad699c00a494ce263e723bf1163994b60}\label{classBookManagement_ad699c00a494ce263e723bf1163994b60} 
+\index{BookManagement@{BookManagement}!GetBooksQnt@{GetBooksQnt}}
+\index{GetBooksQnt@{GetBooksQnt}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{GetBooksQnt()}{GetBooksQnt()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Get\+Books\+Qnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the quantity if books. 
+
+\begin{DoxyReturn}{Returns}
+the quantity of the book 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_a9c6a23a4a6bab0ae6ef77f0c1cc97b1c}\label{classBookManagement_a9c6a23a4a6bab0ae6ef77f0c1cc97b1c} 
+\index{BookManagement@{BookManagement}!GetNotAvailableBooksQnt@{GetNotAvailableBooksQnt}}
+\index{GetNotAvailableBooksQnt@{GetNotAvailableBooksQnt}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{GetNotAvailableBooksQnt()}{GetNotAvailableBooksQnt()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Get\+Not\+Available\+Books\+Qnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the quantity of not available books. 
+
+\begin{DoxyReturn}{Returns}
+the quantity of not available books 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_a9529dad2fa3c852e0a63c203ba80b029}\label{classBookManagement_a9529dad2fa3c852e0a63c203ba80b029} 
+\index{BookManagement@{BookManagement}!PrintBook@{PrintBook}}
+\index{PrintBook@{PrintBook}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{PrintBook()}{PrintBook()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Print\+Book (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Prints a book. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classBook}{Book} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the book does not exist, 1 if the book was printed 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_a3afdddd7428580a304ec94180585a7dd}\label{classBookManagement_a3afdddd7428580a304ec94180585a7dd} 
+\index{BookManagement@{BookManagement}!ReadDataFromFile@{ReadDataFromFile}}
+\index{ReadDataFromFile@{ReadDataFromFile}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{ReadDataFromFile()}{ReadDataFromFile()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Read\+Data\+From\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads books data from a csv file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not read 1 if the data was read and load sucessfuly 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_a937d66d7ed1667ec9379ff1907a5cfd1}\label{classBookManagement_a937d66d7ed1667ec9379ff1907a5cfd1} 
+\index{BookManagement@{BookManagement}!Remove@{Remove}}
+\index{Remove@{Remove}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Remove (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Removes a book from the map \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classBook}{Book} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns 1 if the book was h returns 0 if the book did not exist 
+\end{DoxyReturn}
+\Hypertarget{classBookManagement_a006fb1f0ed4f0e3af30c5ae36d98f6b8}\label{classBookManagement_a006fb1f0ed4f0e3af30c5ae36d98f6b8} 
+\index{BookManagement@{BookManagement}!StoreDataInFile@{StoreDataInFile}}
+\index{StoreDataInFile@{StoreDataInFile}!BookManagement@{BookManagement}}
+\doxysubsubsection{\texorpdfstring{StoreDataInFile()}{StoreDataInFile()}}
+{\footnotesize\ttfamily int Book\+Management\+::\+Store\+Data\+In\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stores all books in a csv file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not saved 1 if the data was saved 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Book\+Management/\+book\+Management.\+h\item 
-Book\+Management/\+book\+Management.\+cpp\end{DoxyCompactItemize}
+Book\+Management/book\+Management.\+h\item 
+Book\+Management/book\+Management.\+cpp\end{DoxyCompactItemize}

@@ -1,5 +1,6 @@
 var classLoan =
 [
-    [ "FinishLoan", "classLoan.html#ae72c0040b70e01b8cb1617588ea7c9de", null ],
-    [ "StartLoan", "classLoan.html#a1db33953e974a269efd2c4e6b9586aa2", null ]
+    [ "Loan", "classLoan.html#ac9837063879d5a4d21f288bdd5db6013", null ],
+    [ "Loan", "classLoan.html#a3a0d939f66c6811ca401ab53072c5fcd", null ],
+    [ "Loan", "classLoan.html#a7e43e4e93a8155fbfeef419b2f828835", null ]
 ];

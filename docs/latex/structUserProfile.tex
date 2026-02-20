@@ -2,17 +2,23 @@
 \hypertarget{structUserProfile}{}\label{structUserProfile}\index{UserProfile@{UserProfile}}
 
 
-{\ttfamily \+\#include $<$user\+Profile.\+h$>$}
+Struct that holds user related data to determine his state.  
+
+
+
+
+{\ttfamily \#include $<$user\+Profile.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structUserProfile_a35ed0e02a378c0da040834b23f67a0b3}\label{structUserProfile_a35ed0e02a378c0da040834b23f67a0b3} 
-{\bfseries User\+Profile} (User\+State state, uint8\+\_\+t occurrences, const \doxymbox{\hyperlink{structDate}{Date}} \&ban\+Expire\+Date)
-\item 
-\Hypertarget{structUserProfile_a6d8c437708647905e49934634284bf11}\label{structUserProfile_a6d8c437708647905e49934634284bf11} 
-{\bfseries User\+Profile} (User\+State state, uint8\+\_\+t occurrences)
-\end{DoxyCompactItemize}
+\Hypertarget{structUserProfile_a8c758187bde95bab1d0829007c71e857}\label{structUserProfile_a8c758187bde95bab1d0829007c71e857} 
+{\bfseries User\+Profile} ()
+\begin{DoxyCompactList}\small\item\em Default \doxylink{classUser}{User} Profile constructor that initializes the object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structUserProfile_a35ed0e02a378c0da040834b23f67a0b3}{User\+Profile}} (User\+State state, uint8\+\_\+t occurrences, const \mbox{\hyperlink{structDate}{Date}} \&ban\+Expire\+Date)
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{classUser}{User} Profile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structUserProfile_a6d8c437708647905e49934634284bf11}{User\+Profile}} (User\+State state, uint8\+\_\+t occurrences)
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{classUser}{User} Profile. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,13 +29,52 @@ User\+State {\bfseries state}
 uint8\+\_\+t {\bfseries occurrences}
 \item 
 \Hypertarget{structUserProfile_a88d8524ee8c14f4dd88f5b0c423be697}\label{structUserProfile_a88d8524ee8c14f4dd88f5b0c423be697} 
-\doxymbox{\hyperlink{structDate}{Date}} {\bfseries ban\+Expire\+Date}
+\mbox{\hyperlink{structDate}{Date}} {\bfseries ban\+Expire\+Date}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-struct \doxylink{structUserProfile}{User\+Profile} -\/ Struct that holds user related data to determine his state 
+Struct that holds user related data to determine his state. 
 
-The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structUserProfile_a35ed0e02a378c0da040834b23f67a0b3}\label{structUserProfile_a35ed0e02a378c0da040834b23f67a0b3} 
+\index{UserProfile@{UserProfile}!UserProfile@{UserProfile}}
+\index{UserProfile@{UserProfile}!UserProfile@{UserProfile}}
+\doxysubsubsection{\texorpdfstring{UserProfile()}{UserProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily User\+Profile\+::\+User\+Profile (\begin{DoxyParamCaption}\item[{User\+State}]{state,  }\item[{uint8\+\_\+t}]{occurrences,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{ban\+Expire\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs the \doxylink{classUser}{User} Profile. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & \doxylink{classUser}{User} State \\
+\hline
+\mbox{\texttt{ in}}  & {\em occurrences} & Number of occurrences \\
+\hline
+\mbox{\texttt{ in}}  & {\em ban\+Expire\+Date} & Ban Expire \doxylink{structDate}{Date} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structUserProfile_a6d8c437708647905e49934634284bf11}\label{structUserProfile_a6d8c437708647905e49934634284bf11} 
+\index{UserProfile@{UserProfile}!UserProfile@{UserProfile}}
+\index{UserProfile@{UserProfile}!UserProfile@{UserProfile}}
+\doxysubsubsection{\texorpdfstring{UserProfile()}{UserProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily User\+Profile\+::\+User\+Profile (\begin{DoxyParamCaption}\item[{User\+State}]{state,  }\item[{uint8\+\_\+t}]{occurrences }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs the \doxylink{classUser}{User} Profile. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & \doxylink{classUser}{User} State \\
+\hline
+\mbox{\texttt{ in}}  & {\em occurrences} & Number of occurrences \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-User/\+user\+Profile.\+h\end{DoxyCompactItemize}
+User/user\+Profile.\+h\end{DoxyCompactItemize}

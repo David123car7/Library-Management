@@ -1,6 +1,15 @@
 \doxysection{User Class Reference}
 \hypertarget{classUser}{}\label{classUser}\index{User@{User}}
-Inheritance diagram for User:\+\begin{figure}[H]
+
+
+Class that represents the user.  
+
+
+
+
+{\ttfamily \#include $<$user.\+h$>$}
+
+Inheritance diagram for User\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{classUser}
@@ -9,40 +18,68 @@ Inheritance diagram for User:\+\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classUser_a4dedba3948ccf763b4c5f07c25234e99}\label{classUser_a4dedba3948ccf763b4c5f07c25234e99} 
-{\bfseries User} (unsigned int id, std::\+string name, std::\+string gender, int age, std::\+string phone\+Number, std::\+string email)
-\item 
+\Hypertarget{classUser_a4a0137053e591fbb79d9057dd7d2283d}\label{classUser_a4a0137053e591fbb79d9057dd7d2283d} 
+{\bfseries User} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser_aa59ea360f3690d9ed768c605e9714eeb}{User}} (unsigned int id, std\+::string name, std\+::string gender, unsigned int age, std\+::string phone\+Number, std\+::string email, User\+State state, int occurrences)
+\begin{DoxyCompactList}\small\item\em Constructor for the user. \end{DoxyCompactList}\item 
 \Hypertarget{classUser_a9fb9e4623eb2b462e41a527ea93ff732}\label{classUser_a9fb9e4623eb2b462e41a527ea93ff732} 
-const std::\+string \& {\bfseries Get\+Phone\+Number} () const
+const std\+::string \& {\bfseries Get\+Phone\+Number} () const
 \item 
 \Hypertarget{classUser_a14e5f08c4b24d3f4cad7a6666302c6cd}\label{classUser_a14e5f08c4b24d3f4cad7a6666302c6cd} 
-const std::\+string \& {\bfseries Get\+Email} () const
+const std\+::string \& {\bfseries Get\+Email} () const
+\item 
+\Hypertarget{classUser_ac10472250df1574cc763595bc2bd7e3e}\label{classUser_ac10472250df1574cc763595bc2bd7e3e} 
+User\+State {\bfseries Get\+State} () const
+\item 
+\Hypertarget{classUser_adc9d4c7879b19ace3581c41871cd4bd0}\label{classUser_adc9d4c7879b19ace3581c41871cd4bd0} 
+int {\bfseries Get\+Occurrences} () const
+\item 
+\Hypertarget{classUser_a3a5d1fe27abde0d4a1964561f0404a21}\label{classUser_a3a5d1fe27abde0d4a1964561f0404a21} 
+\mbox{\hyperlink{structDate}{Date}} {\bfseries Get\+Ban\+Expire\+Date} () const
 \item 
 \Hypertarget{classUser_aade5459d698a4d77e74e77b3ac293c4b}\label{classUser_aade5459d698a4d77e74e77b3ac293c4b} 
-int {\bfseries Set\+Email} (std::\+string email)
+int {\bfseries Set\+Email} (std\+::string email)
 \item 
 \Hypertarget{classUser_a08e76245665d3bb53b64b3eee6c93ee6}\label{classUser_a08e76245665d3bb53b64b3eee6c93ee6} 
-int {\bfseries Set\+Phone\+Number} (std::\+string phone\+Number)
+int {\bfseries Set\+Phone\+Number} (std\+::string phone\+Number)
 \item 
-\Hypertarget{classUser_a6e2bcbd0c3777c5a199cd63c1e0806d5}\label{classUser_a6e2bcbd0c3777c5a199cd63c1e0806d5} 
-bool {\bfseries Is\+User\+Valid} (\doxymbox{\hyperlink{classUser}{User}} user)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classPerson}{Person}}}
+\Hypertarget{classUser_a38a0f9d684bb17434e04da6576efd24e}\label{classUser_a38a0f9d684bb17434e04da6576efd24e} 
+void {\bfseries Set\+State} (User\+State state)
+\item 
+\Hypertarget{classUser_a8bdbf7299b201c10e80b8c37a5cbb2d2}\label{classUser_a8bdbf7299b201c10e80b8c37a5cbb2d2} 
+void {\bfseries Set\+Occurrences} (int value)
+\item 
+\Hypertarget{classUser_a040bc4657d80ca870e7fdb28d9165dbf}\label{classUser_a040bc4657d80ca870e7fdb28d9165dbf} 
+void {\bfseries Increment\+Occurrences} ()
+\item 
+\Hypertarget{classUser_afa9ecc6a65be6f5a4e20fe2fcb926c09}\label{classUser_afa9ecc6a65be6f5a4e20fe2fcb926c09} 
+void {\bfseries Set\+Ban\+Expire\+Date} (\mbox{\hyperlink{structDate}{Date}} \&date)
+\item 
+int \mbox{\hyperlink{classUser_aff77c33f3972e0f24ceba79c55847e01}{Add\+Loan\+Id}} (uint8\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Adds a id to the vector of current\+Loans. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUser_a3de640773df6274a4d8098f6f0e4be40}{Remove\+Loan\+Id}} (uint8\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Removes a id from the vector of current\+Loans. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a4daf7d1cb45b42920eed8117b4f978d2}{Check\+Loan\+Id\+Exists}} (uint8\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Checks if the loan id exists inside the vector of loan ids. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classPerson}{Person}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Person} (unsigned int id, std::\+string name, std::\+string gender, int age)
+{\bfseries Person} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPerson_afa575f1b6d3c91e07073091d4870c2f6}{Person}} (unsigned int id, std\+::string name, std\+::string gender, unsigned int age)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classPerson}{Person} Class. \end{DoxyCompactList}\item 
+const std\+::string \& {\bfseries Get\+Name} () const
 \item 
-const std::\+string \& {\bfseries Get\+Name} () const
-\item 
-const std::\+string \& {\bfseries Get\+Gender} () const
+const std\+::string \& {\bfseries Get\+Gender} () const
 \item 
 int {\bfseries Get\+Id} () const
 \item 
 int {\bfseries Get\+Age} () const
 \item 
-int {\bfseries Set\+Name} (std::\+string name)
+int {\bfseries Set\+Name} (std\+::string name)
 \item 
-int {\bfseries Set\+Gender} (std::\+string gender)
+int {\bfseries Set\+Gender} (std\+::string gender)
 \item 
 int {\bfseries Set\+Age} (int age)
 \end{DoxyCompactItemize}
@@ -50,11 +87,99 @@ int {\bfseries Set\+Age} (int age)
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classUser_a4b94d005cfaf22d1536ee0b653a2b44b}\label{classUser_a4b94d005cfaf22d1536ee0b653a2b44b} 
-std::\+ostream \& {\bfseries operator$<$$<$} (std::\+ostream \&out, const \doxymbox{\hyperlink{classUser}{User}} \&user)
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, const \mbox{\hyperlink{classUser}{User}} \&user)
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+Class that represents the user. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classUser_aa59ea360f3690d9ed768c605e9714eeb}\label{classUser_aa59ea360f3690d9ed768c605e9714eeb} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{unsigned int}]{id,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{gender,  }\item[{unsigned int}]{age,  }\item[{std\+::string}]{phone\+Number,  }\item[{std\+::string}]{email,  }\item[{User\+State}]{state,  }\item[{int}]{occurrences }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the user. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classPerson}{Person} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & \doxylink{classPerson}{Person} Name \\
+\hline
+\mbox{\texttt{ in}}  & {\em gender} & \doxylink{classPerson}{Person} Gender \\
+\hline
+\mbox{\texttt{ in}}  & {\em age} & \doxylink{classPerson}{Person} Age \\
+\hline
+\mbox{\texttt{ in}}  & {\em phone\+Number} & Phone Number \\
+\hline
+\mbox{\texttt{ in}}  & {\em email} & \doxylink{classPerson}{Person} Email \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUser_aff77c33f3972e0f24ceba79c55847e01}\label{classUser_aff77c33f3972e0f24ceba79c55847e01} 
+\index{User@{User}!AddLoanId@{AddLoanId}}
+\index{AddLoanId@{AddLoanId}!User@{User}}
+\doxysubsubsection{\texorpdfstring{AddLoanId()}{AddLoanId()}}
+{\footnotesize\ttfamily int User\+::\+Add\+Loan\+Id (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Adds a id to the vector of current\+Loans. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan was added 0 if the loan allready exists 
+\end{DoxyReturn}
+\Hypertarget{classUser_a4daf7d1cb45b42920eed8117b4f978d2}\label{classUser_a4daf7d1cb45b42920eed8117b4f978d2} 
+\index{User@{User}!CheckLoanIdExists@{CheckLoanIdExists}}
+\index{CheckLoanIdExists@{CheckLoanIdExists}!User@{User}}
+\doxysubsubsection{\texorpdfstring{CheckLoanIdExists()}{CheckLoanIdExists()}}
+{\footnotesize\ttfamily bool User\+::\+Check\+Loan\+Id\+Exists (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if the loan id exists inside the vector of loan ids. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the loan exists false if the loan does not exist 
+\end{DoxyReturn}
+\Hypertarget{classUser_a3de640773df6274a4d8098f6f0e4be40}\label{classUser_a3de640773df6274a4d8098f6f0e4be40} 
+\index{User@{User}!RemoveLoanId@{RemoveLoanId}}
+\index{RemoveLoanId@{RemoveLoanId}!User@{User}}
+\doxysubsubsection{\texorpdfstring{RemoveLoanId()}{RemoveLoanId()}}
+{\footnotesize\ttfamily int User\+::\+Remove\+Loan\+Id (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Removes a id from the vector of current\+Loans. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan was removed 0 if the loan did not exist 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-User/\+user.\+h\item 
-User/\+user.\+cpp\end{DoxyCompactItemize}
+User/user.\+h\item 
+User/user.\+cpp\end{DoxyCompactItemize}

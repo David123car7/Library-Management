@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 
+/**
+ * @brief class that represents a person.
+ */
 class Person{
 	private:
 	unsigned int id;

@@ -1,31 +1,79 @@
 \doxysection{Loan\+Management Class Reference}
 \hypertarget{classLoanManagement}{}\label{classLoanManagement}\index{LoanManagement@{LoanManagement}}
+
+
+class responsible to manage loans.  
+
+
+
+
+{\ttfamily \#include $<$loan\+Management.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \doxymbox{\hyperlink{classLoanManagement_a62a8f1afdf356b39cc0edf32b253022d}{Add}} (unsigned int book\+Id, unsigned int user\+Id, const \doxymbox{\hyperlink{structDate}{Date}} \&start\+Date, const \doxymbox{\hyperlink{structDate}{Date}} \&end\+Date, Loan\+State state)
+int \mbox{\hyperlink{classLoanManagement_a3007b7d3687765a2c4c9341438867a9d}{Get\+Next\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the next id for the loans Map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_abae839623c9623393c3a4d3e4c4c8555}{Add}} (unsigned int book\+Id, unsigned int user\+Id, const \mbox{\hyperlink{structDate}{Date}} \&start\+Date, const \mbox{\hyperlink{structDate}{Date}} \&end\+Date, const \mbox{\hyperlink{structDate}{Date}} \&delivered\+Date, Loan\+State state)
 \begin{DoxyCompactList}\small\item\em Addes a book to the loan map. \end{DoxyCompactList}\item 
-int \doxymbox{\hyperlink{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6}{Remove}} (unsigned int id)
+bool \mbox{\hyperlink{classLoanManagement_ae76fb9df2e1563953e8323584eca4f4e}{Exists\+Key\+User\+Map}} (unsigned int key)
+\begin{DoxyCompactList}\small\item\em Checks if there is a key in the user map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoanManagement_a310dc24f57ff60c2cab938302333be43}{Exists\+Key\+Book\+Map}} (unsigned int key)
+\begin{DoxyCompactList}\small\item\em Checks if there is a key in the books map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoanManagement_a81d0eb3a25d15675eb60d4d00b991c76}{Loan\+Id\+User\+Map\+Exists}} (unsigned int key, unsigned int id)
+\begin{DoxyCompactList}\small\item\em Checks if a loan id associated with a given key exists in the user map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoanManagement_a97e6426623bc154115444c31210b7d9f}{Loan\+Id\+Book\+Map\+Exists}} (unsigned int key, unsigned int id)
+\begin{DoxyCompactList}\small\item\em Checks if a loan id associated with a given key exists in the book map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_afdbf0ba577bee5e72a803195da46bed7}{Get\+User\+Map\+Size}} (unsigned int key)
+\begin{DoxyCompactList}\small\item\em Gets the size of the vector assosiated with the key in the user map. \end{DoxyCompactList}\item 
+const std\+::vector$<$ unsigned int $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classLoanManagement_a87e517926025edfc528f4a6c38506163}{Get\+User\+Loan\+Ids}} (unsigned key)
+\begin{DoxyCompactList}\small\item\em Gets the loan ids associated with a given key. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_abf478cc51867bd7b6578c45fa2363699}{Add\+Id\+User\+Map}} (unsigned int key, unsigned int id)
+\begin{DoxyCompactList}\small\item\em Adds a loan id to the user map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a4d434f3e5a9107b2e16ffbc00941cc41}{Remove\+Id\+User\+Map}} (unsigned int key, unsigned int id)
+\begin{DoxyCompactList}\small\item\em Removes a loan id drom the user map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a47ea8e3562f8e8b6a33150c43217d9f4}{Add\+Id\+Book\+Map}} (unsigned int key, unsigned int id)
+\begin{DoxyCompactList}\small\item\em Adds a loan id to the book map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_af04830d3013a103ee1263990ce0db946}{Remove\+Id\+Book\+Map}} (unsigned int key, unsigned int id)
+\begin{DoxyCompactList}\small\item\em Removes a loan id drom the book map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6}{Remove}} (unsigned int id)
 \begin{DoxyCompactList}\small\item\em Removes a loan from the loan map. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926}{Get\+Loan}} (unsigned int id)
+\mbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926}{Get\+Loan}} (unsigned int id)
 \begin{DoxyCompactList}\small\item\em Gets a loan. \end{DoxyCompactList}\item 
-const \doxymbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classLoanManagement_a5f4aa9b522f91f234f3c476258a420e8}{Get\+Loan}} (unsigned int id) const
+const \mbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classLoanManagement_a5f4aa9b522f91f234f3c476258a420e8}{Get\+Loan}} (unsigned int id) const
 \begin{DoxyCompactList}\small\item\em Gets loan. \end{DoxyCompactList}\item 
-bool \doxymbox{\hyperlink{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403}{Loan\+Exists}} (unsigned int id)
+bool \mbox{\hyperlink{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403}{Loan\+Exists}} (unsigned int id)
 \begin{DoxyCompactList}\small\item\em Checks if the loan exists. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a211f084ff0901999b1f4e34c56b8b4b4}{Store\+Loans\+Data\+In\+File}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Stores the loan data in the file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_aa0d6076f0aac7d0276dc5e68c1dccceb}{Read\+Loans\+Data\+From\+File}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Reads the loan data from a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a81402e689a60353d69e4b8f6d9d52eff}{Store\+User\+Loans\+Data\+In\+File}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Stores the map with all loans ids associated with a user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a3669a250cc960f4a20021b850473dd6e}{Read\+User\+Loans\+Data\+From\+File}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Reads all loans associated witha a user from a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a7d57935dab62554c3e076526c0d48645}{Store\+Book\+Loans\+Data\+In\+File}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Stores the map with all loans ids associated with a book. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a22a548bfb91b10b693653b9ecec0ea4c}{Read\+Book\+Loans\+Data\+From\+File}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Reads all loans associated witha a book from a file. \end{DoxyCompactList}\item 
 \Hypertarget{classLoanManagement_ae49e58498dbdc2557f5df9e25814f095}\label{classLoanManagement_ae49e58498dbdc2557f5df9e25814f095} 
 void {\bfseries Print\+Loans} ()
-\begin{DoxyCompactList}\small\item\em Prints all loans. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints all loans. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a8c8e5108c8850655d9bb8397c471b295}{Print\+Loan}} (unsigned int id)
+\begin{DoxyCompactList}\small\item\em Prints loan. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoanManagement_a2aef0c7eb11297008ebacee709f07c0a}{Print\+User\+Loans}} (unsigned int user\+Id)
+\begin{DoxyCompactList}\small\item\em Prints the user loans. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\label{doc-func-members}
-\Hypertarget{classLoanManagement_doc-func-members}
+\doxysubsection{Detailed Description}
+class responsible to manage loans. 
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classLoanManagement_a62a8f1afdf356b39cc0edf32b253022d}\index{LoanManagement@{LoanManagement}!Add@{Add}}
+\Hypertarget{classLoanManagement_abae839623c9623393c3a4d3e4c4c8555}\label{classLoanManagement_abae839623c9623393c3a4d3e4c4c8555} 
+\index{LoanManagement@{LoanManagement}!Add@{Add}}
 \index{Add@{Add}!LoanManagement@{LoanManagement}}
 \doxysubsubsection{\texorpdfstring{Add()}{Add()}}
-{\footnotesize\ttfamily \label{classLoanManagement_a62a8f1afdf356b39cc0edf32b253022d} 
-int Loan\+Management::\+\+Add (\begin{DoxyParamCaption}\item[{unsigned int}]{book\+Id}{, }\item[{unsigned int}]{user\+Id}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{start\+Date}{, }\item[{const \doxymbox{\hyperlink{structDate}{Date}} \&}]{end\+Date}{, }\item[{Loan\+State}]{state}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Add (\begin{DoxyParamCaption}\item[{unsigned int}]{book\+Id,  }\item[{unsigned int}]{user\+Id,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{start\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{end\+Date,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{delivered\+Date,  }\item[{Loan\+State}]{state }\end{DoxyParamCaption})}
 
 
 
@@ -33,25 +81,101 @@ Addes a book to the loan map.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
+\mbox{\texttt{ in}}  & {\em book\+Id} & \doxylink{classBook}{Book} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
 \hline
-\doxymbox{\texttt{in}}  & {\em start\+Date} & Start \doxylink{structDate}{Date} \\
+\mbox{\texttt{ in}}  & {\em start\+Date} & Start \doxylink{structDate}{Date} \\
 \hline
-\doxymbox{\texttt{in}}  & {\em end\+Date} & End \doxylink{structDate}{Date} \\
+\mbox{\texttt{ in}}  & {\em end\+Date} & End \doxylink{structDate}{Date} \\
 \hline
-\doxymbox{\texttt{in}}  & {\em state} & \doxylink{classLoan}{Loan} State \\
+\mbox{\texttt{ in}}  & {\em state} & \doxylink{classLoan}{Loan} State \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The id of the \doxylink{classLoan}{Loan} added 
 \end{DoxyReturn}
-\Hypertarget{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926}\index{LoanManagement@{LoanManagement}!GetLoan@{GetLoan}}
+\Hypertarget{classLoanManagement_a47ea8e3562f8e8b6a33150c43217d9f4}\label{classLoanManagement_a47ea8e3562f8e8b6a33150c43217d9f4} 
+\index{LoanManagement@{LoanManagement}!AddIdBookMap@{AddIdBookMap}}
+\index{AddIdBookMap@{AddIdBookMap}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{AddIdBookMap()}{AddIdBookMap()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Add\+Id\+Book\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{key,  }\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Adds a loan id to the book map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classBook}{Book} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan id was added 0 if the loan id allready exists 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_abf478cc51867bd7b6578c45fa2363699}\label{classLoanManagement_abf478cc51867bd7b6578c45fa2363699} 
+\index{LoanManagement@{LoanManagement}!AddIdUserMap@{AddIdUserMap}}
+\index{AddIdUserMap@{AddIdUserMap}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{AddIdUserMap()}{AddIdUserMap()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Add\+Id\+User\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{key,  }\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Adds a loan id to the user map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan id was added 0 if the loan id allready exists 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a310dc24f57ff60c2cab938302333be43}\label{classLoanManagement_a310dc24f57ff60c2cab938302333be43} 
+\index{LoanManagement@{LoanManagement}!ExistsKeyBookMap@{ExistsKeyBookMap}}
+\index{ExistsKeyBookMap@{ExistsKeyBookMap}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{ExistsKeyBookMap()}{ExistsKeyBookMap()}}
+{\footnotesize\ttfamily bool Loan\+Management\+::\+Exists\+Key\+Book\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
+
+
+
+Checks if there is a key in the books map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if it does not exist, 1 if it does exist 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_ae76fb9df2e1563953e8323584eca4f4e}\label{classLoanManagement_ae76fb9df2e1563953e8323584eca4f4e} 
+\index{LoanManagement@{LoanManagement}!ExistsKeyUserMap@{ExistsKeyUserMap}}
+\index{ExistsKeyUserMap@{ExistsKeyUserMap}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{ExistsKeyUserMap()}{ExistsKeyUserMap()}}
+{\footnotesize\ttfamily bool Loan\+Management\+::\+Exists\+Key\+User\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
+
+
+
+Checks if there is a key in the user map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if it does not exist, 1 if it does exist 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926}\label{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926} 
+\index{LoanManagement@{LoanManagement}!GetLoan@{GetLoan}}
 \index{GetLoan@{GetLoan}!LoanManagement@{LoanManagement}}
 \doxysubsubsection{\texorpdfstring{GetLoan()}{GetLoan()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classLoanManagement_ae8aff1e0656b261eccc8db75d3fdf926} 
-\doxymbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} Loan\+Management::\+\+Get\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} Loan\+Management\+::\+Get\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -59,17 +183,17 @@ Gets a loan.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Returns a \doxylink{classLoan}{Loan} pointer 
 \end{DoxyReturn}
-\Hypertarget{classLoanManagement_a5f4aa9b522f91f234f3c476258a420e8}\index{LoanManagement@{LoanManagement}!GetLoan@{GetLoan}}
+\Hypertarget{classLoanManagement_a5f4aa9b522f91f234f3c476258a420e8}\label{classLoanManagement_a5f4aa9b522f91f234f3c476258a420e8} 
+\index{LoanManagement@{LoanManagement}!GetLoan@{GetLoan}}
 \index{GetLoan@{GetLoan}!LoanManagement@{LoanManagement}}
 \doxysubsubsection{\texorpdfstring{GetLoan()}{GetLoan()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classLoanManagement_a5f4aa9b522f91f234f3c476258a420e8} 
-const \doxymbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} Loan\+Management::\+\+Get\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classLoan}{Loan}} \texorpdfstring{$\ast$}{*} Loan\+Management\+::\+Get\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption}) const}
 
 
 
@@ -77,17 +201,63 @@ Gets loan.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Returns a const \doxylink{classLoan}{Loan} Pointer 
 \end{DoxyReturn}
-\Hypertarget{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403}\index{LoanManagement@{LoanManagement}!LoanExists@{LoanExists}}
+\Hypertarget{classLoanManagement_a3007b7d3687765a2c4c9341438867a9d}\label{classLoanManagement_a3007b7d3687765a2c4c9341438867a9d} 
+\index{LoanManagement@{LoanManagement}!GetNextId@{GetNextId}}
+\index{GetNextId@{GetNextId}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{GetNextId()}{GetNextId()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Get\+Next\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the next id for the loans Map. 
+
+\begin{DoxyReturn}{Returns}
+the next id 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a87e517926025edfc528f4a6c38506163}\label{classLoanManagement_a87e517926025edfc528f4a6c38506163} 
+\index{LoanManagement@{LoanManagement}!GetUserLoanIds@{GetUserLoanIds}}
+\index{GetUserLoanIds@{GetUserLoanIds}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{GetUserLoanIds()}{GetUserLoanIds()}}
+{\footnotesize\ttfamily const vector$<$ unsigned int $>$ \texorpdfstring{$\ast$}{*} Loan\+Management\+::\+Get\+User\+Loan\+Ids (\begin{DoxyParamCaption}\item[{unsigned}]{key }\end{DoxyParamCaption})}
+
+
+
+Gets the loan ids associated with a given key. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLoanManagement_afdbf0ba577bee5e72a803195da46bed7}\label{classLoanManagement_afdbf0ba577bee5e72a803195da46bed7} 
+\index{LoanManagement@{LoanManagement}!GetUserMapSize@{GetUserMapSize}}
+\index{GetUserMapSize@{GetUserMapSize}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{GetUserMapSize()}{GetUserMapSize()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Get\+User\+Map\+Size (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
+
+
+
+Gets the size of the vector assosiated with the key in the user map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if the key does not exist, the length of the vector assosiated with the key 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403}\label{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403} 
+\index{LoanManagement@{LoanManagement}!LoanExists@{LoanExists}}
 \index{LoanExists@{LoanExists}!LoanManagement@{LoanManagement}}
 \doxysubsubsection{\texorpdfstring{LoanExists()}{LoanExists()}}
-{\footnotesize\ttfamily \label{classLoanManagement_ac37dc34bbd9354de1b37d055e553b403} 
-bool Loan\+Management::\+\+Loan\+Exists (\begin{DoxyParamCaption}\item[{unsigned int}]{id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Loan\+Management\+::\+Loan\+Exists (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -95,17 +265,129 @@ Checks if the loan exists.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 true if the loan exists, false if the loan does not exist 
 \end{DoxyReturn}
-\Hypertarget{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6}\index{LoanManagement@{LoanManagement}!Remove@{Remove}}
+\Hypertarget{classLoanManagement_a97e6426623bc154115444c31210b7d9f}\label{classLoanManagement_a97e6426623bc154115444c31210b7d9f} 
+\index{LoanManagement@{LoanManagement}!LoanIdBookMapExists@{LoanIdBookMapExists}}
+\index{LoanIdBookMapExists@{LoanIdBookMapExists}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{LoanIdBookMapExists()}{LoanIdBookMapExists()}}
+{\footnotesize\ttfamily bool Loan\+Management\+::\+Loan\+Id\+Book\+Map\+Exists (\begin{DoxyParamCaption}\item[{unsigned int}]{key,  }\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if a loan id associated with a given key exists in the book map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classBook}{Book} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the loan id exists false if the loan id does not exist in the associated key 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a81d0eb3a25d15675eb60d4d00b991c76}\label{classLoanManagement_a81d0eb3a25d15675eb60d4d00b991c76} 
+\index{LoanManagement@{LoanManagement}!LoanIdUserMapExists@{LoanIdUserMapExists}}
+\index{LoanIdUserMapExists@{LoanIdUserMapExists}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{LoanIdUserMapExists()}{LoanIdUserMapExists()}}
+{\footnotesize\ttfamily bool Loan\+Management\+::\+Loan\+Id\+User\+Map\+Exists (\begin{DoxyParamCaption}\item[{unsigned int}]{key,  }\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if a loan id associated with a given key exists in the user map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the loan id exists false if the loan id does not exist in the associated key 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a8c8e5108c8850655d9bb8397c471b295}\label{classLoanManagement_a8c8e5108c8850655d9bb8397c471b295} 
+\index{LoanManagement@{LoanManagement}!PrintLoan@{PrintLoan}}
+\index{PrintLoan@{PrintLoan}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{PrintLoan()}{PrintLoan()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Print\+Loan (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Prints loan. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ud} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLoanManagement_a2aef0c7eb11297008ebacee709f07c0a}\label{classLoanManagement_a2aef0c7eb11297008ebacee709f07c0a} 
+\index{LoanManagement@{LoanManagement}!PrintUserLoans@{PrintUserLoans}}
+\index{PrintUserLoans@{PrintUserLoans}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{PrintUserLoans()}{PrintUserLoans()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Print\+User\+Loans (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+Id }\end{DoxyParamCaption})}
+
+
+
+Prints the user loans. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Id} & \doxylink{classUser}{User} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the user does not exist, 1 if user were printed 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a22a548bfb91b10b693653b9ecec0ea4c}\label{classLoanManagement_a22a548bfb91b10b693653b9ecec0ea4c} 
+\index{LoanManagement@{LoanManagement}!ReadBookLoansDataFromFile@{ReadBookLoansDataFromFile}}
+\index{ReadBookLoansDataFromFile@{ReadBookLoansDataFromFile}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{ReadBookLoansDataFromFile()}{ReadBookLoansDataFromFile()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Read\+Book\+Loans\+Data\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Reads all loans associated witha a book from a file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not readed 1 if the data was readed and loaded into the program 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_aa0d6076f0aac7d0276dc5e68c1dccceb}\label{classLoanManagement_aa0d6076f0aac7d0276dc5e68c1dccceb} 
+\index{LoanManagement@{LoanManagement}!ReadLoansDataFromFile@{ReadLoansDataFromFile}}
+\index{ReadLoansDataFromFile@{ReadLoansDataFromFile}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{ReadLoansDataFromFile()}{ReadLoansDataFromFile()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Read\+Loans\+Data\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Reads the loan data from a file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the loan data was not readed 1 if the loan data was readed and loaded into the program 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a3669a250cc960f4a20021b850473dd6e}\label{classLoanManagement_a3669a250cc960f4a20021b850473dd6e} 
+\index{LoanManagement@{LoanManagement}!ReadUserLoansDataFromFile@{ReadUserLoansDataFromFile}}
+\index{ReadUserLoansDataFromFile@{ReadUserLoansDataFromFile}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{ReadUserLoansDataFromFile()}{ReadUserLoansDataFromFile()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Read\+User\+Loans\+Data\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Reads all loans associated witha a user from a file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not readed 1 if the data was readed and loaded into the program 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6}\label{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6} 
+\index{LoanManagement@{LoanManagement}!Remove@{Remove}}
 \index{Remove@{Remove}!LoanManagement@{LoanManagement}}
 \doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
-{\footnotesize\ttfamily \label{classLoanManagement_a124cdde17fad0c2b63367548d0aee5a6} 
-int Loan\+Management::\+\+Remove (\begin{DoxyParamCaption}\item[{unsigned int}]{id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Remove (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -113,15 +395,96 @@ Removes a loan from the loan map.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 1 if loan was removed 0 if loan did no exist 
 \end{DoxyReturn}
+\Hypertarget{classLoanManagement_af04830d3013a103ee1263990ce0db946}\label{classLoanManagement_af04830d3013a103ee1263990ce0db946} 
+\index{LoanManagement@{LoanManagement}!RemoveIdBookMap@{RemoveIdBookMap}}
+\index{RemoveIdBookMap@{RemoveIdBookMap}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{RemoveIdBookMap()}{RemoveIdBookMap()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Remove\+Id\+Book\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{key,  }\item[{unsigned int}]{id }\end{DoxyParamCaption})}
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+
+Removes a loan id drom the book map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classBook}{Book} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan id was removed 0 if the loan id does not exist 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a4d434f3e5a9107b2e16ffbc00941cc41}\label{classLoanManagement_a4d434f3e5a9107b2e16ffbc00941cc41} 
+\index{LoanManagement@{LoanManagement}!RemoveIdUserMap@{RemoveIdUserMap}}
+\index{RemoveIdUserMap@{RemoveIdUserMap}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{RemoveIdUserMap()}{RemoveIdUserMap()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Remove\+Id\+User\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{key,  }\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Removes a loan id drom the user map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & \doxylink{classUser}{User} Id \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & \doxylink{classLoan}{Loan} Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the loan id was removed 0 if the loan id does not exist 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a7d57935dab62554c3e076526c0d48645}\label{classLoanManagement_a7d57935dab62554c3e076526c0d48645} 
+\index{LoanManagement@{LoanManagement}!StoreBookLoansDataInFile@{StoreBookLoansDataInFile}}
+\index{StoreBookLoansDataInFile@{StoreBookLoansDataInFile}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{StoreBookLoansDataInFile()}{StoreBookLoansDataInFile()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Store\+Book\+Loans\+Data\+In\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Stores the map with all loans ids associated with a book. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not stored 1 if the data was stored ~\newline
+ 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a211f084ff0901999b1f4e34c56b8b4b4}\label{classLoanManagement_a211f084ff0901999b1f4e34c56b8b4b4} 
+\index{LoanManagement@{LoanManagement}!StoreLoansDataInFile@{StoreLoansDataInFile}}
+\index{StoreLoansDataInFile@{StoreLoansDataInFile}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{StoreLoansDataInFile()}{StoreLoansDataInFile()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Store\+Loans\+Data\+In\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Stores the loan data in the file. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not stored 1 if the data was stored 
+\end{DoxyReturn}
+\Hypertarget{classLoanManagement_a81402e689a60353d69e4b8f6d9d52eff}\label{classLoanManagement_a81402e689a60353d69e4b8f6d9d52eff} 
+\index{LoanManagement@{LoanManagement}!StoreUserLoansDataInFile@{StoreUserLoansDataInFile}}
+\index{StoreUserLoansDataInFile@{StoreUserLoansDataInFile}!LoanManagement@{LoanManagement}}
+\doxysubsubsection{\texorpdfstring{StoreUserLoansDataInFile()}{StoreUserLoansDataInFile()}}
+{\footnotesize\ttfamily int Loan\+Management\+::\+Store\+User\+Loans\+Data\+In\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Stores the map with all loans ids associated with a user. 
+
+\begin{DoxyReturn}{Returns}
+0 if the data was not stored 1 if the data was stored ~\newline
+ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Loan\+Management/\+loan\+Management.\+h\item 
-Loan\+Management/\+loan\+Management.\+cpp\end{DoxyCompactItemize}
+Loan\+Management/loan\+Management.\+h\item 
+Loan\+Management/loan\+Management.\+cpp\end{DoxyCompactItemize}

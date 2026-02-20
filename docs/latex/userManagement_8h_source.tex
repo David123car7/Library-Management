@@ -3,27 +3,36 @@
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../User/user.h"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classUserManagement}{UserManagement}}\{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ \ \ \ \ std::map<char,\ std::vector<User>>\ users;}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ Add(\doxymbox{\hyperlink{classUser}{User}}\ user);}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ Remove(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ Remove(\textcolor{keywordtype}{char}\ key,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00016\ \ \ \ \ }
-\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{classUser}{User}}*\ GetUser(\textcolor{keywordtype}{char}\ key,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});\ }
-\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{classUser}{User}}*\ GetUser(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classUser}{User}}*\ GetUserReadOnly(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});\ }
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classUser}{User}}*\ GetUserReadOnly(\textcolor{keywordtype}{char}\ key,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ PrintUsers();\ \ }
-\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../User/user.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUserManagement}{UserManagement}}\{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ std::map<unsigned\ int,\ User>\ users;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ Add(\textcolor{keyword}{const}\ \mbox{\hyperlink{classUser}{User}}\&\ user,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUserManagement_ab066acefa4f05b30d1f37fd333e0be49}{Add}}(std::string\ name,\ std::string\ gender,\ \textcolor{keywordtype}{int}\ age,\ std::string\ email,\ std::string\ phoneNumber);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUserManagement_a0214a23f463326942f6b09c9d5abd047}{Remove}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classUser}{User}}*\ \mbox{\hyperlink{classUserManagement_a9b65efb7b805d78aa354da076ec74911}{GetUser}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classUser}{User}}*\ \mbox{\hyperlink{classUserManagement_a9b65efb7b805d78aa354da076ec74911}{GetUser}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00060\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUserManagement_a26a768dc50120e1e15ca4c5f3e2871d6}{UserExists}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUserManagement_a4ce1ac22476b5f4c2986cf8f3781377d}{StoreDataInFile}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUserManagement_aabd019ce98dbd986a038e4d9f75ea7e1}{ReadDataFromFile}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUserManagement_ae7cd2c68352f72a5d61444a66b265053}{PrintUser}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUserManagement_aa9b53e0f4a889517e3814c8715b35682}{PrintUsers}}();\ \ \ \ }
+\DoxyCodeLine{00099\ \};}
 
 \end{DoxyCode}
