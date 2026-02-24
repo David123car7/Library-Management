@@ -88,6 +88,7 @@ class BookManagement{
 	 * 1 if the data was saved
 	 */
 	int StoreDataInFile();
+	int StoreDataInFile(std::string fileName);
 
 	/**
 	 * @brief Reads books data from a csv file
@@ -96,6 +97,7 @@ class BookManagement{
 	 * 1 if the data was read and load sucessfuly
 	 */
 	int ReadDataFromFile();
+	int ReadDataFromFile(std::string fileName);
 
 	/**
 	 * @brief Prints all books

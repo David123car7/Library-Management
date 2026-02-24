@@ -79,7 +79,11 @@ int BookManagement::GetNotAvailableBooksQnt(){
 }
 
 int BookManagement::StoreDataInFile(){
-	ofstream outf{BOOKS_FILE_NAME};
+	return StoreDataInFile(BOOKS_FILE_NAME);
+}
+
+int BookManagement::StoreDataInFile(string fileName){
+	ofstream outf{fileName};
 	if (!outf) return 0;
 	for(auto& [key, book]: books){
 		outf << book.GetId() << "," << book.GetName() << "," << book.GetAuthor() << "," << book.GetReleaseDate() 
@@ -89,7 +93,11 @@ int BookManagement::StoreDataInFile(){
 }
 
 int BookManagement::ReadDataFromFile(){
-	ifstream inf{BOOKS_FILE_NAME, ios::in};
+	return ReadDataFromFile(BOOKS_FILE_NAME);
+}
+
+int BookManagement::ReadDataFromFile(string fileName){
+	ifstream inf{fileName, ios::in};
 	if (!inf) return 0;
 	string line{};
 	while(getline(inf,line)){
@@ -112,4 +120,3 @@ int BookManagement::PrintBook(unsigned int id){
 	cout << *book;
 	return 1;
 }
-

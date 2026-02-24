@@ -34,7 +34,7 @@ class User: public Person{
 	 * @param[in] phoneNumber Phone Number
 	 * @param[in] email Person Email
 	 */
-	User(unsigned int id, std::string name, std::string gender, unsigned int age, std::string phoneNumber, std::string email, 
+	User(unsigned int id, std::string name, std::string gender, unsigned int age, std::string email, std::string phoneNumber, 
 			UserState state, int occurrences): 
 		Person(id, name, gender, age),
 		phoneNumber{phoneNumber},
