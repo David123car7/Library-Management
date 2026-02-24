@@ -22,7 +22,7 @@ A lightweight, terminal-based Library Management System built in C++. This appli
 
 ## Technology Stack
 * **Language:** C++
-* **Testing:** doctest (Fast, single-header unit testing framework)
+* **Testing:** [doctest](https://github.com/doctest/doctest) 
 * **Documentation:** Doxygen
 
 ## Run
