@@ -36,12 +36,6 @@ make
 ./program
 ```
 
-Optional cleanup:
-
-```bash
-make clean
-```
-
 ### Run the tests
 From the project root:
 
@@ -49,10 +43,4 @@ From the project root:
 cd tests
 make
 ./run_tests
-```
-
-Optional cleanup:
-
-```bash
-make clean
 ```
