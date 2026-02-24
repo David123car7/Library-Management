@@ -24,3 +24,35 @@ A lightweight, terminal-based Library Management System built in C++. This appli
 * **Language:** C++
 * **Testing:** doctest (Fast, single-header unit testing framework)
 * **Documentation:** Doxygen
+
+## Run
+
+### Run the program
+From the project root:
+
+```bash
+cd src
+make
+./program
+```
+
+Optional cleanup:
+
+```bash
+make clean
+```
+
+### Run the tests
+From the project root:
+
+```bash
+cd tests
+make
+./run_tests
+```
+
+Optional cleanup:
+
+```bash
+make clean
+```
